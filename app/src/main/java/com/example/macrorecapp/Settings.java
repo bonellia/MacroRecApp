@@ -33,4 +33,8 @@ public class Settings extends Activity {
 
     public void openContactRequest(View view) {
     }
+
+    public void goBack(View view)  {
+        finish();
+    }
 }

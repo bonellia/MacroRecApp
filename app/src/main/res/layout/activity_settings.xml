@@ -38,9 +38,12 @@
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:onClick="goBack"
         android:src="@drawable/back_ico"
         app:layout_constraintStart_toStartOf="@+id/settings_top_gradient"
-        app:layout_constraintTop_toTopOf="@+id/settings_top_gradient" />
+        app:layout_constraintTop_toTopOf="@+id/settings_top_gradient"
+        android:focusable="true" />
 
     <ImageView
         android:id="@+id/side_menu_icon"

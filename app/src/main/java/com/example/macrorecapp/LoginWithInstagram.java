@@ -2,6 +2,7 @@ package com.example.macrorecapp;
 
 import android.app.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,5 +21,9 @@ public class LoginWithInstagram extends Activity {
 
     public void cancelLogin(View view) {
         finish();
+    }
+    public void openMainPage(View view) {
+        Intent intent = new Intent(this, MainPage.class);
+        startActivity(intent);
     }
 }

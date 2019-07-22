@@ -63,4 +63,8 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void onClickLogIn(View view) {
+        Intent intent = new Intent(this, MainPage.class);
+        startActivity(intent);
+    }
 }

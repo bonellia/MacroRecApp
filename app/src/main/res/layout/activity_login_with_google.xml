@@ -47,6 +47,9 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/gradient"
         android:visibility="visible"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openMainPage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -84,13 +87,16 @@
         android:textAlignment="center"
         android:textColor="#ffffffff"
         android:textSize="18sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openMainPage"
         app:layout_constraintBottom_toTopOf="@+id/bottombar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottombar"
         app:layout_constraintVertical_bias="0.479"
-        tools:text="@string/login" />
+        tools:text="@string/login"/>
 
     <TextView
         android:id="@+id/disclaimer"
