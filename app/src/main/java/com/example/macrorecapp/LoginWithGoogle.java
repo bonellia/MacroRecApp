@@ -1,0 +1,24 @@
+package com.example.macrorecapp;
+
+import android.app.Activity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+
+public class LoginWithGoogle extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Removes notification bar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.activity_login_with_google);
+    }
+
+    public void cancelLogin(View view) {
+        finish();
+    }
+}
