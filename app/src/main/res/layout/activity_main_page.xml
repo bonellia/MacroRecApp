@@ -30,5 +30,278 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_top_gradient" />
 
+    <View
+        android:id="@+id/live_control_background"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openLiveControl"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/macro_rec_icon" />
+
+
+    <TextView
+        android:id="@+id/live_control_text"
+        style="@style/text_settings_element"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openLiveControl"
+        android:text="@string/live_control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/live_control_background" />
+
+    <ImageView
+        android:id="@+id/live_control_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openLiveControl"
+        android:src="@drawable/live_control_icon"
+        app:layout_constraintStart_toStartOf="@+id/live_control_background"
+        app:layout_constraintTop_toTopOf="@+id/live_control_background" />
+
+    <View
+        android:id="@+id/motion_control_background"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openMotionControl"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/live_control_background" />
+
+    <TextView
+        android:id="@+id/motion_control_text"
+        style="@style/text_settings_element"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openLiveControl"
+        android:text="@string/motion_control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/motion_control_background" />
+
+    <ImageView
+        android:id="@+id/motion_control_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openLiveControl"
+        android:src="@drawable/motion_control_icon"
+        app:layout_constraintStart_toStartOf="@+id/motion_control_background"
+        app:layout_constraintTop_toTopOf="@+id/motion_control_background" />
+
+
+    <View
+        android:id="@+id/time_lapse_background"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/motion_control_background" />
+
+
+    <TextView
+        android:id="@+id/time_lapse_text"
+        style="@style/text_settings_element"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:text="@string/time_lapse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/time_lapse_background" />
+
+    <ImageView
+        android:id="@+id/time_lapse_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:src="@drawable/time_lapse_icon"
+        app:layout_constraintStart_toStartOf="@+id/time_lapse_background"
+        app:layout_constraintTop_toTopOf="@+id/time_lapse_background" />
+
+    <View
+        android:id="@+id/rotary_background"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_lapse_background"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/rotary_text"
+        style="@style/text_settings_element"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:text="@string/rotary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rotary_background" />
+
+    <ImageView
+        android:id="@+id/rotary_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:src="@drawable/rotary_icon"
+        app:layout_constraintStart_toStartOf="@+id/rotary_background"
+        app:layout_constraintTop_toTopOf="@+id/rotary_background" />
+
+    <View
+        android:id="@+id/settings_background"
+        android:layout_width="193dp"
+        android:layout_height="91dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/settings_text"
+        style="@style/text_menu_capital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:text="@string/settings_capitalized"
+        app:layout_constraintEnd_toStartOf="@+id/settings_background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/settings_background"
+        app:layout_constraintTop_toBottomOf="@+id/settings_icon" />
+
+    <ImageView
+        android:id="@+id/settings_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openTimeLapse"
+        android:src="@drawable/settings_icon"
+        app:layout_constraintEnd_toStartOf="@+id/settings_background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/settings_background"
+        app:layout_constraintTop_toTopOf="@+id/settings_background" />#
+
+    <View
+        android:id="@+id/my_cloud_background"
+        android:layout_width="204dp"
+        android:layout_height="89dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openMyCloud"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/my_cloud_text"
+        style="@style/text_menu_capital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openMyCloud"
+        android:text="@string/my_cloud_capitalized"
+        app:layout_constraintEnd_toStartOf="@+id/my_cloud_background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/my_cloud_background"
+        app:layout_constraintTop_toBottomOf="@+id/my_cloud_icon" />
+
+    <ImageView
+        android:id="@+id/my_cloud_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openMyCloud"
+        android:src="@drawable/my_cloud"
+        app:layout_constraintEnd_toStartOf="@+id/my_cloud_background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/my_cloud_background"
+        app:layout_constraintTop_toTopOf="@+id/my_cloud_background" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

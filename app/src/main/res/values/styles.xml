@@ -45,4 +45,8 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+    <style name="text_menu_capital">
+        <item name="android:textColor">#fff5f5f5</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

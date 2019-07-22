@@ -57,6 +57,12 @@
     <string name="give_advice">GIVE ADVICE</string>
     <string name="report_bug">REPORT BUG</string>
     <string name="contact_request">CONTACT REQUEST</string>
+    <string name="live_control">LIVE CONTROL</string>
+    <string name="motion_control">MOTION CONTROL</string>
+    <string name="time_lapse">TIME LAPSE</string>
+    <string name="rotary">ROTARY</string>
+    <string name="settings_capitalized">Settings</string>
+    <string name="my_cloud_capitalized">My Cloud</string>
 
 
 </resources>
