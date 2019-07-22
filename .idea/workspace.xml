@@ -3,9 +3,16 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
+        <device id="pixel_xl" />
+        <device id="wear_square" />
+        <device id="Nexus 9" />
+        <device id="Nexus 7 2013" />
         <device id="Nexus 5X" />
+        <device id="pixel_2" />
         <device id="pixel" />
         <device id="pixel_3" />
+        <device id="Nexus 6P" />
+        <device id="Nexus 6" />
         <pickBest>false</pickBest>
         <target>android-29</target>
       </config>
@@ -21,77 +28,79 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithFacebook.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithFacebook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithGoogle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithGoogle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithInstagram.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithInstagram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/customize_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/customize_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/customize_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/customize_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/load_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/load_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/load_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/load_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon-hdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_hdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon-xhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_xhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon-xxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_xxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon-xxxhdpi.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_xxxhdpi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_facebook.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_facebook.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_google.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_google.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_instagram.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_instagram.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/contact_request_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customize_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/device_control_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/give_advice_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/live_control_icon-hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/live_control_icon-xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/live_control_icon-xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/live_control_icon-xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/live_control_icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/load_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/macro_rec_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/macro_rec_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/macro_rec_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/macro_rec_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/manuals_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/motion_control_icon_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mr_white_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_cloud_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/report_bug_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rotary_icon_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_icon_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_menu_button_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stop_motion_icon_xxxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_hdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_xhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_xxhdpi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time_lapse_icon_xxxhdpi.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" afterDir="false" />
     </list>
@@ -104,31 +113,36 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MacroRecApp" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/Settings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="319" column="53" lean-forward="true" selection-start-line="319" selection-start-column="53" selection-end-line="319" selection-end-column="53" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#724#725#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
+                <element signature="e#4205#4229#0" expanded="true" />
+                <element signature="e#6190#6207#0" expanded="true" />
+                <element signature="e#7971#7989#0" expanded="true" />
+                <element signature="e#9654#9675#0" expanded="true" />
+                <element signature="e#11457#11477#0" expanded="true" />
+                <element signature="e#13127#13152#0" expanded="true" />
+                <element signature="e#14283#14302#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,6 +161,7 @@
       <find>ig_id</find>
       <find>ig_icon</find>
       <find>insta</find>
+      <find>&quot;&quot;</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,10 +186,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/settings_rectangle.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainPage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/Settings.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithFacebook.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithGoogle.java" />
@@ -182,6 +195,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_facebook.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_google.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_instagram.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
       </list>
     </option>
   </component>
@@ -245,15 +260,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MacroRecApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MacroRecApp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="drawable" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MacroRecApp" type="b2602c69:ProjectViewProjectNode" />
@@ -411,7 +417,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22972973" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.22972973" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -424,16 +430,16 @@
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.2532943" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.17621145" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.17474303" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.21732746" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.32947233" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.34942085" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.37065637" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
   </component>
@@ -535,22 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="251" column="44" lean-forward="true" selection-start-line="251" selection-start-column="44" selection-end-line="251" selection-end-column="44" />
-          <folding>
-            <element signature="e#2332#2354#0" expanded="true" />
-            <element signature="e#4198#4222#0" expanded="true" />
-            <element signature="e#6067#6087#0" expanded="true" />
-            <element signature="e#8044#8060#0" expanded="true" />
-            <element signature="e#9684#9714#0" expanded="true" />
-            <element signature="e#11409#11439#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -609,14 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_account.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="126" column="56" selection-start-line="116" selection-start-column="4" selection-end-line="126" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -643,25 +625,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/contact_request_hdpi.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_account.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="125" column="42" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <state relative-caret-position="450">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#724#725#0" expanded="true" />
             <element signature="e#748#749#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="319" column="53" lean-forward="true" selection-start-line="319" selection-start-column="53" selection-end-line="319" selection-end-column="53" />
+          <folding>
+            <element signature="e#4205#4229#0" expanded="true" />
+            <element signature="e#6190#6207#0" expanded="true" />
+            <element signature="e#7971#7989#0" expanded="true" />
+            <element signature="e#9654#9675#0" expanded="true" />
+            <element signature="e#11457#11477#0" expanded="true" />
+            <element signature="e#13127#13152#0" expanded="true" />
+            <element signature="e#14283#14302#0" expanded="true" />
           </folding>
         </state>
       </provider>

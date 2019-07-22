@@ -15,21 +15,24 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/gradient"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/settings_headline"
         style="@style/text_settings_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="@string/settings"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/settings_top_gradient" />
 
     <ImageView
         android:id="@+id/back_button"
@@ -39,11 +42,11 @@
         android:layout_marginLeft="68dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="goBack"
         android:src="@drawable/back_ico"
         app:layout_constraintStart_toStartOf="@+id/settings_top_gradient"
-        app:layout_constraintTop_toTopOf="@+id/settings_top_gradient"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/settings_top_gradient" />
 
     <ImageView
         android:id="@+id/side_menu_icon"
@@ -61,16 +64,17 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="32dp"
         android:background="@drawable/settings_rectangle"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openDeviceControl"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings_top_gradient"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
 
     <ImageView
         android:id="@+id/device_control_icon"
@@ -80,11 +84,11 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openDeviceControl"
         android:src="@drawable/device_control"
         app:layout_constraintStart_toStartOf="@+id/device_control_background"
-        app:layout_constraintTop_toTopOf="@+id/device_control_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/device_control_background" />
 
     <TextView
         android:id="@+id/device_control_text"
@@ -92,30 +96,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/device_control"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openDeviceControl"
+        android:text="@string/device_control"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/device_control_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/device_control_background" />
 
     <View
         android:id="@+id/customize_background"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="32dp"
         android:background="@drawable/settings_rectangle"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openCustomize"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/device_control_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
 
 
     <View
@@ -123,16 +128,17 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="36dp"
         android:background="@drawable/settings_rectangle"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openManuals"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customize_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
 
     <TextView
         android:id="@+id/manuals_text"
@@ -140,13 +146,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/manuals"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openManuals"
+        android:text="@string/manuals"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/manuals_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/manuals_background" />
 
     <ImageView
         android:id="@+id/manuals_icon"
@@ -155,28 +161,28 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/manuals"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openManuals"
+        android:src="@drawable/manuals"
         app:layout_constraintStart_toStartOf="@+id/manuals_background"
-        app:layout_constraintTop_toTopOf="@+id/manuals_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/manuals_background" />
 
     <View
         android:id="@+id/my_cloud_background"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="36dp"
-        android:clickable="true"
-        android:onClick="openMyCloud"
         android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openMyCloud"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/manuals_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/my_cloud_text"
@@ -184,13 +190,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/my_cloud"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openMyCloud"
+        android:text="@string/my_cloud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/my_cloud_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/my_cloud_background" />
 
     <ImageView
         android:id="@+id/my_cloud_icon"
@@ -199,28 +205,29 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/my_cloud"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openMyCloud"
+        android:src="@drawable/my_cloud"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/my_cloud_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/my_cloud_background" />
 
     <View
         android:id="@+id/give_advice_background"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="36dp"
-        android:clickable="true"
-        android:onClick="openGiveAdvice"
         android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openGiveAdvice"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_cloud_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
 
     <TextView
         android:id="@+id/give_advice_text"
@@ -228,13 +235,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/give_advice"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openGiveAdvice"
+        android:text="@string/give_advice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/give_advice_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/give_advice_background" />
 
     <ImageView
         android:id="@+id/give_advice_icon"
@@ -243,28 +250,29 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/give_advice"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openGiveAdvice"
+        android:src="@drawable/give_advice"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/give_advice_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/give_advice_background" />
 
     <View
         android:id="@+id/report_bug_background"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="36dp"
-        android:clickable="true"
-        android:onClick="openReportBug"
         android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openReportBug"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/give_advice_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
 
     <TextView
         android:id="@+id/report_bug_text"
@@ -273,12 +281,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openReportBug"
         android:text="@string/report_bug"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/report_bug_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/report_bug_background" />
 
     <ImageView
         android:id="@+id/report_bug_icon"
@@ -288,30 +296,28 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openReportBug"
         android:src="@drawable/report_bug"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/report_bug_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/report_bug_background" />
 
     <View
         android:id="@+id/contact_request_background"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"
-        android:onClick="openContactRequest"
         android:background="@drawable/settings_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openContactRequest"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/report_bug_background"
-        app:layout_constraintVertical_bias="0.68"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875" />
 
     <TextView
         android:id="@+id/contact_request_text"
@@ -320,12 +326,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openContactRequest"
         android:text="@string/contact_request"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/contact_request_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/contact_request_background" />
 
     <ImageView
         android:id="@+id/contact_request_icon"
@@ -335,11 +341,11 @@
         android:layout_marginLeft="44dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openContactRequest"
         android:src="@drawable/contact_request"
         app:layout_constraintStart_toStartOf="@+id/contact_request_background"
-        app:layout_constraintTop_toTopOf="@+id/contact_request_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/contact_request_background" />
 
 
     <TextView
@@ -348,14 +354,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/customize"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openCustomize"
+        android:text="@string/customize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/customize_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/customize_background" />
 
     <ImageView
         android:id="@+id/customize_icon"
@@ -364,12 +370,12 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/customize"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="openCustomize"
+        android:src="@drawable/customize"
         app:layout_constraintStart_toStartOf="@+id/customize_background"
-        app:layout_constraintTop_toTopOf="@+id/customize_background"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/customize_background" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
