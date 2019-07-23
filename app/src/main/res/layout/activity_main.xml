@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLogInBackground"
-    android:theme="@android:style/Theme.Black.NoTitleBar"
+    android:background="@color/appMainBackground"
     tools:context=".MainActivity">
 
     <View
@@ -95,12 +94,12 @@
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
         android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/log_in_email"
-        tools:text="@string/login_email_default" />
+        app:layout_constraintTop_toBottomOf="@+id/log_in_email" />
 
     <EditText
         android:id="@+id/passField"
@@ -109,13 +108,15 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:hint="@string/password_literal"
         android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailField"
-        tools:text="@string/login_password_default" />
+        />
 
     <Button
         android:id="@+id/LogInButton"

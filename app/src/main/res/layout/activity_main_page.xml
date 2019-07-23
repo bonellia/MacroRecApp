@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLogInBackground"
-    android:theme="@android:style/Theme.Black.NoTitleBar"
+    android:background="@color/appMainBackground"
     tools:context=".MainPage">
 
 
@@ -16,8 +15,11 @@
         android:background="@drawable/gradient"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/h_guideline1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="1" />
 

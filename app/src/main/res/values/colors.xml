@@ -3,7 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorLogInBackground">#2d2d2d</color>
+    <color name="appMainBackground">#2d2d2d</color>
     <color name="colorLogInGoogle">#3284ff</color>
     <color name="colorHint">#cacaca</color>
 

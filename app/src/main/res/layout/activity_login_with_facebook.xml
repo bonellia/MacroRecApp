@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLogInBackground"
-    android:theme="@android:style/Theme.Black.NoTitleBar"
+    android:background="@color/appMainBackground"
     tools:context=".LoginWithFacebook">
 
 
@@ -19,6 +18,7 @@
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPassword"
-        android:textColor="#ffffff"
+        android:textColor="#969696"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

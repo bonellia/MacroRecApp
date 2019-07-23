@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLogInBackground"
-    android:theme="@android:style/Theme.Black.NoTitleBar"
+    android:background="@color/appMainBackground"
     tools:context=".LoginWithInstagram">
 
 
@@ -19,6 +18,7 @@
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,12 +33,13 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPassword"
+        android:hint="@string/password_literal"
         android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ig_id"
-        tools:text="@string/login_password_default" />
+        app:layout_constraintTop_toBottomOf="@+id/ig_id" />
 
     <View
         android:id="@+id/bottombar"
@@ -125,7 +126,7 @@
         android:clickable="true"
         android:focusable="true"
         android:text="@string/show_pass"
-        android:textColor="#ffffff"
+        android:textColor="#969696"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/ig_pass"
         app:layout_constraintEnd_toEndOf="@+id/ig_pass"

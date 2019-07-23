@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLogInBackground"
-    android:theme="@android:style/Theme.Black.NoTitleBar"
+    android:background="@color/appMainBackground"
     tools:context=".CreateAccount">
 
     <TextView
@@ -21,22 +20,21 @@
 
     <EditText
         android:id="@+id/nameField"
-        style="@style/form_hint_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/name"
+        android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:inputType="textPersonName"
-        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headline" />
 
     <EditText
         android:id="@+id/surnameField"
-        style="@style/form_hint_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -44,20 +42,22 @@
         android:ems="10"
         android:hint="@string/surname"
         android:inputType="textPersonName"
-        android:text=""
+        android:textColor="#ffffff"
+        android:textColorHint="#969696"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameField" />
 
     <EditText
         android:id="@+id/emailField"
-        style="@style/form_hint_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/email_hint"
+        android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,13 +66,14 @@
 
     <EditText
         android:id="@+id/passwordField"
-        style="@style/form_hint_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/password_literal"
+        android:textColor="#ffffff"
+        android:textColorHint="#969696"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +81,6 @@
 
     <EditText
         android:id="@+id/editText6"
-        style="@style/form_hint_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -88,6 +88,8 @@
         android:ems="10"
         android:hint="@string/phone_number_literal"
         android:inputType="phone"
+        android:textColor="#ffffff"
+        android:textColorHint="#969696"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordField" />
