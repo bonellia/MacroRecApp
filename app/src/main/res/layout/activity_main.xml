@@ -147,6 +147,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="recoverPassword"
         android:text="@string/forgot_pass"
         android:textColor="#ffffff"
         android:textSize="12sp"

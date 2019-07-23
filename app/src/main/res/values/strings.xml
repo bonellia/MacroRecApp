@@ -62,6 +62,10 @@
     <string name="rotary">ROTARY</string>
     <string name="settings_capitalized">Settings</string>
     <string name="my_cloud_capitalized">My Cloud</string>
+    <string name="password_recovery">Password Recovery</string>
+    <string name="recovery_warning">Password reset link will be sent to your e-mail.</string>
+    <string name="type_e_mail">Please type your e-mail address.</string>
+    <string name="reset_password">Reset Password</string>
 
 
 </resources>

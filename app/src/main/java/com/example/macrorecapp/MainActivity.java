@@ -67,4 +67,9 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
     }
+
+    public void recoverPassword(View view) {
+        Intent intent = new Intent(this, PasswordRecovery.class);
+        startActivity(intent);
+    }
 }
