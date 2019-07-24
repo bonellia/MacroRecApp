@@ -52,7 +52,7 @@
     <string name="device_control">DEVICE CONTROL</string>
     <string name="customize">CUSTOMIZE</string>
     <string name="manuals">MANUALS</string>
-    <string name="my_cloud">MY CLOUD</string>
+    <string name="my_cloud_cap">MY CLOUD</string>
     <string name="give_advice">GIVE ADVICE</string>
     <string name="report_bug">REPORT BUG</string>
     <string name="contact_request">CONTACT REQUEST</string>
@@ -61,7 +61,7 @@
     <string name="time_lapse">TIME LAPSE</string>
     <string name="rotary">ROTARY</string>
     <string name="settings_capitalized">Settings</string>
-    <string name="my_cloud_capitalized">My Cloud</string>
+    <string name="my_cloud">My Cloud</string>
     <string name="password_recovery">Password Recovery</string>
     <string name="recovery_warning">Password reset link will be sent to your e-mail.</string>
     <string name="type_e_mail">Please type your e-mail address.</string>
@@ -69,6 +69,17 @@
     <string name="verification_code_has_been_sent">Verification Code Has Been Sent</string>
     <string name="check_your_inbox">Please check your inbox for verification code.</string>
     <string name="ok">Okay</string>
+    <string name="add_photo">Add\nPhoto</string>
+    <string name="upgrade_to_pro">Upgrade to Pro</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="social_media_accounts">Social Media Accounts</string>
+    <string name="my_devices">My Devices</string>
+    <string name="my_presets">My Presets</string>
+    <string name="change_password">Change Password</string>
+    <string name="log_out">Log Out</string>
+    <string name="dummy_name">Tevfik Altan Doyran</string>
+    <string name="profession">Cinematographer</string>
+    <string name="pro_status">Regular Account</string>
 
 
 </resources>

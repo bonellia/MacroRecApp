@@ -29,5 +29,7 @@ public class MainPage extends Activity {
     }
 
     public void openMyCloud(View view) {
+        Intent intent = new Intent(this, MyCloud.class);
+        startActivity(intent);
     }
 }
