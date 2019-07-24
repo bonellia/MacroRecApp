@@ -36,7 +36,7 @@ public class PasswordRecovery extends AppCompatActivity {
                 dialogButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        dialog.dismiss();
                     }
                 });
 
