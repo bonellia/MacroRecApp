@@ -7,53 +7,74 @@
     android:background="@color/appMainBackground"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/rectangle_log_in_google"
-        android:layout_width="376dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+    <!--TO DO: Delete this.-->
+
+    <Button
+        android:id="@+id/LogInWithGoogleButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#3284ff"
-        android:clickable="true"
-        android:focusable="true"
+        android:drawableLeft="@drawable/google_ico"
         android:onClick="onLoginWithGoogle"
+        android:text="@string/log_in_google"
+        android:textAllCaps="false"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/rectangle_log_in_facebook"
+        app:layout_constraintBottom_toTopOf="@+id/LogInWithFacebookButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.9"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
-
-    <View
-        android:id="@+id/rectangle_log_in_facebook"
-        android:layout_width="376dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+    <Button
+        android:id="@+id/LogInWithFacebookButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#0e3985"
-        android:clickable="true"
         android:onClick="onLoginWithFacebook"
+        android:text="@string/log_in_facebook"
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/fb_ico"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/rectangle_log_in_instagram"
+        app:layout_constraintBottom_toTopOf="@+id/LogInWithInstagramButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.05"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_log_in_google" />
+        app:layout_constraintTop_toBottomOf="@+id/LogInWithGoogleButton"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.9" />
 
-
-    <View
-        android:id="@+id/rectangle_log_in_instagram"
-        android:layout_width="376dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+    <Button
+        android:id="@+id/LogInWithInstagramButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#b2234f"
-        android:clickable="true"
         android:onClick="onLoginWithInstagram"
+        android:text="@string/log_in_instagram"
+        android:textAllCaps="false"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/h_guideline1"
+        android:drawableLeft="@drawable/insta_logo"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.05"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_log_in_facebook" />
+        app:layout_constraintTop_toBottomOf="@+id/LogInWithFacebookButton"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.9" />
 
 
     <Button
@@ -127,13 +148,17 @@
 
     <Button
         android:id="@+id/LogInButton"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#ff770b2c"
         android:onClick="onClickLogIn"
         android:text="@string/login"
         android:textColor="#ffffff"
         android:textSize="18sp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.3"
         app:layout_constraintBottom_toTopOf="@+id/showPassInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -158,91 +183,6 @@
         app:layout_constraintTop_toBottomOf="@+id/LogInButton" />
 
 
-    <TextView
-        android:id="@+id/logInGoogle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/log_in_google"
-        android:textColor="#ffffffff"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/rectangle_log_in_google"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rectangle_log_in_google"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_log_in_google" />
-
-    <TextView
-        android:id="@+id/logInFB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:onClick="onLoginWithFacebook"
-        android:text="@string/log_in_facebook"
-        android:textColor="#ffffffff"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/rectangle_log_in_facebook"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rectangle_log_in_facebook"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_log_in_facebook" />
-
-    <TextView
-        android:id="@+id/logInIG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:clickable="true"
-        android:onClick="onLoginWithFacebook"
-        android:text="@string/log_in_instagram"
-        android:textColor="#ffffffff"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/rectangle_log_in_instagram"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rectangle_log_in_instagram"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_log_in_instagram" />
-
-    <ImageView
-        android:id="@+id/fbIco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:clickable="true"
-        android:contentDescription="@string/facebook_logo"
-        android:onClick="onLoginWithFacebook"
-        android:src="@drawable/fb_ico"
-        app:layout_constraintEnd_toStartOf="@+id/logInFB"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_log_in_facebook" />
-
-    <ImageView
-        android:id="@+id/igoogleIco"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:clickable="true"
-        android:contentDescription="@string/google_logo"
-        android:onClick="onLoginWithGoogle"
-        android:src="@drawable/google_ico"
-        app:layout_constraintEnd_toStartOf="@+id/logInGoogle"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_log_in_google" />
-
-    <ImageView
-        android:id="@+id/instaLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:clickable="true"
-        android:contentDescription="@string/instagram_logo"
-        android:onClick="onLoginWithInstagram"
-        android:src="@drawable/insta_logo"
-        app:layout_constraintEnd_toStartOf="@+id/logInIG"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_log_in_instagram" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/h_guideline1"
         android:layout_width="wrap_content"
@@ -256,7 +196,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
