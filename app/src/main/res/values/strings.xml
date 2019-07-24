@@ -66,6 +66,9 @@
     <string name="recovery_warning">Password reset link will be sent to your e-mail.</string>
     <string name="type_e_mail">Please type your e-mail address.</string>
     <string name="reset_password">Reset Password</string>
+    <string name="verification_code_has_been_sent">Verification Code Has Been Sent</string>
+    <string name="check_your_inbox">Please check your inbox for verification code.</string>
+    <string name="ok">Okay</string>
 
 
 </resources>
