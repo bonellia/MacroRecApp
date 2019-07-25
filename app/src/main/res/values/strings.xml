@@ -80,6 +80,12 @@
     <string name="dummy_name">Tevfik Altan Doyran</string>
     <string name="profession">Cinematographer</string>
     <string name="pro_status">Regular Account</string>
+    <string name="account_verification">Account Verification</string>
+    <string name="account_verification_notice">Please Check Your Inbox For Password Change Verification Code</string>
+    <string name="enter_verification_code">Enter Verification Code</string>
+    <string name="six_underscore">______</string>
+    <string name="create_new_password">Create New Password</string>
+    <string name="re_type_password">Re-Type Password</string>
 
 
 </resources>

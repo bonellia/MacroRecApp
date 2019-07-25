@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".MyCloud"></activity>
+        <activity android:name=".AccountVerification"></activity>
+        <activity android:name=".LandingPage" />
+        <activity android:name=".MyCloud" />
         <activity android:name=".PasswordRecovery" />
         <activity android:name=".MainPage" />
         <activity android:name=".Settings" />
