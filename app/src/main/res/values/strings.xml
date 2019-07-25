@@ -86,6 +86,29 @@
     <string name="six_underscore">______</string>
     <string name="create_new_password">Create New Password</string>
     <string name="re_type_password">Re-Type Password</string>
+    <string name="password_successfully_changed">Password Successfully Changed</string>
+    <string name="new_pass_usable">You can use your new password to log in.</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="logout_device_warning">Devices will not function until logging in.</string>
+    <string name="logout_cloud_note">Your all settings are being stored in cloud. You can login with other devices and keep using your settings.</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="device_details">Device Details</string>
+    <string name="slide_module">Slide Module</string>
+    <string name="device_name">Device Name</string>
+    <string name="slide">Slide</string>
+    <string name="axis">Axis</string>
+    <string name="focus_module">Focus Module</string>
+    <string name="focus">Focus</string>
+    <string name="change">Change</string>
+    <string name="tilt">Tilt</string>
+    <string name="preview">Preview</string>
+    <string name="pan">Pan</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="hamburger_content_description">A button that opens side menu.</string>
+    <string name="back_button_content_description">A button that goes back.</string>
 
 
 </resources>
