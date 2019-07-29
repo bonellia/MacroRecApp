@@ -136,7 +136,7 @@
         android:layout_height="wrap_content"
         android:text="@string/device_name"
         android:textColor="#ff868686"
-        app:layout_constraintBottom_toTopOf="@+id/dc1"
+        app:layout_constraintBottom_toTopOf="@+id/connection1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -161,7 +161,7 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/h_guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/dc1"
+        app:layout_constraintEnd_toStartOf="@+id/connection1"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.5"
@@ -172,13 +172,14 @@
         app:layout_constraintWidth_percent="0.33" />
 
     <Button
-        android:id="@+id/dc1"
+        android:id="@+id/connection1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#ff333333"
         android:text="@string/disconnect"
         android:textAllCaps="false"
         android:textColor="#FFFFFFFF"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/h_guideline2"
         app:layout_constraintEnd_toStartOf="@+id/preview1"
         app:layout_constraintHeight_default="percent"
@@ -188,7 +189,8 @@
         app:layout_constraintTop_toBottomOf="@id/h_guideline1"
         app:layout_constraintVertical_bias="0.8"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent="0.33" />
+        app:layout_constraintWidth_percent="0.33"
+        android:focusable="true" />
 
     <Button
         android:id="@+id/preview1"
@@ -203,7 +205,7 @@
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/dc1"
+        app:layout_constraintStart_toEndOf="@+id/connection1"
         app:layout_constraintTop_toBottomOf="@id/h_guideline1"
         app:layout_constraintVertical_bias="0.8"
         app:layout_constraintWidth_default="percent"

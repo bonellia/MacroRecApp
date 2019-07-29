@@ -109,6 +109,7 @@
     <string name="cancel">Cancel</string>
     <string name="hamburger_content_description">A button that opens side menu.</string>
     <string name="back_button_content_description">A button that goes back.</string>
+    <string name="selected_device_will_be_disconnected">Selected device will be disconnected.</string>
 
 
 </resources>

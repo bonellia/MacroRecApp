@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="288dp"
+    android:layout_height="187dp"
+    android:background="@color/appMainBackground">
+
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/are_you_sure"
+        android:textColor="#fff5f5"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_device_note"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/dialog_device_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:maxLines="3"
+        android:text="@string/selected_device_will_be_disconnected"
+        android:textAlignment="center"
+        android:textColor="#909090"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_button_no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <Button
+        android:id="@+id/dialog_button_no"
+        android:layout_width="90dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/custom_border"
+        android:text="@string/no"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_button_yes"
+        app:layout_constraintHeight_percent="0.182"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.3"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginEnd="4dp" />
+
+    <Button
+        android:id="@+id/dialog_button_yes"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
+        android:background="#ff770b2c"
+        android:text="@string/yes"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.182"
+        app:layout_constraintStart_toEndOf="@+id/dialog_button_no"
+        app:layout_constraintWidth_percent="0.3"
+        android:layout_marginLeft="4dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
