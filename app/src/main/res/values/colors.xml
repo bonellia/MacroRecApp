@@ -6,6 +6,7 @@
     <color name="appMainBackground">#ff2d2d2d</color>
     <color name="colorLogInGoogle">#3284ff</color>
     <color name="colorHint">#cacaca</color>
+    <color name="fullTransparent">#00000000</color>
 
 
 

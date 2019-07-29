@@ -110,6 +110,37 @@
     <string name="hamburger_content_description">A button that opens side menu.</string>
     <string name="back_button_content_description">A button that goes back.</string>
     <string name="selected_device_will_be_disconnected">Selected device will be disconnected.</string>
+    <string name="apply">Apply</string>
+    <string name="firmware">Firmware</string>
+    <string name="fw_placeholder">V1_65</string>
+    <string name="hardware">Hardware</string>
+    <string name="hw_placeholder">13</string>
+    <string name="serial_number">Serial Number</string>
+    <string name="sn_placeholder">186479534</string>
+    <string name="warranty_start_date">Warranty Start Date</string>
+    <string name="wsd_placeholder">14.08.2019</string>
+    <string name="warranty_expiry_date">Warranty Expiry Date</string>
+    <string name="wed_placeholder">14.08.2021</string>
+    <string name="check_for_update">Check For Update</string>
+    <string name="non_caps_report_bug">Report Bug</string>
+    <string name="ask_preset">Ask for preset selection at the beginning of each application.</string>
+    <string name="preset">Preset</string>
+    <string name="stand_by_duration">Stand By Duration</string>
+    <string name="min">min</string>
+    <string name="time_lapse_mode">Time Lapse Mode</string>
+    <string name="fps_frame_per_second">FPS (Frame Per Second)</string>
+    <string name="slide_sensitivity">Slide Sensitivity</string>
+    <string name="pan_sensitivity">Pan Sensitivity</string>
+    <string name="fix_percent">%</string>
+    <string name="tilt_sensitivity">Tilt Sensitivity</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="cm">CM</string>
+    <string name="system_unit">System Unit</string>
+    <string name="focus_sensitivity">Focus Sensitivity</string>
+    <string name="not_paired">Not Paired</string>
+    <string name="continuous">Continuous</string>
 
 
 </resources>

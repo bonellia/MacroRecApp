@@ -14,7 +14,10 @@ public class DeviceControl extends Activity {
     private Button button2;
     private Button button3;
     private Button button4;
-
+    private Button button5;
+    private Button button6;
+    private Button button7;
+    private Button button8;
 
 
     @Override
@@ -31,11 +34,19 @@ public class DeviceControl extends Activity {
         button3.setOnClickListener(onClickListener);
         button4 = findViewById(R.id.connection4);
         button4.setOnClickListener(onClickListener);
+        button5 = findViewById(R.id.device_details1);
+        button5.setOnClickListener(onClickListener2);
+        button6 = findViewById(R.id.device_details2);
+        button6.setOnClickListener(onClickListener2);
+        button7 = findViewById(R.id.device_details3);
+        button7.setOnClickListener(onClickListener2);
+        button8 = findViewById(R.id.device_details4);
+        button8.setOnClickListener(onClickListener2);
+
 
     }
 
     private View.OnClickListener onClickListener;
-
     {
         onClickListener = new View.OnClickListener() {
             @Override
@@ -58,6 +69,49 @@ public class DeviceControl extends Activity {
                 Button dialogYesButton = dialog.findViewById(R.id.dialog_button_yes);
                 // Set dialog layout listener for "Yes" Button.
                 dialogYesButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        };
+    }
+
+    private View.OnClickListener onClickListener2;
+    {
+        onClickListener2 = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TO DO: Set what to do for different Views v.
+
+                // Set custom dialog view style.
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.dialog_device_details);
+
+                Button dialogRBButton = dialog.findViewById(R.id.dialog_button_report_bug);
+                // Set dialog layout listener for "Report Bug" Button.
+                dialogRBButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                Button dialogCFUButton = dialog.findViewById(R.id.dialog_button_check_update);
+                // Set dialog layout listener for "Check For Update" Button.
+                dialogRBButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                Button dialogDoneButton = dialog.findViewById(R.id.dialog_button_done);
+                // Set dialog layout listener for "Done" Button.
+                dialogDoneButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();

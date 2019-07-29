@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="288dp"
+    android:layout_height="407dp"
+    android:background="@color/appMainBackground">
+
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/slide_module"
+        android:textColor="#fff5f5"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/device_name"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:maxLines="3"
+        android:text="@string/device_name"
+        android:textAlignment="center"
+        android:textColor="#909090"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/fw_left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <Button
+        android:id="@+id/dialog_button_report_bug"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#88232323"
+        android:text="@string/non_caps_report_bug"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_button_check_update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/warranty_expiry_left"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_percent="0.685" />
+
+    <Button
+        android:id="@+id/dialog_button_done"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#ff830b2c"
+        android:text="@string/done"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_button_check_update"
+        app:layout_constraintWidth_percent="0.685" />
+
+    <Button
+        android:id="@+id/dialog_button_check_update"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#88830B2C"
+        android:text="@string/check_for_update"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_button_done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_button_report_bug"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintWidth_percent="0.685" />
+
+    <TextView
+        android:id="@+id/fw_left"
+        style="@style/device_preview_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/firmware"
+        app:layout_constraintBottom_toTopOf="@+id/hw_left"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/hw_left"
+        app:layout_constraintTop_toBottomOf="@+id/device_name" />
+
+    <TextView
+        android:id="@+id/w_right"
+        style="@style/device_preview_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="@string/fw_placeholder"
+        app:layout_constraintBottom_toTopOf="@+id/hw_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/fw_left"
+        app:layout_constraintTop_toTopOf="@+id/fw_left" />
+
+    <TextView
+        android:id="@+id/hw_left"
+        style="@style/device_preview_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hardware"
+        app:layout_constraintBottom_toTopOf="@+id/sn_left"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/sn_left"
+        app:layout_constraintTop_toBottomOf="@+id/fw_left" />
+
+    <TextView
+        android:id="@+id/hw_right"
+        style="@style/device_preview_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hw_placeholder"
+        app:layout_constraintBottom_toTopOf="@+id/sn_right"
+        app:layout_constraintEnd_toEndOf="@+id/w_right"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@+id/w_right" />
+
+    <TextView
+        android:id="@+id/sn_left"
+        style="@style/device_preview_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/serial_number"
+        app:layout_constraintBottom_toTopOf="@+id/warranty_start_left"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/warranty_start_left"
+        app:layout_constraintTop_toBottomOf="@+id/hw_left" />
+
+    <TextView
+        android:id="@+id/sn_right"
+        style="@style/device_preview_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sn_placeholder"
+        app:layout_constraintBottom_toTopOf="@+id/warranty_start_right"
+        app:layout_constraintEnd_toEndOf="@+id/hw_right"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@+id/hw_right" />
+
+    <TextView
+        android:id="@+id/warranty_start_left"
+        style="@style/device_preview_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/warranty_start_date"
+        app:layout_constraintBottom_toTopOf="@+id/warranty_expiry_left"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/warranty_expiry_left"
+        app:layout_constraintTop_toBottomOf="@+id/sn_left" />
+
+    <TextView
+        android:id="@+id/warranty_start_right"
+        style="@style/device_preview_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wsd_placeholder"
+        app:layout_constraintBottom_toTopOf="@+id/warranty_expiry_right"
+        app:layout_constraintEnd_toEndOf="@+id/sn_right"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@+id/sn_right" />
+
+    <TextView
+        android:id="@+id/warranty_expiry_left"
+        style="@style/device_preview_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="@string/warranty_expiry_date"
+        app:layout_constraintBottom_toTopOf="@id/dialog_button_report_bug"
+        app:layout_constraintEnd_toStartOf="@+id/warranty_expiry_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/warranty_start_left" />
+
+    <TextView
+        android:id="@+id/warranty_expiry_right"
+        style="@style/device_preview_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wed_placeholder"
+        app:layout_constraintBottom_toTopOf="@id/dialog_button_report_bug"
+        app:layout_constraintEnd_toEndOf="@+id/warranty_start_right"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@+id/warranty_start_right" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="244dp"
+        android:layout_height="2dp"
+        android:background="#ff707070"
+        app:layout_constraintBottom_toTopOf="@+id/device_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

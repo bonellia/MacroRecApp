@@ -54,4 +54,22 @@
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">20sp</item>
     </style>
+
+    <style name="device_preview_left">
+        <item name="android:textColor">#88F7F7F7</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="device_preview_right">
+        <item name="android:textColor">#FFD3D3D3</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="customize_left">
+        <item name="android:textColor">#88F7F7F7</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="customize_right">
+        <item name="android:textColor">#FFD3D3D3</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
