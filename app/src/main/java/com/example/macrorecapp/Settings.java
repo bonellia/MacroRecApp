@@ -38,9 +38,13 @@ public class Settings extends Activity {
     }
 
     public void openReportBug(View view) {
+        Intent intent = new Intent(this, ReportBug.class);
+        startActivity(intent);
     }
 
     public void openContactRequest(View view) {
+        Intent intent = new Intent(this, ContactRequest.class);
+        startActivity(intent);
     }
 
     public void goBack(View view)  {

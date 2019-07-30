@@ -54,8 +54,10 @@
     <string name="manuals">MANUALS</string>
     <string name="my_cloud_cap">MY CLOUD</string>
     <string name="give_advice">GIVE ADVICE</string>
+    <string name="report_bug_cap">REPORT BUG</string>
     <string name="report_bug">REPORT BUG</string>
-    <string name="contact_request">CONTACT REQUEST</string>
+    <string name="contact_request_cap">CONTACT REQUEST</string>
+    <string name="contact_request">Contact Request</string>
     <string name="live_control">LIVE CONTROL</string>
     <string name="motion_control">MOTION CONTROL</string>
     <string name="time_lapse">TIME LAPSE</string>
@@ -147,11 +149,18 @@
     <string name="my_lenses">My Lenses</string>
     <string name="calibration">CALIBRATION</string>
     <string name="send_advice">Send Advice</string>
-    <string name="please_summarize">Please Summarize Your Idea</string>
+    <string name="please_summarize_idea">Please Summarize Your Idea</string>
+    <string name="please_summarize_bug">Please Summarize The Issue</string>
     <string name="add_image_or_video_optional">Add Image or Video (optional)</string>
     <string name="thanks_for_advice">Thank you for helping us \n improve your experience.</string>
     <string name="coupon_advice">Your discount coupon will be sent through \n e-mail after consideration of your idea.</string>
+    <string name="coupon_bug">Your discount coupon will be sent through \n e-mail after validation of the bug.</string>
     <string name="coupon_info">You can use your discount coupon \n during your next purchase.</string>
+    <string name="send_request">Send Request</string>
+    <string name="please_summarize_need">Please Summarize Your Need</string>
+    <string name="contact_info">This information will be forwarded to \n related department in order to enhance your experience.</string>
+    <string name="contact_soon">We will contact you \n as soon as possible.</string>
+    <string name="contact_forwarded">Your contact request has been forwarded to \n related department.</string>
 
 
 </resources>

@@ -161,7 +161,7 @@
         android:id="@+id/textHeadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/please_summarize"
+        android:text="@string/please_summarize_idea"
         android:textColor="#88FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textAdvice"
