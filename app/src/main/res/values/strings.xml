@@ -149,6 +149,9 @@
     <string name="send_advice">Send Advice</string>
     <string name="please_summarize">Please Summarize Your Idea</string>
     <string name="add_image_or_video_optional">Add Image or Video (optional)</string>
+    <string name="thanks_for_advice">Thank you for helping us \n improve your experience.</string>
+    <string name="coupon_advice">Your discount coupon will be sent through \n e-mail after consideration of your idea.</string>
+    <string name="coupon_info">You can use your discount coupon \n during your next purchase.</string>
 
 
 </resources>
