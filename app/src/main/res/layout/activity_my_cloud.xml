@@ -167,15 +167,15 @@
         app:layout_constraintVertical_bias="0.9" />
 
     <Button
-        android:id="@+id/personal_info"
+        android:id="@+id/my_presets"
         android:layout_width="0dp"
         android:textSize="18sp"
         android:layout_height="0dp"
         android:background="#232323"
-        android:text="@string/personal_information"
+        android:text="@string/my_presets"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/social_media_acc"
+        app:layout_constraintBottom_toTopOf="@+id/my_lenses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.105"
@@ -186,11 +186,11 @@
         app:layout_constraintWidth_percent="1" />
 
     <Button
-        android:id="@+id/social_media_acc"
+        android:id="@+id/my_lenses"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#232323"
-        android:text="@string/social_media_accounts"
+        android:text="@string/my_lenses"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textColor="#ffffff"
@@ -200,7 +200,7 @@
         app:layout_constraintHeight_percent="0.105"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personal_info"
+        app:layout_constraintTop_toBottomOf="@+id/my_presets"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="1" />
 
@@ -213,27 +213,27 @@
         android:text="@string/my_devices"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/my_presets"
+        app:layout_constraintBottom_toTopOf="@+id/account_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.105"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/social_media_acc"
+        app:layout_constraintTop_toBottomOf="@+id/my_lenses"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="1" />
 
 
     <Button
-        android:id="@+id/my_presets"
+        android:id="@+id/account_settings"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#232323"
-        android:text="@string/my_presets"
+        android:text="@string/account_settings"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/change_password"
+        app:layout_constraintBottom_toTopOf="@+id/my_presetsrmation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.105"
@@ -245,11 +245,11 @@
 
 
     <Button
-        android:id="@+id/change_password"
+        android:id="@+id/my_presetsrmation"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#232323"
-        android:text="@string/change_password"
+        android:text="@string/personal_information"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textColor="#ffffff"
@@ -259,7 +259,7 @@
         app:layout_constraintHeight_percent="0.105"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_presets"
+        app:layout_constraintTop_toBottomOf="@+id/account_settings"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="1" />
 
@@ -280,7 +280,7 @@
         app:layout_constraintHeight_percent="0.105"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_password"
+        app:layout_constraintTop_toBottomOf="@+id/my_presetsrmation"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="1"
         android:focusable="true" />

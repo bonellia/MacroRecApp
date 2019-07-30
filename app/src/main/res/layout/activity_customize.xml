@@ -39,6 +39,7 @@
         android:id="@+id/side_menu_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/cd_hamburger"
         android:src="@drawable/side_menu_button"
         app:layout_constraintBottom_toTopOf="@+id/customize_top_gradient"
         app:layout_constraintEnd_toEndOf="@+id/customize_top_gradient"
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/cd_back_button"
         android:focusable="true"
         android:onClick="goBack"
         android:src="@drawable/back_ico"
@@ -160,8 +162,6 @@
         android:id="@+id/slide_sensitivity"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
         android:background="@drawable/settings_rectangle"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/tilt_sensitivity"
@@ -178,8 +178,6 @@
         android:id="@+id/tilt_sensitivity"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
         android:background="@drawable/settings_rectangle"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/h_guideline4"
@@ -195,8 +193,6 @@
         android:id="@+id/pan_sensitivity"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:background="@drawable/settings_rectangle"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/focus_sensitivity"
@@ -212,8 +208,6 @@
         android:id="@+id/focus_sensitivity"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:background="@drawable/settings_rectangle"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/h_guideline4"
@@ -255,29 +249,29 @@
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/custom_border"
         android:text="@string/cancel"
         android:textAllCaps="false"
         android:textColor="#FFFFFFFF"
+        android:onClick="goBack"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/v_guideline1" />
+        app:layout_constraintEnd_toStartOf="@+id/v_guideline1"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/apply_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
         android:background="#ff830b2c"
         android:text="@string/apply"
+        android:onClick="goBack"
         android:textAllCaps="false"
         android:textColor="#FFFFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/v_guideline1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/v_guideline1" />
 
     <TextView
         android:id="@+id/presetSelection"
@@ -286,31 +280,34 @@
         android:text="@string/ask_preset"
         android:textColor="#FFFFFFFF"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox"
+        app:layout_constraintBottom_toTopOf="@+id/preset"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/presets_option"
-        tools:layout_editor_absoluteY="85dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/presets_option" />
 
     <TextView
         android:id="@+id/preset"
         style="@style/customize_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
         android:text="@string/preset"
+        app:layout_constraintBottom_toTopOf="@+id/presets_option"
         app:layout_constraintEnd_toStartOf="@+id/presets_option"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/presets_option"
-        app:layout_constraintTop_toTopOf="@+id/presetSelection" />
+        app:layout_constraintTop_toBottomOf="@+id/presetSelection"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/presets_option"
+        app:layout_constraintBottom_toTopOf="@+id/presets_option"
+        app:layout_constraintEnd_toEndOf="@+id/presets_option"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/presetSelection"
-        tools:layout_editor_absoluteY="90dp" />
+        app:layout_constraintTop_toBottomOf="@+id/presets_option" />
 
     <TextView
         android:id="@+id/timeLapseMode"
@@ -318,10 +315,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/time_lapse_mode"
+        app:layout_constraintBottom_toTopOf="@+id/time_lapse_mode"
         app:layout_constraintEnd_toStartOf="@+id/timeLapseModeValue"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/time_lapse_mode"
-        tools:layout_editor_absoluteY="192dp" />
+        app:layout_constraintTop_toBottomOf="@+id/time_lapse_mode" />
 
     <TextView
         android:id="@+id/timeLapseModeValue"
@@ -329,10 +327,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/continuous"
+        app:layout_constraintBaseline_toBaselineOf="@+id/timeLapseMode"
         app:layout_constraintEnd_toStartOf="@+id/time_lapse_mode"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/timeLapseMode"
-        tools:layout_editor_absoluteY="192dp" />
+        app:layout_constraintStart_toEndOf="@+id/timeLapseMode" />
 
     <TextView
         android:id="@+id/fps"
@@ -340,19 +338,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fps_frame_per_second"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="257dp" />
+        app:layout_constraintBottom_toTopOf="@+id/fps_option"
+        app:layout_constraintEnd_toStartOf="@+id/fpsNo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fps_option"
+        app:layout_constraintTop_toBottomOf="@+id/fps_option" />
 
     <EditText
         android:id="@+id/fpsNo"
-        android:layout_width="34dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
-        android:ems="10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+        android:importantForAutofill="no"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="252dp" />
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/fps_option"
+        app:layout_constraintEnd_toStartOf="@+id/fps_option"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fps"
+        app:layout_constraintTop_toTopOf="@id/fps_option" />
 
     <TextView
         android:id="@+id/standByDuration"
@@ -360,19 +364,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/stand_by_duration"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="321dp" />
+        app:layout_constraintBottom_toTopOf="@+id/stand_by_option"
+        app:layout_constraintEnd_toStartOf="@+id/standByDurationValue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/stand_by_option"
+        app:layout_constraintTop_toBottomOf="@+id/stand_by_option" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/standByDurationValue"
         style="@style/customize_right"
-        android:layout_width="41dp"
-        android:layout_height="27dp"
-        android:backgroundTint="@color/fullTransparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="3"
+        android:importantForAutofill="no"
         android:inputType="number"
-        tools:layout_editor_absoluteX="259dp"
-        tools:layout_editor_absoluteY="319dp" />
+        app:layout_constraintBottom_toTopOf="@+id/stand_by_option"
+        app:layout_constraintEnd_toStartOf="@+id/fix_min"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/standByDuration"
+        app:layout_constraintTop_toBottomOf="@+id/stand_by_option" />
 
     <TextView
         android:id="@+id/fix_min"
@@ -380,61 +390,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/min"
-        tools:layout_editor_absoluteX="323dp"
-        tools:layout_editor_absoluteY="319dp" />
+        app:layout_constraintBottom_toTopOf="@+id/stand_by_option"
+        app:layout_constraintEnd_toStartOf="@+id/stand_by_option"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/standByDurationValue"
+        app:layout_constraintTop_toBottomOf="@+id/stand_by_option" />
 
     <TextView
         android:id="@+id/slideSensitivity"
         style="@style/customize_left"
-        android:layout_width="106dp"
-        android:layout_height="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/slide_sensitivity"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/slide_sensitivity"
+        app:layout_constraintEnd_toEndOf="@+id/slide_sensitivity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/slide_sensitivity"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/fix_percent1"
-        android:layout_width="27dp"
-        android:layout_height="17dp"
-        android:text="@string/fix_percent"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="387dp" />
-
-    <EditText
-        android:id="@+id/slideSensitivityPercent"
-        android:layout_width="51dp"
-        android:layout_height="14dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="387dp" />
-
-    <TextView
-        android:id="@+id/fix_percent2"
+        style="@style/customize_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fix_percent"
-        tools:layout_editor_absoluteX="242dp"
-        tools:layout_editor_absoluteY="387dp" />
+        app:layout_constraintBottom_toTopOf="@+id/slideSensitivity"
+        app:layout_constraintEnd_toStartOf="@id/slideSensitivityPercent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/slideSensitivityPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textColor="#FFFFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/slideSensitivity"
+        app:layout_constraintEnd_toEndOf="@+id/slide_sensitivity"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/fix_percent1"
+        app:layout_constraintTop_toTopOf="@+id/slide_sensitivity" />
+
+    <TextView
+        android:id="@+id/fix_percent2"
+        style="@style/customize_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fix_percent"
+        app:layout_constraintBottom_toTopOf="@+id/panSensitivity"
+        app:layout_constraintEnd_toStartOf="@+id/panSensitivityPercent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/pan_sensitivity" />
 
     <TextView
         android:id="@+id/panSensitivity"
-        android:layout_width="113dp"
-        android:layout_height="27dp"
+        style="@style/customize_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/pan_sensitivity"
-        tools:layout_editor_absoluteX="242dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/pan_sensitivity"
+        app:layout_constraintEnd_toStartOf="@+id/pan_sensitivity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pan_sensitivity" />
 
     <EditText
         android:id="@+id/panSensitivityPercent"
-        android:layout_width="54dp"
-        android:layout_height="16dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="3"
+        android:importantForAutofill="no"
         android:inputType="number"
+        android:textColor="#FFFFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/panSensitivity"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="385dp" />
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/fix_percent2"
+        app:layout_constraintTop_toTopOf="@+id/pan_sensitivity" />
 
     <TextView
         android:id="@+id/tiltSensitivity"
@@ -442,8 +477,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tilt_sensitivity"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="470dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/tilt_sensitivity"
+        app:layout_constraintEnd_toStartOf="@+id/tilt_sensitivity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tilt_sensitivity"
+        app:layout_constraintTop_toBottomOf="@+id/tiltSensitivityValue" />
 
     <TextView
         android:id="@+id/tiltSensitivityValue"
@@ -451,8 +489,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/disconnected"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="445dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tiltSensitivity"
+        app:layout_constraintEnd_toStartOf="@+id/tilt_sensitivity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tilt_sensitivity"
+        app:layout_constraintTop_toTopOf="@id/tilt_sensitivity" />
 
     <TextView
         android:id="@+id/focusSensitivity"
@@ -460,8 +501,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/focus_sensitivity"
-        tools:layout_editor_absoluteX="263dp"
-        tools:layout_editor_absoluteY="470dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/focus_sensitivity"
+        app:layout_constraintEnd_toStartOf="@+id/focus_sensitivity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/focus_sensitivity" />
 
     <TextView
         android:id="@+id/focusSensitivityValue"
@@ -469,8 +512,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/not_paired"
-        tools:layout_editor_absoluteX="261dp"
-        tools:layout_editor_absoluteY="443dp" />
+        app:layout_constraintBottom_toTopOf="@+id/focusSensitivity"
+        app:layout_constraintEnd_toStartOf="@+id/focus_sensitivity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/focus_sensitivity"
+        app:layout_constraintTop_toTopOf="@+id/focus_sensitivity" />
 
     <TextView
         android:id="@+id/language"
@@ -478,9 +524,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/language"
+        app:layout_constraintBottom_toBottomOf="@+id/language_option"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="550dp" />
+        app:layout_constraintTop_toBottomOf="@+id/languageValue" />
 
     <TextView
         android:id="@+id/languageValue"
@@ -488,8 +536,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/english"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="524dp" />
+        app:layout_constraintBottom_toTopOf="@+id/language"
+        app:layout_constraintEnd_toStartOf="@+id/language_option"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/language_option"
+        app:layout_constraintTop_toTopOf="@id/language_option" />
 
     <TextView
         android:id="@+id/systemUnit"
@@ -497,9 +548,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/system_unit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="625dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/system_unit_option"
+        app:layout_constraintEnd_toStartOf="@+id/system_unit_option"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/system_unit_option" />
 
     <TextView
         android:id="@+id/systemUnitValue"
@@ -507,7 +559,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cm"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="604dp" />
+        app:layout_constraintBottom_toTopOf="@+id/systemUnit"
+        app:layout_constraintEnd_toStartOf="@+id/system_unit_option"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/system_unit_option"
+        app:layout_constraintTop_toTopOf="@+id/system_unit_option" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

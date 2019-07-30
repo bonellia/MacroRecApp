@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".Customize"></activity>
+        <activity android:name=".GiveAdvice"></activity>
+        <activity android:name=".Customize" />
         <activity android:name=".DeviceControl" />
         <activity android:name=".AccountVerification" />
         <activity android:name=".LandingPage" />

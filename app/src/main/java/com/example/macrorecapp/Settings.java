@@ -20,12 +20,16 @@ public class Settings extends Activity {
     }
 
     public void openCustomize(View view) {
+        Intent intent = new Intent(this, Customize.class);
+        startActivity(intent);
     }
 
     public void openManuals(View view) {
     }
 
     public void openMyCloud(View view) {
+        Intent intent = new Intent(this, MyCloud.class);
+        startActivity(intent);
     }
 
     public void openGiveAdvice(View view) {

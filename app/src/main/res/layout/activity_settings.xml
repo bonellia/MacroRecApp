@@ -136,7 +136,7 @@
         android:focusable="true"
         android:onClick="openManuals"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/my_cloud_background"
+        app:layout_constraintBottom_toTopOf="@+id/calibration_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +173,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <View
-        android:id="@+id/my_cloud_background"
+        android:id="@+id/calibration_background"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
@@ -196,12 +196,12 @@
         android:clickable="true"
         android:focusable="true"
         android:onClick="openMyCloud"
-        android:text="@string/my_cloud_cap"
-        app:layout_constraintBottom_toTopOf="@+id/my_cloud_background"
-        app:layout_constraintEnd_toStartOf="@+id/my_cloud_background"
+        android:text="@string/calibration"
+        app:layout_constraintBottom_toTopOf="@+id/calibration_background"
+        app:layout_constraintEnd_toStartOf="@+id/calibration_background"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/my_cloud_background"
-        app:layout_constraintTop_toBottomOf="@+id/my_cloud_background" />
+        app:layout_constraintStart_toEndOf="@+id/calibration_background"
+        app:layout_constraintTop_toBottomOf="@+id/calibration_background" />
 
     <ImageView
         android:id="@+id/my_cloud_icon"
@@ -210,12 +210,12 @@
         android:clickable="true"
         android:focusable="true"
         android:onClick="openMyCloud"
-        android:src="@drawable/my_cloud"
-        app:layout_constraintBottom_toTopOf="@+id/my_cloud_background"
-        app:layout_constraintEnd_toEndOf="@+id/my_cloud_background"
+        android:src="@drawable/ico_calib"
+        app:layout_constraintBottom_toTopOf="@+id/calibration_background"
+        app:layout_constraintEnd_toEndOf="@+id/calibration_background"
         app:layout_constraintHorizontal_bias="0.10"
-        app:layout_constraintStart_toStartOf="@+id/my_cloud_background"
-        app:layout_constraintTop_toBottomOf="@+id/my_cloud_background"
+        app:layout_constraintStart_toStartOf="@+id/calibration_background"
+        app:layout_constraintTop_toBottomOf="@+id/calibration_background"
         app:layout_constraintVertical_bias="0.5" />
 
     <View
@@ -232,7 +232,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_cloud_background" />
+        app:layout_constraintTop_toBottomOf="@+id/calibration_background" />
 
     <TextView
         android:id="@+id/give_advice_text"
