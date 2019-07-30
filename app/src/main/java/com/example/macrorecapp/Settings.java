@@ -33,6 +33,8 @@ public class Settings extends Activity {
     }
 
     public void openGiveAdvice(View view) {
+        Intent intent = new Intent(this, GiveAdvice.class);
+        startActivity(intent);
     }
 
     public void openReportBug(View view) {

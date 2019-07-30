@@ -146,6 +146,9 @@
     <string name="account_settings">Account Settings</string>
     <string name="my_lenses">My Lenses</string>
     <string name="calibration">CALIBRATION</string>
+    <string name="send_advice">Send Advice</string>
+    <string name="please_summarize">Please Summarize Your Idea</string>
+    <string name="add_image_or_video_optional">Add Image or Video (optional)</string>
 
 
 </resources>
