@@ -20,7 +20,7 @@ public class ReportBug extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_give_advice);
+        setContentView(R.layout.activity_report_bug);
         spinner = findViewById(R.id.spinnerCategory);
         spinner.setAdapter(new CustomSpinnerAdapter(this, R.layout.spinner_layout, arrayForSpinner, defaultTextForSpinner));
 

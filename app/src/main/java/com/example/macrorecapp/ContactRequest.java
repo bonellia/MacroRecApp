@@ -26,7 +26,7 @@ public class ContactRequest extends Activity {
 
         button = findViewById(R.id.send_button);
 
-        // Add activity layout listener for "Change Password" Button.
+        // Add activity layout listener for "Send Request" Button.
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override

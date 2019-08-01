@@ -161,6 +161,13 @@
     <string name="contact_info">This information will be forwarded to \n related department in order to enhance your experience.</string>
     <string name="contact_soon">We will contact you \n as soon as possible.</string>
     <string name="contact_forwarded">Your contact request has been forwarded to \n related department.</string>
+    <string name="title_activity_temp">TempActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
 
 </resources>

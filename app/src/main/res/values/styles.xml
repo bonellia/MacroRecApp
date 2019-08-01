@@ -14,42 +14,51 @@
         <item name="android:textColor">#969696</item>
         <item name="android:textSize">18sp</item>
     </style>
+
     <style name="LargeButtonText">
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">18sp</item>
     </style>
+
     <style name="create_acc">
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">20sp</item>
     </style>
+
     <style name="searching_devices">
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">25sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
     <style name="warning_device">
         <item name="android:textColor">#959595</item>
         <item name="android:textSize">16sp</item>
     </style>
+
     <style name="text_settings_item">
         <item name="android:textColor">#fff7f8f9</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
     <style name="text_settings_headline">
         <item name="android:textColor">#fff8f5f5</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
     <style name="text_settings_element">
         <item name="android:textColor">#fff7f8f9</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
     <style name="text_menu_capital">
         <item name="android:textColor">#fff5f5f5</item>
         <item name="android:textSize">12sp</item>
     </style>
+
     <style name="headline_recovery">
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">20sp</item>
@@ -59,6 +68,7 @@
         <item name="android:textColor">#88F7F7F7</item>
         <item name="android:textSize">13sp</item>
     </style>
+
     <style name="device_preview_right">
         <item name="android:textColor">#FFD3D3D3</item>
         <item name="android:textSize">13sp</item>
@@ -68,8 +78,10 @@
         <item name="android:textColor">#88F7F7F7</item>
         <item name="android:textSize">16sp</item>
     </style>
+
     <style name="customize_right">
         <item name="android:textColor">#FFD3D3D3</item>
         <item name="android:textSize">16sp</item>
     </style>
+
 </resources>

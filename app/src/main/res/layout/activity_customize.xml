@@ -318,7 +318,7 @@
         app:layout_constraintBottom_toTopOf="@+id/time_lapse_mode"
         app:layout_constraintEnd_toStartOf="@+id/timeLapseModeValue"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/time_lapse_mode"
+        app:layout_constraintStart_toStartOf="@+id/time_lapse_mode"
         app:layout_constraintTop_toBottomOf="@+id/time_lapse_mode" />
 
     <TextView
@@ -328,7 +328,7 @@
         android:layout_height="wrap_content"
         android:text="@string/continuous"
         app:layout_constraintBaseline_toBaselineOf="@+id/timeLapseMode"
-        app:layout_constraintEnd_toStartOf="@+id/time_lapse_mode"
+        app:layout_constraintEnd_toEndOf="@+id/time_lapse_mode"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/timeLapseMode" />
 
@@ -341,7 +341,7 @@
         app:layout_constraintBottom_toTopOf="@+id/fps_option"
         app:layout_constraintEnd_toStartOf="@+id/fpsNo"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/fps_option"
+        app:layout_constraintStart_toStartOf="@+id/fps_option"
         app:layout_constraintTop_toBottomOf="@+id/fps_option" />
 
     <EditText
@@ -353,7 +353,7 @@
         android:inputType="number"
         android:textColor="#FFFFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/fps_option"
-        app:layout_constraintEnd_toStartOf="@+id/fps_option"
+        app:layout_constraintEnd_toEndOf="@+id/fps_option"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/fps"
         app:layout_constraintTop_toTopOf="@id/fps_option" />
@@ -367,7 +367,7 @@
         app:layout_constraintBottom_toTopOf="@+id/stand_by_option"
         app:layout_constraintEnd_toStartOf="@+id/standByDurationValue"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/stand_by_option"
+        app:layout_constraintStart_toStartOf="@+id/stand_by_option"
         app:layout_constraintTop_toBottomOf="@+id/stand_by_option" />
 
     <EditText
@@ -391,7 +391,7 @@
         android:layout_height="wrap_content"
         android:text="@string/min"
         app:layout_constraintBottom_toTopOf="@+id/stand_by_option"
-        app:layout_constraintEnd_toStartOf="@+id/stand_by_option"
+        app:layout_constraintEnd_toEndOf="@+id/stand_by_option"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/standByDurationValue"
         app:layout_constraintTop_toBottomOf="@+id/stand_by_option" />
