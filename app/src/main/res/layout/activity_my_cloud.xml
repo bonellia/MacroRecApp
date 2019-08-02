@@ -237,6 +237,7 @@
         android:background="#232323"
         android:text="@string/personal_information"
         android:textAllCaps="false"
+        android:onClick="onPersonalInformationClick"
         android:textSize="18sp"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/log_out"
