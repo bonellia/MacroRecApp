@@ -1,10 +1,10 @@
 package com.example.macrorecapp;
 
-import android.app.Activity;
-
 import android.os.Bundle;
 
-public class SearchDevice extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SearchDevice extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

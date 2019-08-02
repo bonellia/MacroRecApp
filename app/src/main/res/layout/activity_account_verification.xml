@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:onClick="goBack"
-        android:src="@drawable/back_ico"
+        app:srcCompat="@drawable/back_ico"
         app:layout_constraintBottom_toTopOf="@+id/h_guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -39,14 +39,14 @@
         android:layout_width="329dp"
         android:layout_height="wrap_content"
         android:maxLines="2"
-        android:text="@string/account_verification_notice"
+        android:text="@string/check_your_inbox"
         android:textAlignment="center"
         android:textColor="#969696"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/enter_vrf_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/h_guideline1"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline2"
         app:layout_constraintWidth_percent="0.8" />
 
     <TextView
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/verify_notice" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/codeField"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#68122c"
@@ -71,7 +71,7 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/h_guideline2"
+        app:layout_constraintBottom_toTopOf="@id/h_guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.105"
@@ -80,6 +80,23 @@
         app:layout_constraintTop_toBottomOf="@+id/enter_vrf_code"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.853" />
+
+    <Button
+        android:id="@+id/proceedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient"
+        android:text="@string/proceed"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:ems="10"
+        android:onClick="onClickProceed"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/h_guideline1"
@@ -93,90 +110,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.375" />
 
-    <TextView
-        android:id="@+id/create_new_password"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_new_password"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordField"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/h_guideline2" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.625" />
 
-    <EditText
-        android:id="@+id/passwordField"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:ems="12"
-        android:hint="@string/password_literal"
-        android:inputType="textPassword"
-        android:textColorHint="#969696"
-        app:layout_constraintBottom_toTopOf="@+id/passwordField2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_new_password" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
 
-    <EditText
-        android:id="@+id/passwordField2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:ems="12"
-        android:hint="@string/re_type_password"
-        android:inputType="textPassword"
-        android:textColorHint="#969696"
-        app:layout_constraintBottom_toTopOf="@id/change_password_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordField" />
-
-    <Button
-        android:id="@+id/change_password_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradient"
-        android:text="@string/change_password"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:ems="10"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent="0.09"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/show_pass1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="showPassword"
-        android:text="@string/show_pass"
-        android:textColor="#969696"
-        app:layout_constraintBottom_toTopOf="@+id/passwordField"
-        app:layout_constraintEnd_toEndOf="@+id/passwordField"
-        app:layout_constraintTop_toBottomOf="@+id/passwordField" />
-
-    <TextView
-        android:id="@+id/show_pass2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="showRepeatPassword"
-        android:text="@string/show_pass"
-        android:textColor="#969696"
-        app:layout_constraintBottom_toTopOf="@+id/passwordField2"
-        app:layout_constraintEnd_toEndOf="@+id/passwordField2"
-        app:layout_constraintTop_toBottomOf="@+id/passwordField2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

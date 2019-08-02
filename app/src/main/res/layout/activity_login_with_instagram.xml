@@ -52,13 +52,13 @@
         app:layout_constraintTop_toTopOf="parent"
         android:clickable="true"
         android:onClick="cancelLogin"
-        android:src="@drawable/back_ico" />
+        app:srcCompat="@drawable/back_ico" />
 
     <ImageView
         android:id="@+id/ig_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/insta_mid"
+        app:srcCompat="@drawable/insta_mid"
         app:layout_constraintBottom_toTopOf="@+id/loginWithFacebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

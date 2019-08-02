@@ -1,10 +1,10 @@
 package com.example.macrorecapp;
 
-import android.app.Activity;
-
 import android.os.Bundle;
 
-public class LandingPage extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class LandingPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,8 +1,8 @@
 <resources>
 
     <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -28,7 +28,7 @@
     <style name="searching_devices">
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">25sp</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
     </style>
 
     <style name="warning_device">
@@ -39,19 +39,19 @@
     <style name="text_settings_item">
         <item name="android:textColor">#fff7f8f9</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
     </style>
 
     <style name="text_settings_headline">
         <item name="android:textColor">#fff8f5f5</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
     </style>
 
     <style name="text_settings_element">
         <item name="android:textColor">#fff7f8f9</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
     </style>
 
     <style name="text_menu_capital">

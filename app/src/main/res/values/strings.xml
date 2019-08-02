@@ -169,6 +169,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="update">Update</string>
+    <string name="proceed">Proceed</string>
 
 
 </resources>

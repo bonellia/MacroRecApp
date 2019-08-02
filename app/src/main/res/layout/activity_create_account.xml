@@ -12,9 +12,10 @@
         style="@style/create_acc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="@string/create_account"
+        app:layout_constraintBottom_toTopOf="@+id/nameField"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,14 +23,15 @@
         android:id="@+id/nameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/name"
+        android:inputType="textPersonName"
         android:textColor="#ffffff"
         android:textColorHint="#969696"
-        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/surnameField"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headline" />
 
@@ -37,14 +39,15 @@
         android:id="@+id/surnameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/surname"
         android:inputType="textPersonName"
         android:textColor="#ffffff"
         android:textColorHint="#969696"
+        app:layout_constraintBottom_toTopOf="@+id/emailField"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameField" />
 
@@ -52,14 +55,15 @@
         android:id="@+id/emailField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
         android:textColor="#ffffff"
         android:textColorHint="#969696"
-        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/passwordField"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surnameField" />
 
@@ -68,35 +72,37 @@
         android:id="@+id/passwordField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/password_literal"
+        android:inputType="textPassword"
         android:textColor="#ffffff"
         android:textColorHint="#969696"
-        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/phoneField"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailField" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/phoneField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#ffffff"
         android:ems="10"
         android:hint="@string/phone_number_literal"
         android:inputType="phone"
         android:textColor="#ffffff"
         android:textColorHint="#969696"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerCountry"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordField" />
 
 
     <TextView
-        android:id="@+id/proficiency_spinner"
+        android:id="@+id/showButton"
         style="@style/form_hint_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,38 +113,6 @@
         app:layout_constraintEnd_toEndOf="@+id/passwordField"
         app:layout_constraintTop_toBottomOf="@+id/passwordField" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="401dp"
-        android:layout_height="62dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="671dp" />
-
-
-    <View
-        android:id="@+id/verify_account_gradient"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/gradient"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/verify_account_button"
-        style="@style/LargeButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/verify_your_account"
-        app:layout_constraintBottom_toTopOf="@+id/verify_account_gradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verify_account_gradient" />
 
     <TextView
         android:id="@+id/disclaimer"
@@ -148,8 +122,66 @@
         android:text="@string/disclaimer"
         android:textAlignment="center"
         android:textColor="#969696"
-        app:layout_constraintBottom_toTopOf="@+id/verify_account_gradient"
+        app:layout_constraintBottom_toTopOf="@+id/CreateAccountButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Spinner
+        android:id="@+id/spinnerCountry"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.85"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.075"
+        android:background="@drawable/spinner_bordered"
+        android:popupBackground="@color/appMainBackground"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerProficiency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneField" />
+
+    <Spinner
+        android:id="@+id/spinnerProficiency"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.85"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.075"
+        android:background="@drawable/spinner_bordered"
+        android:popupBackground="@color/appMainBackground"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@+id/disclaimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCountry" />
+
+    <Button
+        android:id="@+id/CreateAccountButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradient"
+        android:onClick="onVerifyAccountClick"
+        android:text="@string/verify_your_account"
+        android:textAllCaps="false"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.10"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

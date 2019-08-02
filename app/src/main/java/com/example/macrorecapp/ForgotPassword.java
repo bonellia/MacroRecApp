@@ -18,7 +18,7 @@ public class ForgotPassword extends AppCompatActivity {
     }
 
     public void onClickResetPassword(View view) {
-        Intent intent = new Intent(this, AccountVerification.class);
+        Intent intent = new Intent(this, ResetPassword.class);
         startActivity(intent);
     }
 }

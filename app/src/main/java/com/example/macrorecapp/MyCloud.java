@@ -1,48 +1,53 @@
 package com.example.macrorecapp;
 
-import android.app.Activity;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
-public class MyCloud extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MyCloud extends AppCompatActivity {
     final Context context = this;
-    private Button button;
+    private Button logOutButton;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_cloud);
 
-        button = findViewById(R.id.log_out);
+        logOutButton = findViewById(R.id.log_out);
 
         // Add activity layout listener for "Log Out" Button.
-        button.setOnClickListener(new View.OnClickListener() {
+        logOutButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
+                logOutButton.startAnimation(buttonClick);
                 // Set custom dialog view style.
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.dialog_logout_confirmation);
 
-                Button dialogNoButton = dialog.findViewById(R.id.dialog_button_no);
-                // Set dialog layout listener for "No" Button.
+                final Button dialogNoButton = dialog.findViewById(R.id.dialog_button_no);
+                // Set dialog layout listener for "No" Button within dialog.
                 dialogNoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        dialogNoButton.startAnimation(buttonClick);
                         dialog.dismiss();
                     }
                 });
 
-                Button dialogYesButton = dialog.findViewById(R.id.dialog_button_yes);
-                // Set dialog layout listener for "Yes" Button.
+                final Button dialogYesButton = dialog.findViewById(R.id.dialog_button_yes);
+                // Set dialog layout listener for "Yes" Button within dialog.
                 dialogYesButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        dialogYesButton.startAnimation(buttonClick);
                         Intent intent = new Intent(context, MainActivity.class);
                         startActivity(intent);
                     }
@@ -55,10 +60,8 @@ public class MyCloud extends Activity {
     }
 
     public void goBack(View view) {
+        view.setAnimation(buttonClick);
         finish();
-    }
-
-    public void goSettings(View view) {
     }
 
 }

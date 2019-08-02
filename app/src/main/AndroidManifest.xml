@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".PersonalInformation"></activity>
-        <activity android:name=".ContactRequest"></activity>
+        <activity android:name=".AccountVerification"></activity>
+        <activity android:name=".PersonalInformation" />
+        <activity android:name=".ContactRequest" />
         <activity android:name=".ReportBug" />
         <activity android:name=".GiveAdvice" />
         <activity android:name=".Customize" />
         <activity android:name=".DeviceControl" />
-        <activity android:name=".AccountVerification" />
+        <activity android:name=".ResetPassword" />
         <activity android:name=".LandingPage" />
         <activity android:name=".MyCloud" />
         <activity android:name=".ForgotPassword" />

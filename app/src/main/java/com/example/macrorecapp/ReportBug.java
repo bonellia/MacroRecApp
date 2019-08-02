@@ -1,45 +1,50 @@
 package com.example.macrorecapp;
 
-        import android.app.Activity;
-        import android.app.Dialog;
-        import android.content.Context;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.Spinner;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.widget.Button;
+import android.widget.Spinner;
 
-public class ReportBug extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ReportBug extends AppCompatActivity {
 
     final Context context = this;
-    private Button button;
+    private Button reportBugButton;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
 
-    Spinner spinner;
-    String defaultTextForSpinner = "Select Category";
-    String[] arrayForSpinner = {"App Issue", "Device Issue", "Miscellaneous"};
+    Spinner reportBugSpinner;
+    String hintReportBugSpinner = "Select Category";
+    String[] contentReportBugSpinner = {"App Issue", "Device Issue", "Miscellaneous"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_bug);
-        spinner = findViewById(R.id.spinnerCategory);
-        spinner.setAdapter(new CustomSpinnerAdapter(this, R.layout.spinner_layout, arrayForSpinner, defaultTextForSpinner));
+        reportBugSpinner = findViewById(R.id.spinnerCategory);
+        reportBugSpinner.setAdapter(new CustomSpinnerAdapter(this, R.layout.spinner_layout, contentReportBugSpinner, hintReportBugSpinner));
 
-        button = findViewById(R.id.send_button);
+        reportBugButton = findViewById(R.id.send_button);
 
         // Add activity layout listener for "Report Bug" Button.
-        button.setOnClickListener(new View.OnClickListener() {
+        reportBugButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
+                reportBugButton.startAnimation(buttonClick);
                 // Set custom dialog view style.
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.dialog_report_bug);
 
-                Button dialogButton = dialog.findViewById(R.id.dialog_button_ok);
-                // Set dialog layout listener for "Okay" Button.
+                final Button dialogButton = dialog.findViewById(R.id.dialog_button_ok);
+                // Set dialog layout listener for "Okay" Button within dialog.
                 dialogButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        dialogButton.startAnimation(buttonClick);
                         dialog.dismiss();
                     }
                 });
@@ -50,6 +55,7 @@ public class ReportBug extends Activity {
     }
 
     public void goBack(View view) {
+        view.startAnimation(buttonClick);
         finish();
     }
 }

@@ -1,12 +1,15 @@
 package com.example.macrorecapp;
 
-import android.app.Activity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 
-public class MainPage extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainPage extends AppCompatActivity {
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +27,13 @@ public class MainPage extends Activity {
     }
 
     public void openSettings(View view) {
+        view.startAnimation(buttonClick);
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
 
     public void openMyCloud(View view) {
+        view.startAnimation(buttonClick);
         Intent intent = new Intent(this, MyCloud.class);
         startActivity(intent);
     }

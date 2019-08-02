@@ -1,13 +1,14 @@
 package com.example.macrorecapp;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class DeviceControl extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DeviceControl extends AppCompatActivity {
 
     final Context context = this;
     private Button button1;
