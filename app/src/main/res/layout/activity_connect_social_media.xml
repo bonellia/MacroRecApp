@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appMainBackground"
+    tools:context=".ConnectSocialMedia">
+
+    <Button
+        android:id="@+id/connectGoogle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#3284ff"
+        android:drawableLeft="@drawable/google_ico"
+        android:onClick="onConnectGoogle"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/connect_google"
+        android:textAllCaps="false"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/connectFacebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline1"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1"
+        android:drawableStart="@drawable/google_ico" />
+
+    <Button
+        android:id="@+id/connectFacebook"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#0e3985"
+        android:drawableLeft="@drawable/fb_ico"
+        android:onClick="onConnectFacebook"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/connect_facebook"
+        android:textAllCaps="false"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/connectInstagram"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connectGoogle"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1"
+        android:drawableStart="@drawable/fb_ico" />
+
+    <Button
+        android:id="@+id/connectInstagram"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#b2234f"
+        android:drawableLeft="@drawable/insta_logo"
+        android:onClick="onConnectInstagram"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/connect_instagram"
+        android:textAllCaps="false"
+        android:textColor="#ffffffff"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/h_guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connectFacebook"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1"
+        android:drawableStart="@drawable/insta_logo" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="goBack"
+        app:srcCompat="@drawable/back_ico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintVertical_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:focusable="true" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.74" />
+
+    <TextView
+        android:id="@+id/loggedInAccInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#88FFFFFF"
+        android:textSize="12sp"
+        android:text="@string/logged_in_acc_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.33"
+        app:layout_constraintTop_toTopOf="@+id/h_guideline2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

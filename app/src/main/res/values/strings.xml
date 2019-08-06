@@ -180,6 +180,9 @@
     <string name="connect_s_m_a">Connect Social Media Accounts</string>
     <string name="change_l_i_i">Change Log In Information</string>
     <string name="privacy">Privacy</string>
+    <string name="logged_in_acc_info">You are currently logged in with \n altan.doyran@macrorec.com</string>
+    <string name="account_added">Account successfully connected.</string>
+    <string name="new_sma_info">You can use your new account while logged in.</string>
 
 
 </resources>

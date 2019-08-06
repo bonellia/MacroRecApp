@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="180dp"
+    android:background="@color/appMainBackground">
+
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/account_added"
+        android:textColor="#fff5f5"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_note"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/dialog_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:text="@string/new_sma_info"
+        android:textAlignment="center"
+        android:textColor="#909090"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_button_ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_title"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <Button
+        android:id="@+id/dialog_button_ok"
+        android:background="#ff770b2c"
+        android:text="@string/ok"
+        android:textColor="#ffffff"
+        android:textAllCaps="false"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.283"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_note"
+        app:layout_constraintWidth_percent="0.3"
+        android:layout_height="0dp"
+        android:layout_width="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

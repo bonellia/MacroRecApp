@@ -69,4 +69,10 @@ public class MyCloud extends AppCompatActivity {
         Intent intent = new Intent(context, PersonalInformation.class);
         startActivity(intent);
     }
+
+    public void onClickAccountSettings(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(context, AccountSettings.class);
+        startActivity(intent);
+    }
 }

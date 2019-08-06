@@ -2,6 +2,8 @@ package com.example.macrorecapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -9,6 +11,7 @@ import android.view.animation.AlphaAnimation;
 public class AccountSettings extends AppCompatActivity {
 
     AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +25,8 @@ public class AccountSettings extends AppCompatActivity {
     }
 
     public void goConnectSocialMedia(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(context, ConnectSocialMedia.class);
+        startActivity(intent);
     }
 }

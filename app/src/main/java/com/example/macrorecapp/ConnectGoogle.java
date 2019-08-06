@@ -1,43 +1,36 @@
 package com.example.macrorecapp;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
-import android.widget.Spinner;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class ConnectGoogle extends AppCompatActivity {
 
-public class GiveAdvice extends AppCompatActivity {
-
-    final Context context = this;
-    private Button giveAdviceButton;
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
-
-    Spinner giveAdviceSpinner;
-    String hintGiveAdviceSpinner = "Select Category";
-    String[] contextGiveAdviceSpinner = {"App Design", "Feature Request", "Miscellaneous"};
+    private Context context = this;
+    private Button connectButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_give_advice);
-        giveAdviceSpinner = findViewById(R.id.spinnerCategory);
-        giveAdviceSpinner.setAdapter(new CustomSpinnerAdapter(this, R.layout.spinner_layout, contextGiveAdviceSpinner, hintGiveAdviceSpinner));
+        setContentView(R.layout.activity_connect_google);
 
-        giveAdviceButton = findViewById(R.id.send_button);
-
-        // Add activity layout listener for "Give Advice" Button.
-        giveAdviceButton.setOnClickListener(new View.OnClickListener() {
+        connectButton = findViewById(R.id.connectButton);
+        // Add activity layout listener for "Connect" Button.
+        connectButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                giveAdviceButton.startAnimation(buttonClick);
+                connectButton.startAnimation(buttonClick);
                 // Set custom dialog view style.
                 final Dialog dialog = new Dialog(context);
-                dialog.setContentView(R.layout.dialog_give_advice);
+                dialog.setContentView(R.layout.dialog_sma_connected);
 
                 final Button dialogButton = dialog.findViewById(R.id.dialog_button_ok);
                 // Set dialog layout listener for "Okay" Button within dialog.
@@ -46,12 +39,15 @@ public class GiveAdvice extends AppCompatActivity {
                     public void onClick(View v) {
                         dialogButton.startAnimation(buttonClick);
                         dialog.dismiss();
+                        Intent intent = new Intent(context, AccountSettings.class);
+                        startActivity(intent);
                     }
                 });
 
                 dialog.show();
             }
         });
+
     }
 
     public void goBack(View view) {
@@ -59,4 +55,3 @@ public class GiveAdvice extends AppCompatActivity {
         finish();
     }
 }
-
