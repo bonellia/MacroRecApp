@@ -172,6 +172,8 @@
     <string name="proceed">Proceed</string>
     <string name="hamburger_cd">A button that opens navigation drawer.</string>
     <string name="back_button_cd">A button that goes back.</string>
+    <string name="proficiency">Proficiency</string>
+    <string name="dummy_name2">İbrahim Cömert</string>
 
 
 </resources>

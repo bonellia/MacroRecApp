@@ -219,7 +219,7 @@
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/my_presetsrmation"
+        app:layout_constraintBottom_toTopOf="@+id/personal_information"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.105"
@@ -231,7 +231,7 @@
 
 
     <Button
-        android:id="@+id/my_presetsrmation"
+        android:id="@+id/personal_information"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#232323"
@@ -267,7 +267,7 @@
         app:layout_constraintHeight_percent="0.105"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_presetsrmation"
+        app:layout_constraintTop_toBottomOf="@+id/personal_information"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="1"
         android:focusable="true" />
