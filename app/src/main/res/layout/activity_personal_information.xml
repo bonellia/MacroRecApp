@@ -42,27 +42,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/back_button_cd"
         android:focusable="true"
         android:onClick="goBack"
-        app:srcCompat="@drawable/back_ico"
         app:layout_constraintBottom_toTopOf="@+id/top_gradient"
         app:layout_constraintEnd_toEndOf="@+id/top_gradient"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="@+id/top_gradient"
         app:layout_constraintTop_toBottomOf="@+id/top_gradient"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/back_ico" />
 
     <ImageView
         android:id="@+id/hamburger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/side_menu_button"
+        android:contentDescription="@string/hamburger_cd"
         app:layout_constraintBottom_toTopOf="@+id/top_gradient"
         app:layout_constraintEnd_toEndOf="@+id/top_gradient"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="@+id/top_gradient"
         app:layout_constraintTop_toBottomOf="@+id/top_gradient"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/side_menu_button" />
 
 
     <Button
@@ -163,5 +165,127 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/editText3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText4"
+        app:layout_constraintEnd_toStartOf="@+id/editText4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="574dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/editText5"
+        tools:layout_editor_absoluteY="396dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/editText6"
+        tools:layout_editor_absoluteY="466dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/editText7"
+        tools:layout_editor_absoluteY="547dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintTop_toBottomOf="@+id/h_guideline2"
+        tools:layout_editor_absoluteX="157dp" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editText5"
+        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        tools:layout_editor_absoluteX="156dp" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editText8"
+        app:layout_constraintTop_toBottomOf="@+id/editText4"
+        tools:layout_editor_absoluteX="157dp" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/editText7"
+        app:layout_constraintTop_toBottomOf="@+id/editText8"
+        tools:layout_editor_absoluteX="155dp" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/editText6"
+        tools:layout_editor_absoluteX="150dp" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="420dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
