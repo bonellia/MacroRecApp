@@ -19,6 +19,7 @@ public class LoginWithFacebook extends AppCompatActivity {
     }
 
     public void cancelLogin(View view) {
+        view.startAnimation(buttonClick);
         finish();
     }
 

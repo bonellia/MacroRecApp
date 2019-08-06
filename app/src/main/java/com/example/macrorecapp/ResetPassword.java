@@ -49,6 +49,7 @@ public class ResetPassword extends AppCompatActivity {
     }
 
     public void goBack(View view) {
+        view.startAnimation(buttonClick);
         finish();
     }
 

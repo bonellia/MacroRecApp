@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appMainBackground"
+    tools:context=".AccountSettings">
+
+    <View
+        android:id="@+id/top_gradient"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradient"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.085"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+    <TextView
+        android:id="@+id/headline"
+        style="@style/text_settings_headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/give_advice"
+        app:layout_constraintBottom_toTopOf="@+id/top_gradient"
+        app:layout_constraintEnd_toStartOf="@+id/top_gradient"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/top_gradient" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="goBack"
+        app:srcCompat="@drawable/back_ico"
+        app:layout_constraintBottom_toTopOf="@+id/top_gradient"
+        app:layout_constraintEnd_toEndOf="@+id/top_gradient"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="@+id/top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/top_gradient"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ImageView
+        android:id="@+id/hamburger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/side_menu_button"
+        app:layout_constraintBottom_toTopOf="@+id/top_gradient"
+        app:layout_constraintEnd_toEndOf="@+id/top_gradient"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/top_gradient"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/add_photo_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#232323"
+        android:text="@string/add_photo"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline2"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/h_guideline1"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.24" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_name"
+        android:textColor="#fff5f5"
+        app:layout_constraintBottom_toTopOf="@id/h_guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline1"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <TextView
+        android:id="@+id/proficiency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profession"
+        android:textColor="#fff5f5"
+        app:layout_constraintBottom_toTopOf="@id/h_guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline1" />
+
+    <TextView
+        android:id="@+id/proStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pro_status"
+        android:textColor="#7d7d7d"
+        app:layout_constraintBottom_toTopOf="@id/h_guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline1"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <Button
+        android:id="@+id/go_pro"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#84152e"
+        android:text="@string/upgrade_to_pro"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.032"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/h_guideline1"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <Button
+        android:id="@+id/connectSMA"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#232323"
+        android:text="@string/connect_s_m_a"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:onClick="goConnectSocialMedia"
+        app:layout_constraintBottom_toTopOf="@+id/changeLII"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.105"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline2"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+    <Button
+        android:id="@+id/changeLII"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#232323"
+        android:textSize="18sp"
+        android:text="@string/change_l_i_i"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/privacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.105"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connectSMA"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+
+    <Button
+        android:id="@+id/privacy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#232323"
+        android:text="@string/privacy"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/h_guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.105"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeLII"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.085" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.71" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -89,6 +89,8 @@
         app:layout_constraintHeight_percent="0.06"
         android:background="@drawable/spinner"
         android:singleLine="true"
+        android:spinnerMode="dropdown"
+        android:dropDownVerticalOffset="36dp"
         android:popupBackground="@color/appMainBackground"
         app:layout_constraintBottom_toBottomOf="@+id/category_spinner_container"
         app:layout_constraintEnd_toEndOf="parent"
