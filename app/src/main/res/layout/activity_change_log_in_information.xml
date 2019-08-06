@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appMainBackground"
-    tools:context=".ForgotPassword">
+    tools:context=".ChangeLogInInformation">
 
     <TextView
-        android:id="@+id/disclaimer2"
+        android:id="@+id/currentEmail"
         style="@style/text_menu_capital"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recovery_warning"
+        android:text="@string/current_log_in"
         android:textAlignment="center"
         android:textColor="#777777"
         app:layout_constraintBottom_toTopOf="@+id/user_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/disclaimer" />
+        app:layout_constraintTop_toBottomOf="@+id/changeEmail" />
 
     <EditText
         android:id="@+id/user_email"
@@ -37,32 +37,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/disclaimer2"
+        app:layout_constraintTop_toBottomOf="@+id/currentEmail"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.8"
         tools:text="" />
+
+    <TextView
+        android:id="@+id/changePassword"
+        style="@style/headline_recovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_new_password"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/newPass1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline2" />
 
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/cd_back_button"
+        android:focusable="true"
         android:onClick="cancelActivity"
-        app:srcCompat="@drawable/back_ico"
         app:layout_constraintBottom_toTopOf="@+id/h_guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/cd_back_button"
-        android:focusable="true" />
+        app:srcCompat="@drawable/back_ico" />
 
     <TextView
         android:id="@+id/headline"
         style="@style/headline_recovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/password_recovery"
+        android:text="@string/change_l_i_i"
         app:layout_constraintBottom_toTopOf="@id/h_guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,30 +83,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ig_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/mail_mid"
-        app:layout_constraintBottom_toTopOf="@+id/disclaimer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/h_guideline1"
-        android:contentDescription="@string/cd_icon_mail" />
-
     <TextView
-        android:id="@+id/disclaimer"
+        android:id="@+id/changeEmail"
         style="@style/headline_recovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/type_e_mail"
+        android:text="@string/change_email"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/disclaimer2"
+        app:layout_constraintBottom_toTopOf="@+id/currentEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ig_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/h_guideline1" />
 
     <Button
         android:id="@+id/resetPassButton"
@@ -101,8 +102,8 @@
         android:layout_height="0dp"
         android:layout_alignParentTop="true"
         android:background="@drawable/gradient"
-        android:text="@string/reset_password"
-        android:onClick="onClickResetPassword"
+        android:onClick="onClickChangeInformation"
+        android:text="@string/change_information"
         android:textAllCaps="false"
         android:textColor="#ffffffff"
         android:textSize="18sp"
@@ -116,6 +117,58 @@
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="1" />
 
+    <EditText
+        android:id="@+id/newPass1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/password_literal"
+        android:textColorHint="#88FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/newPass2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePassword" />
+
+    <TextView
+        android:id="@+id/show_pass1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/show_pass"
+        android:textColor="#969696"
+        app:layout_constraintBottom_toTopOf="@+id/newPass1"
+        app:layout_constraintEnd_toEndOf="@+id/newPass1"
+        app:layout_constraintTop_toBottomOf="@+id/newPass1" />
+
+    <EditText
+        android:id="@+id/newPass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColorHint="#88FFFFFF"
+        android:hint="@string/re_type_password"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPass1" />
+
+    <TextView
+        android:id="@+id/show_pass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/show_pass"
+        android:textColor="#969696"
+        app:layout_constraintBottom_toTopOf="@+id/newPass2"
+        app:layout_constraintEnd_toEndOf="@+id/newPass2"
+        app:layout_constraintTop_toBottomOf="@+id/newPass2" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/h_guideline1"
         android:layout_width="wrap_content"
@@ -128,8 +181,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.39" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

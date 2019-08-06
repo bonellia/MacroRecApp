@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".ConnectInstagram"></activity>
+        <activity android:name=".LIIChangeVerification"></activity>
+        <activity android:name=".ChangeLogInInformation" />
+        <activity android:name=".Privacy" />
+        <activity android:name=".ConnectInstagram" />
         <activity android:name=".ConnectFacebook" />
         <activity android:name=".ConnectGoogle" />
         <activity android:name=".ConnectSocialMedia" />

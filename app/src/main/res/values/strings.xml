@@ -125,7 +125,7 @@
     <string name="wed_placeholder">14.08.2021</string>
     <string name="check_for_update">Check For Update</string>
     <string name="non_caps_report_bug">Report Bug</string>
-    <string name="ask_preset">Ask for preset selection at the beginning of each application.</string>
+    <string name="ask_preset">Ask for preset selection at the \n beginning of each application.</string>
     <string name="preset">Preset</string>
     <string name="stand_by_duration">Stand By Duration</string>
     <string name="min">min</string>
@@ -183,6 +183,17 @@
     <string name="logged_in_acc_info">You are currently logged in with \n altan.doyran@macrorec.com</string>
     <string name="account_added">Account successfully connected.</string>
     <string name="new_sma_info">You can use your new account while logged in.</string>
+    <string name="cd_icon_mail">An icon that resembles mail.</string>
+    <string name="show_acc_name">Show my account name on Lens Community.</string>
+    <string name="preset_visibility">Allow other users to see my presets.</string>
+    <string name="change_email">Change E-Mail</string>
+    <string name="current_log_in">You are currently logged in with \n altan.doyran@macrorec.com</string>
+    <string name="change_information">Change Information</string>
+    <string name="lii_change_verification">Log In Information \n Change Verification</string>
+    <string name="check_your_inbox_for_lii_change">Please check your inbox for log in information \n change verification.</string>
+    <string name="verify">Verify</string>
+    <string name="log_in_info_updated">Information Successfully Updated</string>
+    <string name="new_mail_pass_usable">You can use your new \n e-mail and password to log in.</string>
 
 
 </resources>

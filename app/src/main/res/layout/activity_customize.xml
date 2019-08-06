@@ -275,8 +275,8 @@
 
     <TextView
         android:id="@+id/presetSelection"
-        android:layout_width="193dp"
-        android:layout_height="42dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/ask_preset"
         android:textColor="#FFFFFFFF"
         android:textSize="12sp"

@@ -29,4 +29,16 @@ public class AccountSettings extends AppCompatActivity {
         Intent intent = new Intent(context, ConnectSocialMedia.class);
         startActivity(intent);
     }
+
+    public void onClickPrivacy(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(context, Privacy.class);
+        startActivity(intent);
+    }
+
+    public void onClickChangeLII(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(context, ChangeLogInInformation.class);
+        startActivity(intent);
+    }
 }
