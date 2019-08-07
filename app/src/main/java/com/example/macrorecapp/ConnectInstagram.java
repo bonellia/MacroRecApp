@@ -39,8 +39,6 @@ public class ConnectInstagram extends AppCompatActivity {
                     public void onClick(View v) {
                         dialogButton.startAnimation(buttonClick);
                         dialog.dismiss();
-                        Intent intent = new Intent(context, AccountSettings.class);
-                        startActivity(intent);
                     }
                 });
 

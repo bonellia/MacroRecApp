@@ -31,7 +31,6 @@ public class ConnectFacebook extends AppCompatActivity {
                 // Set custom dialog view style.
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.dialog_sma_connected);
-
                 final Button dialogButton = dialog.findViewById(R.id.dialog_button_ok);
                 // Set dialog layout listener for "Okay" Button within dialog.
                 dialogButton.setOnClickListener(new View.OnClickListener() {
@@ -39,8 +38,6 @@ public class ConnectFacebook extends AppCompatActivity {
                     public void onClick(View v) {
                         dialogButton.startAnimation(buttonClick);
                         dialog.dismiss();
-                        Intent intent = new Intent(context, AccountSettings.class);
-                        startActivity(intent);
                     }
                 });
 
