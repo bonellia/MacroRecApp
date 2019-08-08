@@ -111,12 +111,12 @@
         app:layout_constraintTop_toBottomOf="@+id/google_icon" />
 
     <Button
-        android:id="@+id/CreateAccountButton"
+        android:id="@+id/logInGoogle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_alignParentTop="true"
         android:background="@drawable/gradient"
-        android:onClick="openMainPage"
+        android:onClick="onClickGoogleLogin"
         android:text="@string/login"
         android:textAllCaps="false"
         android:textColor="#ffffffff"
