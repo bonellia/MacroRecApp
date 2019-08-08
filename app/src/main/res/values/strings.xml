@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Macro Rec</string>
+    <string name="facebook_app_id">367429084146442</string>
+    <string name="fb_login_protocol_scheme">fb367429084146442</string>
+
     <string name="login_email_default">E-Mail</string>
     <string name="login_password_default">Password</string>
     <string name="login">Log In</string>

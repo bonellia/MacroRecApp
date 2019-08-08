@@ -54,7 +54,7 @@ public class LoginWithGoogle extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            // Signed in successfully, show authenticated UI.
+            // Signed in successfully, show authenticated user's name.
             Toast toast= null;
             if (account != null) {
                 toast = Toast.makeText(getApplicationContext(),"CCC: " + account.getDisplayName(),Toast.LENGTH_SHORT);

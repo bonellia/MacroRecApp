@@ -28,6 +28,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // For Google Log In
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
-
+    // For Facebook Log In
+    implementation 'com.facebook.android:facebook-login:[5,6)'
 }
