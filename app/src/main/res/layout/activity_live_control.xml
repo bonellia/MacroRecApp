@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appMainBackground"
+    tools:context=".LiveControl">
+
+    <View
+        android:id="@+id/customize_top_gradient"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradient"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.085"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+    <TextView
+        android:id="@+id/customize_headline"
+        style="@style/text_settings_headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/live_control"
+        app:layout_constraintBottom_toTopOf="@+id/customize_top_gradient"
+        app:layout_constraintEnd_toStartOf="@+id/customize_top_gradient"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/customize_top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/customize_top_gradient" />
+
+    <ImageView
+        android:id="@+id/side_menu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/cd_hamburger"
+        app:layout_constraintBottom_toTopOf="@+id/customize_top_gradient"
+        app:layout_constraintEnd_toEndOf="@+id/customize_top_gradient"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/customize_top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/customize_top_gradient"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/side_menu_button" />
+
+    <ImageView
+        android:id="@+id/back_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/cd_back_button"
+        android:focusable="true"
+        android:onClick="goBack"
+        app:layout_constraintBottom_toTopOf="@+id/customize_top_gradient"
+        app:layout_constraintEnd_toEndOf="@+id/customize_top_gradient"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="@+id/customize_top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/customize_top_gradient"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/back_ico" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:JV_backgroundColor="#ff830b2c"
+        custom:JV_borderColor="#6f6f6f"
+        custom:JV_borderWidth="4dp"
+        custom:JV_buttonColor="#261d1d"
+        custom:JV_buttonSizeRatio="15%"
+        custom:JV_fixedCenter="false"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintHorizontal_bias="0.5"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

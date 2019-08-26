@@ -18,6 +18,9 @@ public class MainPage extends AppCompatActivity {
     }
 
     public void openLiveControl(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(this, LiveControl.class);
+        startActivity(intent);
     }
 
     public void openMotionControl(View view) {
