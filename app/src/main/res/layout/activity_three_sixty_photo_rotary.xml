@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appMainBackground"
+    tools:context=".ThreeSixtyPhotoRotary">
+
+    <View
+        android:id="@+id/top_gradient"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradient"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.085"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+    <TextView
+        android:id="@+id/headline"
+        style="@style/text_settings_headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/three_sixty_photo"
+        app:layout_constraintBottom_toTopOf="@+id/top_gradient"
+        app:layout_constraintEnd_toStartOf="@+id/top_gradient"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/top_gradient" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/back_button_cd"
+        android:focusable="true"
+        android:onClick="goBack"
+        app:layout_constraintBottom_toTopOf="@+id/top_gradient"
+        app:layout_constraintEnd_toStartOf="@+id/headline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/hamburger"
+        app:layout_constraintTop_toBottomOf="@+id/top_gradient"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/back_ico" />
+
+    <ImageView
+        android:id="@+id/hamburger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/hamburger_cd"
+        app:layout_constraintBottom_toTopOf="@+id/top_gradient"
+        app:layout_constraintEnd_toStartOf="@+id/back_button"
+        app:layout_constraintStart_toStartOf="@+id/top_gradient"
+        app:layout_constraintTop_toBottomOf="@+id/top_gradient"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/side_menu_button" />
+
+
+    <com.example.macrorecapp.SwagPoints
+        android:id="@+id/seekbar_point"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_gravity="center"
+        android:padding="64dp"
+        app:arcColor="@color/color_arc"
+        app:arcWidth="24dp"
+        app:indicatorIcon="@drawable/thumb_circular_seekbar"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_gradient"
+        app:max="360"
+        app:min="0"
+        app:progressColor="@color/color_progress"
+        app:progressWidth="24dp"
+        app:step="1"
+        app:textColor="#FFFFFFFF"
+        app:textSize="72sp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.085" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.650" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.755" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.855" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

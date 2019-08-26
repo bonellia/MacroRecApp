@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.macrorecapp">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
@@ -12,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".LiveControl"></activity>
+        <activity android:name=".ThreeSixtyPhotoRotary"></activity>
+        <activity android:name=".RotaryPhotoSettings" />
+        <activity android:name=".LiveControl" />
         <activity android:name=".LIIChangeVerification" />
         <activity android:name=".ChangeLogInInformation" />
         <activity android:name=".Privacy" />
@@ -48,11 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -71,8 +66,13 @@
         </activity>
 
         <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
             android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
             android:value="false" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

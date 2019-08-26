@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_arc">@android:color/white</color>
+    <color name="color_progress">#00FFFFFF</color>
+    <color name="color_text">@android:color/white</color>
+    <declare-styleable name="SwagPoints"><attr format="integer" name="points"/><attr format="integer" name="max"/><attr format="integer" name="min"/><attr format="integer" name="step"/><attr format="reference" name="indicatorIcon"/><attr format="dimension" name="progressWidth"/><attr format="color" name="progressColor"/><attr format="dimension" name="arcWidth"/><attr format="color" name="arcColor"/><attr format="dimension" name="textSize"/><attr format="color" name="textColor"/><attr format="boolean" name="clockwise"/><attr format="boolean" name="enabled"/></declare-styleable>
+
+</resources>

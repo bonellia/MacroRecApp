@@ -58,6 +58,7 @@ public class Settings extends AppCompatActivity {
     }
 
     public void goBack(View view)  {
+        view.startAnimation(buttonClick);
         finish();
     }
 }

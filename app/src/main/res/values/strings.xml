@@ -197,6 +197,9 @@
     <string name="verify">Verify</string>
     <string name="log_in_info_updated">Information Successfully Updated</string>
     <string name="new_mail_pass_usable">You can use your new \n e-mail and password to log in.</string>
+    <string name="rotary_photo">Rotary Photo</string>
+    <string name="three_sixty_mode">360\u00B0\n Mode</string>
+    <string name="three_sixty_photo">360\u00B0 Photo</string>
 
 
 </resources>

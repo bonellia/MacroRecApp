@@ -8,15 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 
-public class RotaryMode extends AppCompatActivity {
+public class RotaryPhotoSettings extends AppCompatActivity {
 
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
     private Context context = this;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rotary_mode);
+        setContentView(R.layout.activity_rotary_photo_settings);
     }
 
     public void goBack(View view) {
@@ -24,13 +25,9 @@ public class RotaryMode extends AppCompatActivity {
         finish();
     }
 
-    public void goRotaryVideo(View view) {
+    public void openThreeSixtyPhotoRotary(View view) {
         view.startAnimation(buttonClick);
-    }
-
-    public void goRotaryPhoto(View view) {
-        view.startAnimation(buttonClick);
-        Intent intent = new Intent(context, RotaryPhotoSettings.class);
+        Intent intent = new Intent(context, ThreeSixtyPhotoRotary.class);
         startActivity(intent);
     }
 }

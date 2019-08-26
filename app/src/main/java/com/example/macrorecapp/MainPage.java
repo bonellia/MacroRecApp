@@ -40,4 +40,10 @@ public class MainPage extends AppCompatActivity {
         Intent intent = new Intent(this, MyCloud.class);
         startActivity(intent);
     }
+
+    public void openRotary(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(this, RotaryMode.class);
+        startActivity(intent);
+    }
 }
