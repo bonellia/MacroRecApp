@@ -49,7 +49,7 @@
         app:srcCompat="@drawable/side_menu_button" />
 
     <ImageView
-        android:id="@+id/back_button3"
+        android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
