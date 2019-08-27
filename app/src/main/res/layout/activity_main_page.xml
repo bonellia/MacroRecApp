@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="openLiveControl"
+        android:onClick="openMotionControl"
         android:text="@string/motion_control"
         app:layout_constraintBottom_toBottomOf="@+id/motion_control_background"
         app:layout_constraintEnd_toStartOf="@+id/motion_control_background"

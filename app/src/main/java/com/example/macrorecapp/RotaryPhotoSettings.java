@@ -26,8 +26,5 @@ public class RotaryPhotoSettings extends AppCompatActivity {
     }
 
     public void openThreeSixtyPhotoRotary(View view) {
-        view.startAnimation(buttonClick);
-        Intent intent = new Intent(context, ThreeSixtyPhotoRotary.class);
-        startActivity(intent);
     }
 }

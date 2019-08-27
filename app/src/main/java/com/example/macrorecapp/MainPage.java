@@ -24,6 +24,9 @@ public class MainPage extends AppCompatActivity {
     }
 
     public void openMotionControl(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(this, MotionControl.class);
+        startActivity(intent);
     }
 
     public void openTimeLapse(View view) {

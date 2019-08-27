@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 
-public class ThreeSixtyPhotoRotary extends AppCompatActivity {
+public class MotionControl extends AppCompatActivity {
 
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
     private Context context = this;
@@ -16,7 +16,7 @@ public class ThreeSixtyPhotoRotary extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_three_sixty_photo_rotary);
+        setContentView(R.layout.activity_motion_control);
     }
 
     public void goBack(View view) {
