@@ -200,6 +200,8 @@
     <string name="rotary_photo">Rotary Photo</string>
     <string name="three_sixty_mode">360\u00B0\n Mode</string>
     <string name="three_sixty_photo">360\u00B0 Photo</string>
+    <string name="ccw">CCW</string>
+    <string name="cw">CW</string>
 
 
 </resources>

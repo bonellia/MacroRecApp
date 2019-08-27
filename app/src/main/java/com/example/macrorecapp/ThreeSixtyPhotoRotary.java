@@ -25,3 +25,4 @@ public class ThreeSixtyPhotoRotary extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
