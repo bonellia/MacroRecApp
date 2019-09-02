@@ -218,7 +218,7 @@
         android:padding="64dp"
         app:arcColor="@color/color_arc"
         app:arcWidth="24dp"
-        app:indicatorIcon="@drawable/thumb_circular_seekbar"
+        app:indicatorIcon="@drawable/ic_cam_start"
         app:layout_constraintBottom_toTopOf="@id/h_guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -408,23 +408,23 @@ public class SwagPoints extends View {
             }
         }
 
-        if (!isMax && !isMin) {
-            progress = (progress > mMax) ? mMax : progress;
-            progress = (progress < mMin) ? mMin : progress;
 
-            if (mOnSwagPointsChangeListener != null) {
-                progress = progress - (progress % mStep);
+        progress = (progress > mMax) ? mMax : progress;
+        progress = (progress < mMin) ? mMin : progress;
 
-                mOnSwagPointsChangeListener
-                        .onPointsChanged(this, progress, fromUser);
-            }
+        if (mOnSwagPointsChangeListener != null) {
+            progress = progress - (progress % mStep);
 
-            mProgressSweep = (float) progress / valuePerDegree();
+            mOnSwagPointsChangeListener
+                    .onPointsChanged(this, progress, fromUser);
+        }
+
+        mProgressSweep = (float) progress / valuePerDegree();
 //			if (mPreviousProgress != mCurrentProgress)
 //				System.out.printf("-- %d, %d, %f\n", progress, mPoints, mProgressSweep);
-            updateIndicatorIconPosition();
-            invalidate();
-        }
+        updateIndicatorIconPosition();
+        invalidate();
+
     }
 
     public interface OnSwagPointsChangeListener {

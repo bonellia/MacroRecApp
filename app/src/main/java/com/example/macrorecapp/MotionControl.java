@@ -21,8 +21,7 @@ public class MotionControl extends AppCompatActivity {
 
     public void goBack(View view) {
         view.startAnimation(buttonClick);
-        Intent intent = new Intent(context, AccountSettings.class);
-        startActivity(intent);
+        finish();
     }
 }
 
