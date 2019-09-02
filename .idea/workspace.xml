@@ -19,7 +19,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Firebase" />
   </component>
   <component name="AvailableLibraryUpdateStorage">
@@ -71,14 +71,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf156455-94fb-49c1-b4fb-9c3891611c0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/CircleAlarmTimerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/RotaryPhotoSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/RotaryPhotoSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/ThreeSixtyPhotoRotary.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MotionControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_three_sixty_photo_rotary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_motion_control.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +89,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ZY223CJCVL" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -109,14 +109,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_motion_control.xml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/RotaryPhotoSettings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="206" column="39" lean-forward="true" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
+            <state relative-caret-position="195">
+              <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+              <folding>
+                <element signature="e#1300#1322#0" expanded="true" />
+                <element signature="e#1842#1866#0" expanded="true" />
+                <element signature="e#2502#2524#0" expanded="true" />
+                <element signature="e#3735#3761#0" expanded="true" />
+              </folding>
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/CircleAlarmTimerView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="217" column="22" lean-forward="true" selection-start-line="217" selection-start-column="22" selection-end-line="217" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3123#3124#0" expanded="true" />
+                <element signature="e#3162#3163#0" expanded="true" />
+                <element signature="e#3214#3215#0" expanded="true" />
+                <element signature="e#3249#3250#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -125,16 +156,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile_vertical" />
-        <option value="Class" />
         <option value="valueResourceFile" />
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@+id/editText5</find>
-      <find>@+id/textView6</find>
       <find>@+id/editText8</find>
       <find>@+id/textView7</find>
       <find>@+id/editText6</find>
@@ -158,11 +187,13 @@
       <find>@+id/disclaimer</find>
       <find>@+id/changeEmail2</find>
       <find>@+id/CreateAccountButton</find>
-      <find>drawCirc</find>
       <find>Swa</find>
       <find>draw</find>
       <find>onDraw</find>
       <find>percent</find>
+      <find>arc</find>
+      <find>drawA</find>
+      <find>drawCirc</find>
     </findStrings>
     <replaceStrings>
       <replace>@+id/dialog_note1</replace>
@@ -209,10 +240,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_give_advice.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/ConnectSocialMedia.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_connect_social_media.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_sma_connected.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/GiveAdvice.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_connect_google.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_connect_facebook.xml" />
@@ -246,7 +273,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/thumb_circular_seekbar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/CustomCircularSeekbar.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/values.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/ThreeSixtyPhotoRotary.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/SwagPoints.java" />
@@ -257,9 +283,14 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_page.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/MainPage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/RotaryPhotoSettings.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_motion_control.xml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/ArcSeekbar.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/RotaryPhotoSettings.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/ArcSeekBar.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/CircleAlarmTimerView.java" />
       </list>
     </option>
   </component>
@@ -275,7 +306,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -326,11 +357,20 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MacroRecApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MacroRecApp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="values" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -454,14 +494,22 @@
       <option name="project" value="LOCAL" />
       <updated>1565265386296</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update Motion Control layout">
+      <created>1566922070816</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566922070816</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="826" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.21816881" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.17811158" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -470,21 +518,21 @@
       <window_info id="Resources Explorer" order="7" weight="0.3297568" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32937366" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993565" weight="0.6010929" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993565" weight="0.60081744" />
       <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3650108" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.4993565" visible="true" weight="0.4945504" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3637602" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993565" weight="0.4945504" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.502574" side_tool="true" weight="0.3010899" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32561308" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.497426" weight="0.16485013" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.497426" weight="0.16212533" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.8013029" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.29291552" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.32947233" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" visible="true" weight="0.34477827" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.34477827" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info active="true" anchor="right" id="Assistant" order="6" visible="true" weight="0.3298744" />
     </layout>
@@ -521,50 +569,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add Google Log In functionality." />
     <MESSAGE value="Add Facebook Log In functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Facebook Log In functionality." />
+    <MESSAGE value="Update Motion Control layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Motion Control layout" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_with_google.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="118" column="43" selection-start-line="118" selection-start-column="43" selection-end-line="118" selection-end-column="43" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithGoogle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="62" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/LoginWithFacebook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="64" column="43" lean-forward="true" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/BugView.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_device_dc.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_my_cloud.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="207" column="47" selection-start-line="207" selection-start-column="47" selection-end-line="207" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-designer2" />
@@ -722,21 +730,7 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="201" column="61" selection-start-line="201" selection-start-column="61" selection-end-line="201" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/593d13fcc9ce792cccc10455eb576a8e/jetified-swagpoints-1.0.2/res/drawable-hdpi-v4/indicator.png" />
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -852,21 +846,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/RotaryPhotoSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="77" column="37" lean-forward="true" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -875,13 +854,103 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="190" column="68" selection-start-line="190" selection-start-column="68" selection-end-line="190" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_motion_control.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="206" column="39" lean-forward="true" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
+        <state relative-caret-position="227">
+          <caret line="210" column="52" selection-start-line="210" selection-start-column="52" selection-end-line="210" selection-end-column="52" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/RotaryPhotoSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-29/android.jar!/android/graphics/RectF.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63b85090476d8c6b790b659ba55ac954/jetified-CircleSeekbar-v1.1.2/jars/classes.jar!/io/feeeei/circleseekbar/CircleSeekBar.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="215" column="30" lean-forward="true" selection-start-line="215" selection-start-column="30" selection-end-line="215" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/ArcSeekBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="20" selection-end-line="425" selection-end-column="1" />
+          <folding>
+            <element signature="e#3123#3124#0" expanded="true" />
+            <element signature="e#3162#3163#0" expanded="true" />
+            <element signature="e#3214#3215#0" expanded="true" />
+            <element signature="e#3249#3250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+          <folding>
+            <element signature="e#1300#1322#0" expanded="true" />
+            <element signature="e#1842#1866#0" expanded="true" />
+            <element signature="e#2502#2524#0" expanded="true" />
+            <element signature="e#3735#3761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-29/android.jar!/android/graphics/Canvas.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="319" column="16" selection-start-line="319" selection-start-column="16" selection-end-line="319" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/CircleAlarmTimerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="217" column="22" lean-forward="true" selection-start-line="217" selection-start-column="22" selection-end-line="217" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3123#3124#0" expanded="true" />
+            <element signature="e#3162#3163#0" expanded="true" />
+            <element signature="e#3214#3215#0" expanded="true" />
+            <element signature="e#3249#3250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

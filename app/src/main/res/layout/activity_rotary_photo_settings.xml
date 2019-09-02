@@ -63,8 +63,18 @@
         app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/side_menu_button" />
 
+    <com.example.macrorecapp.CircleAlarmTimerView
+        android:id="@+id/seekbar"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_guideline1"
+        app:layout_constraintBottom_toTopOf="@id/h_guideline2"
+        />
+
     <Button
-        android:id="@+id/report_bug_background"
+        android:id="@+id/threeSixtyModeBackground"
         android:layout_width="0dp"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.25"

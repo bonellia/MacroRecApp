@@ -31,8 +31,10 @@ dependencies {
     // For Google Log In
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     // For Facebook Log In
-    implementation 'com.facebook.android:facebook-login:[5,6)'
+    implementation 'com.facebook.android:facebook-login:5.4.0'
     // For Virtual Joystick Widget
     implementation 'io.github.controlwear:virtualjoystick:1.9.2'
+    // For Custom Arc Seekbar
+    implementation 'com.github.feeeei:CircleSeekbar:v1.1.2'
 
 }
