@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 
-public class CircleAlarmTimerView extends View {
+public class CustomArcSeekbar extends View {
     private static final String TAG = "CircleTimerView";
 
     // Status
@@ -84,16 +84,16 @@ public class CircleAlarmTimerView extends View {
 
     private OnTimeChangedListener mListener;
 
-    public CircleAlarmTimerView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomArcSeekbar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize();
     }
 
-    public CircleAlarmTimerView(Context context, AttributeSet attrs) {
+    public CustomArcSeekbar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleAlarmTimerView(Context context) {
+    public CustomArcSeekbar(Context context) {
         this(context, null);
     }
 
