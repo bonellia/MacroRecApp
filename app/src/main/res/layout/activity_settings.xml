@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/appMainBackground"
     android:theme="@android:style/Theme.Black.NoTitleBar"
-    tools:context=".Settings">
+    tools:context=".settings.Settings">
 
     <View
         android:id="@+id/settings_top_gradient"

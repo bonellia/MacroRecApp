@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appMainBackground"
-    tools:context=".RotaryPhotoSettings">
+    tools:context=".features.rotary.RotaryPhotoSettings">
 
     <View
         android:id="@+id/top_gradient"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/side_menu_button" />
 
-    <com.example.macrorecapp.CustomArcSeekbar
+    <com.example.macrorecapp.features.shared.views.ArcSeekbar
         android:id="@+id/seekbar"
         android:layout_width="270dp"
         android:layout_height="270dp"

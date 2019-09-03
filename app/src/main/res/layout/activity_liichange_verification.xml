@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appMainBackground"
-    tools:context=".LIIChangeVerification">
+    tools:context=".features.cloud.accountsettings.LIIChangeVerification">
 
     <ImageView
         android:id="@+id/backButton"

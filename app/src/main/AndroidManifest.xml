@@ -10,41 +10,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".MotionControl"/>
-        <activity android:name=".RotaryPhotoSettings" />
-        <activity android:name=".LiveControl" />
-        <activity android:name=".LIIChangeVerification" />
-        <activity android:name=".ChangeLogInInformation" />
-        <activity android:name=".Privacy" />
-        <activity android:name=".ConnectInstagram" />
-        <activity android:name=".ConnectFacebook" />
-        <activity android:name=".ConnectGoogle" />
-        <activity android:name=".ConnectSocialMedia" />
-        <activity android:name=".AccountSettings" />
-        <activity android:name=".RotaryVideoSettings" />
-        <activity android:name=".RotaryMode" />
-        <activity android:name=".AccountVerification" />
-        <activity android:name=".PersonalInformation" />
-        <activity android:name=".ContactRequest" />
-        <activity android:name=".ReportBug" />
-        <activity android:name=".GiveAdvice" />
-        <activity android:name=".Customize" />
-        <activity android:name=".DeviceControl" />
-        <activity android:name=".ResetPassword" />
-        <activity android:name=".LandingPage" />
-        <activity android:name=".MyCloud" />
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".MainPage" />
-        <activity android:name=".Settings" />
+        <activity android:name=".features.motioncontrol.MotionControl"/>
+        <activity android:name=".features.rotary.RotaryPhotoSettings" />
+        <activity android:name=".features.livecontrol.LiveControl" />
+        <activity android:name=".features.cloud.accountsettings.LIIChangeVerification" />
+        <activity android:name=".features.cloud.accountsettings.ChangeLogInInformation" />
+        <activity android:name=".features.cloud.Privacy" />
+        <activity android:name=".features.cloud.accountsettings.ConnectInstagram" />
+        <activity android:name=".features.cloud.accountsettings.ConnectFacebook" />
+        <activity android:name=".features.cloud.accountsettings.ConnectGoogle" />
+        <activity android:name=".features.cloud.accountsettings.ConnectSocialMedia" />
+        <activity android:name=".features.cloud.AccountSettings" />
+        <activity android:name=".features.rotary.RotaryVideoSettings" />
+        <activity android:name=".features.rotary.RotaryMode" />
+        <activity android:name=".features.authentication.AccountVerification" />
+        <activity android:name=".features.cloud.PersonalInformation" />
+        <activity android:name=".settings.ContactRequest" />
+        <activity android:name=".settings.ReportBug" />
+        <activity android:name=".settings.GiveAdvice" />
+        <activity android:name=".settings.Customize" />
+        <activity android:name=".settings.DeviceControl" />
+        <activity android:name=".features.authentication.ResetPassword" />
+        <activity android:name=".features.cloud.MyCloud" />
+        <activity android:name=".features.authentication.ForgotPassword" />
+        <activity android:name=".features.MainPage" />
+        <activity android:name=".settings.Settings" />
         <activity android:name=".SearchDevice" />
-        <activity android:name=".LoginWithInstagram" />
-        <activity android:name=".LoginWithFacebook" />
-        <activity android:name=".LoginWithGoogle" />
-        <activity android:name=".CreateAccount" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".features.authentication.login.LoginWithInstagram" />
+        <activity android:name=".features.authentication.login.LoginWithFacebook" />
+        <activity android:name=".features.authentication.login.LoginWithGoogle" />
+        <activity android:name=".features.authentication.register.CreateAccount" />
+        <activity android:name=".features.authentication.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -57,10 +55,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>

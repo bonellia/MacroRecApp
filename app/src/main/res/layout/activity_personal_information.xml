@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:background="@color/appMainBackground"
-    tools:context=".PersonalInformation">
+    tools:context=".features.cloud.PersonalInformation">
 
     <View
         android:id="@+id/top_gradient"

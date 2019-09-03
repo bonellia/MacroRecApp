@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appMainBackground"
-    tools:context=".LiveControl">
+    tools:context=".features.livecontrol.LiveControl">
 
     <View
         android:id="@+id/customize_top_gradient"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appMainBackground"
-    tools:context=".ChangeLogInInformation">
+    tools:context=".features.cloud.accountsettings.ChangeLogInInformation">
 
     <TextView
         android:id="@+id/currentEmail"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appMainBackground"
-    tools:context=".ConnectInstagram">
+    tools:context=".features.cloud.accountsettings.ConnectInstagram">
 
     <EditText
         android:id="@+id/username"
