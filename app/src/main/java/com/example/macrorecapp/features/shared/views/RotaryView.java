@@ -38,12 +38,12 @@ public class RotaryView extends View {
 
     // Default color
     private static final int DEFAULT_CIRCLE_COLOR = 0xFFE9E2D9;
-    private static final int DEFAULT_CIRCLE_BUTTON_COLOR = 0xFFFFFFFF;
+    private static final int DEFAULT_CIRCLE_BUTTON_COLOR = 0x00FFFFFF;
     private static final int DEFAULT_LINE_COLOR = 0xFFB7072D;
     private static final int DEFAULT_HIGHLIGHT_LINE_COLOR = 0xFF68C5D7;
-    private static final int DEFAULT_NUMBER_COLOR = 0xFF181318;
+    private static final int DEFAULT_NUMBER_COLOR = 0xFF6E6E6E;
     private static final int DEFAULT_TIMER_NUMBER_COLOR = 0xFFFFFFFF;
-    private static final int DEFAULT_TIMER_COLON_COLOR = 0xFFFA7777;
+    private static final int DEFAULT_TIMER_COLON_COLOR = 0x00FA7777;
     private static final int DEFAULT_TIMER_TEXT_COLOR = 0x99F0F9FF;
 
     // Paint
@@ -129,8 +129,7 @@ public class RotaryView extends View {
                 .getResources().getDisplayMetrics());
         mTimerTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TIMER_TEXT_SIZE, getContext()
                 .getResources().getDisplayMetrics());
-        mClockwise = a.getBoolean(R.styleable.RotaryView_isClockwise,
-                mClockwise);
+        mClockwise = a.getBoolean(R.styleable.RotaryView_isClockwise, mClockwise);
 
         // Set default color or read xml attributes
         mCircleColor = DEFAULT_CIRCLE_COLOR;
@@ -155,6 +154,8 @@ public class RotaryView extends View {
         mCirclePaint.setColor(mCircleColor);
         mCirclePaint.setStyle(Paint.Style.STROKE);
         mCirclePaint.setStrokeWidth(mCircleStrokeWidth);
+        DashPathEffect dashPath1 = new DashPathEffect(new float[]{10,10}, (float)1.0);
+        mCirclePaint.setPathEffect(dashPath1);
 
         // CircleButtonPaint
         mCircleButtonPaint.setColor(mCircleButtonColor);
@@ -165,8 +166,7 @@ public class RotaryView extends View {
         mLinePaint.setColor(mLineColor);
         mLinePaint.setStrokeWidth(mCircleButtonRadius * 2 + 8);
         mLinePaint.setStyle(Paint.Style.STROKE);
-        DashPathEffect dashPath = new DashPathEffect(new float[]{10,10}, (float)1.0);
-        mLinePaint.setPathEffect(dashPath);
+
 
         // HighlightLinePaint
         mHighlightLinePaint.setColor(mHighlightLineColor);
@@ -178,6 +178,8 @@ public class RotaryView extends View {
         mNumberPaint.setTextAlign(Paint.Align.CENTER);
         mNumberPaint.setStyle(Paint.Style.STROKE);
         mNumberPaint.setStrokeWidth(mCircleButtonRadius * 2 + 8);
+        DashPathEffect dashPath2 = new DashPathEffect(new float[]{10,10}, (float)1.0);
+        mNumberPaint.setPathEffect(dashPath2);
 
         // TimerNumberPaint
         mTimerNumberPaint.setColor(mTimerNumberColor);
@@ -194,8 +196,8 @@ public class RotaryView extends View {
         mTimerColonPaint.setTextAlign(Paint.Align.CENTER);
         mTimerColonPaint.setTextSize(mTimerNumberSize);
 
-        bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
-        bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
+        bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
+        bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
 
         // Solve the target version related to shadow
         // setLayerType(View.LAYER_TYPE_SOFTWARE, null); // use this, when targetSdkVersion is greater than or equal to api 14
@@ -204,71 +206,61 @@ public class RotaryView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 
+
+        Log.i(TAG,"Drawing...");
         canvas.save();
 
         canvas.drawCircle(mCx, mCy, mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine, mNumberPaint);
         canvas.save();
         canvas.rotate(-90, mCx, mCy);
-        RectF rect = new RectF(mCx - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
-        ), mCy - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
-        ), mCx + (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
-        ), mCy + (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
-        ));
-
-        if (mCurrentCamFinishRadian > mCurrentCamStartRadian) {
-            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentCamFinishRadian), (float) Math.toDegrees(2 * (float) Math.PI) - (float) Math.toDegrees(mCurrentCamFinishRadian) + (float) Math.toDegrees(mCurrentCamStartRadian), false, mLinePaint);
-        } else {
-            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentCamFinishRadian), (float) Math.toDegrees(mCurrentCamStartRadian) - (float) Math.toDegrees(mCurrentCamFinishRadian), false, mLinePaint);
-        }
+//        RectF rect = new RectF(mCx - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
+//        ), mCy - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
+//        ), mCx + (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
+//        ), mCy + (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
+//        ));
+//
+//        if (mCurrentCamFinishRadian > mCurrentCamStartRadian) {
+//            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentCamFinishRadian), (float) Math.toDegrees(2 * (float) Math.PI) - (float) Math.toDegrees(mCurrentCamFinishRadian) + (float) Math.toDegrees(mCurrentCamStartRadian), false, mLinePaint);
+//        } else {
+//            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentCamFinishRadian), (float) Math.toDegrees(mCurrentCamStartRadian) - (float) Math.toDegrees(mCurrentCamFinishRadian), false, mLinePaint);
+//        }
         canvas.restore();
         canvas.save();
 
-        canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-        canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, 0.01f, mLinePaint);
-        canvas.restore();
-        // TimerNumber
-        canvas.save();
-        canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-        canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, 0.01f, mLinePaint);
-        canvas.restore();
-        // TimerNumber
-        canvas.save();
+
 
 
         if (ismInCamStartThumb) {
             canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-            canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
-            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapStartCam.getHeight()/2, null);
+            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
             canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-            canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mTimerColonPaint);
-            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapFinishCam.getHeight()/2, null);
+            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
         } else {
             canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-            canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mTimerColonPaint);
-            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapStartCam.getHeight()/2,  null);
+            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2,  null);
             canvas.restore();
             // TimerNumber
             canvas.save();
             canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-            canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
-            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapFinishCam.getHeight()/2, null);
+            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
         }
-        int x = (camFinishDegree-camStartDegree) / 10;
+        int x = (camStartDegree-camFinishDegree) / 10;
         int i;
-        if (mClockwise){
-            i = x<0 ? -x : x;
+        if (!mClockwise){
+            i = x<0 ? -x : 360-x;
         }
         else{
-            i = x<0 ? -x : 360-x;
+            i = x>0 ? 360-x : -x;
+            i = 360 - i;
         }
 
         canvas.drawText((i) + "" + (char) 0x00B0, mCx, mCy + getFontHeight(mTimerNumberPaint) / 2, mTimerNumberPaint);
@@ -356,7 +348,7 @@ public class RotaryView extends View {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
         float x2 = (float) (mCx + r * Math.sin(mCurrentCamFinishRadian));
         float y2 = (float) (mCy - r * Math.cos(mCurrentCamFinishRadian));
-        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius) {
+        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius*7) {
             return true;
         }
         return false;
@@ -367,7 +359,7 @@ public class RotaryView extends View {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
         float x2 = (float) (mCx + r * Math.sin(mCurrentCamStartRadian));
         float y2 = (float) (mCy - r * Math.cos(mCurrentCamStartRadian));
-        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius) {
+        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius*7) {
             return true;
         }
         return false;

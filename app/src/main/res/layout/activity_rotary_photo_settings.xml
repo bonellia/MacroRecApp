@@ -67,7 +67,7 @@
         android:id="@+id/seekbar"
         android:layout_width="270dp"
         android:layout_height="270dp"
-        app:isClockwise="true"
+        app:isClockwise="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/h_guideline1"
