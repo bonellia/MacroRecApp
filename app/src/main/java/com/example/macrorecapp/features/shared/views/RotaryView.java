@@ -1,7 +1,11 @@
 package com.example.macrorecapp.features.shared.views;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -13,9 +17,11 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.macrorecapp.R;
 
-public class ArcSeekbar extends View {
-    private static final String TAG = "CircleTimerView";
+
+public class RotaryView extends View {
+    private static final String TAG = "RotaryView";
 
     // Status
     private static final String INSTANCE_STATUS = "instance_status";
@@ -72,32 +78,41 @@ public class ArcSeekbar extends View {
     private float mCx;
     private float mCy;
     private float mRadius;
-    private float mCurrentRadian;
-    private float mCurrentRadian1;
-    private float mCurrentRadian2;
+    private float mCurrentCamStartRadian;
+    private float mCurrentCamFinishRadian;
     private float mPreRadian;
-    private boolean mInCircleButton;
-    private boolean mInCircleButton1;
-    private boolean mInCircleButton2;
-    private boolean ismInCircleButton;
+    private boolean mInCamStartThumb;
+    private boolean mInCamFinishThumb;
+    private int camStartDegree;
+    private int camFinishDegree;
+    private boolean ismInCamStartThumb;
     private int mCurrentTime; // seconds
+    private boolean mClockwise;
 
     private OnTimeChangedListener mListener;
 
-    public ArcSeekbar(Context context, AttributeSet attrs, int defStyleAttr) {
+    Bitmap bitmapStartCam;
+    Bitmap bitmapFinishCam;
+
+    public RotaryView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialize();
+        initialize(context, attrs);
     }
 
-    public ArcSeekbar(Context context, AttributeSet attrs) {
+    public RotaryView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ArcSeekbar(Context context) {
+    public RotaryView(Context context) {
         this(context, null);
     }
 
-    private void initialize() {
+    private void initialize(Context context, AttributeSet attrs) {
+
+        // Attribute initialization
+        final TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.RotaryView, 0, 0);
+
         Log.d(TAG, "initialize");
         // Set default dimension or read xml attributes
         mGapBetweenCircleAndLine = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE,
@@ -114,6 +129,8 @@ public class ArcSeekbar extends View {
                 .getResources().getDisplayMetrics());
         mTimerTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TIMER_TEXT_SIZE, getContext()
                 .getResources().getDisplayMetrics());
+        mClockwise = a.getBoolean(R.styleable.RotaryView_isClockwise,
+                mClockwise);
 
         // Set default color or read xml attributes
         mCircleColor = DEFAULT_CIRCLE_COLOR;
@@ -148,6 +165,8 @@ public class ArcSeekbar extends View {
         mLinePaint.setColor(mLineColor);
         mLinePaint.setStrokeWidth(mCircleButtonRadius * 2 + 8);
         mLinePaint.setStyle(Paint.Style.STROKE);
+        DashPathEffect dashPath = new DashPathEffect(new float[]{10,10}, (float)1.0);
+        mLinePaint.setPathEffect(dashPath);
 
         // HighlightLinePaint
         mHighlightLinePaint.setColor(mHighlightLineColor);
@@ -175,6 +194,9 @@ public class ArcSeekbar extends View {
         mTimerColonPaint.setTextAlign(Paint.Align.CENTER);
         mTimerColonPaint.setTextSize(mTimerNumberSize);
 
+        bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
+        bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
+
         // Solve the target version related to shadow
         // setLayerType(View.LAYER_TYPE_SOFTWARE, null); // use this, when targetSdkVersion is greater than or equal to api 14
     }
@@ -186,79 +208,70 @@ public class ArcSeekbar extends View {
 
         canvas.drawCircle(mCx, mCy, mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine, mNumberPaint);
         canvas.save();
-        canvas.rotate(-180, mCx, mCy);
+        canvas.rotate(-90, mCx, mCy);
         RectF rect = new RectF(mCx - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
         ), mCy - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
         ), mCx + (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
         ), mCy + (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
         ));
 
-        if (mCurrentRadian1 > mCurrentRadian) {
-            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentRadian1), (float) Math.toDegrees(2 * (float) Math.PI) - (float) Math.toDegrees(mCurrentRadian1) + (float) Math.toDegrees(mCurrentRadian), false, mLinePaint);
+        if (mCurrentCamFinishRadian > mCurrentCamStartRadian) {
+            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentCamFinishRadian), (float) Math.toDegrees(2 * (float) Math.PI) - (float) Math.toDegrees(mCurrentCamFinishRadian) + (float) Math.toDegrees(mCurrentCamStartRadian), false, mLinePaint);
         } else {
-            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentRadian1), (float) Math.toDegrees(mCurrentRadian) - (float) Math.toDegrees(mCurrentRadian1), false, mLinePaint);
+            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentCamFinishRadian), (float) Math.toDegrees(mCurrentCamStartRadian) - (float) Math.toDegrees(mCurrentCamFinishRadian), false, mLinePaint);
         }
         canvas.restore();
         canvas.save();
 
-        canvas.rotate((float) Math.toDegrees(mCurrentRadian), mCx, mCy);
+        canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
         canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, 0.01f, mLinePaint);
         canvas.restore();
         // TimerNumber
         canvas.save();
-        canvas.rotate((float) Math.toDegrees(mCurrentRadian1), mCx, mCy);
-        canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, 0.01f, mLinePaint);
-        canvas.restore();
-        // TimerNumber
-        canvas.save();
-        canvas.rotate((float) Math.toDegrees(mCurrentRadian2), mCx, mCy);
+        canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
         canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, 0.01f, mLinePaint);
         canvas.restore();
         // TimerNumber
         canvas.save();
 
 
-        if (ismInCircleButton) {
-            canvas.rotate((float) Math.toDegrees(mCurrentRadian), mCx, mCy);
+        if (ismInCamStartThumb) {
+            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
+            canvas.drawBitmap(bitmapStartCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
-            canvas.rotate((float) Math.toDegrees(mCurrentRadian1), mCx, mCy);
+            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mTimerColonPaint);
-            canvas.restore();
-            // TimerNumber
-            canvas.save();
-            canvas.rotate((float) Math.toDegrees(mCurrentRadian2), mCx, mCy);
-            canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
+            canvas.drawBitmap(bitmapFinishCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
         } else {
-            canvas.rotate((float) Math.toDegrees(mCurrentRadian), mCx, mCy);
+            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mTimerColonPaint);
+            canvas.drawBitmap(bitmapStartCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
-            canvas.rotate((float) Math.toDegrees(mCurrentRadian1), mCx, mCy);
+            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
-            canvas.restore();
-            // TimerNumber
-            canvas.save();
-            canvas.rotate((float) Math.toDegrees(mCurrentRadian2), mCx, mCy);
-            canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
+            canvas.drawBitmap(bitmapFinishCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
         }
-        int i = mCurrentTime / 10;
-        canvas.drawText((i) + " ", mCx, mCy + getFontHeight(mTimerNumberPaint) / 2, mTimerNumberPaint);
-        //canvas.drawText(":", mCx, mCy + getFontHeight(mTimerNumberPaint) / 2, mTimerColonPaint);
+        int x = (camFinishDegree-camStartDegree) / 10;
+        int i;
+        if (mClockwise){
+            i = x<0 ? -x : x;
+        }
+        else{
+            i = x<0 ? -x : 360-x;
+        }
 
-
-        canvas.restore();
-        // Timer Text
-        canvas.save();
+        canvas.drawText((i) + "" + (char) 0x00B0, mCx, mCy + getFontHeight(mTimerNumberPaint) / 2, mTimerNumberPaint);
         canvas.restore();
         super.onDraw(canvas);
     }
@@ -276,82 +289,62 @@ public class ArcSeekbar extends View {
         switch (event.getAction() & event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
                 // If the point in the circle button
-                if (mInCircleButton(event.getX(), event.getY()) && isEnabled()) {
-                    mInCircleButton = true;
-                    ismInCircleButton = false;
+                if (mInCamStartThumb(event.getX(), event.getY()) && isEnabled()) {
+                    mInCamStartThumb = true;
+                    ismInCamStartThumb = false;
                     mPreRadian = getRadian(event.getX(), event.getY());
-                    Log.d(TAG, "In circle button");
-                } else if (mInCircleButton1(event.getX(), event.getY()) && isEnabled()) {
-                    mInCircleButton1 = true;
-                    ismInCircleButton = true;
+                    Log.d(TAG, "Motion in camera start.");
+                } else if (mInCamFinishThumb(event.getX(), event.getY()) && isEnabled()) {
+                    mInCamFinishThumb = true;
+                    ismInCamStartThumb = true;
                     mPreRadian = getRadian(event.getX(), event.getY());
-                } else if (mInCircleButton2(event.getX(), event.getY()) && isEnabled()) {
-                    mInCircleButton2 = true;
-                    ismInCircleButton = true;
-                    mPreRadian = getRadian(event.getX(), event.getY());
+                    Log.d(TAG, "Motion in camera finish.");
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (mInCircleButton && isEnabled()) {
+                if (mInCamStartThumb && isEnabled()) {
                     float temp = getRadian(event.getX(), event.getY());
                     if (mPreRadian > Math.toRadians(270) && temp < Math.toRadians(90)) {
                         mPreRadian -= 2 * Math.PI;
                     } else if (mPreRadian < Math.toRadians(90) && temp > Math.toRadians(270)) {
                         mPreRadian = (float) (temp + (temp - 2 * Math.PI) - mPreRadian);
                     }
-                    mCurrentRadian += (temp - mPreRadian);
+                    mCurrentCamStartRadian += (temp - mPreRadian);
                     mPreRadian = temp;
-                    if (mCurrentRadian > 2 * Math.PI) {
-                        mCurrentRadian -= (float) (2 * Math.PI);
+                    if (mCurrentCamStartRadian > 2 * Math.PI) {
+                        mCurrentCamStartRadian -= (float) (2 * Math.PI);
                     }
-                    if (mCurrentRadian < 0) {
-                        mCurrentRadian += (float) (2 * Math.PI);
+                    if (mCurrentCamStartRadian < 0) {
+                        mCurrentCamStartRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentRadian * 60);
+                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
+                    camStartDegree = mCurrentTime;
                     invalidate();
-                } else if (mInCircleButton1 && isEnabled()) {
+                } else if (mInCamFinishThumb && isEnabled()) {
                     float temp = getRadian(event.getX(), event.getY());
                     if (mPreRadian > Math.toRadians(270) && temp < Math.toRadians(90)) {
                         mPreRadian -= 2 * Math.PI;
                     } else if (mPreRadian < Math.toRadians(90) && temp > Math.toRadians(270)) {
                         mPreRadian = (float) (temp + (temp - 2 * Math.PI) - mPreRadian);
                     }
-                    mCurrentRadian1 += (temp - mPreRadian);
+                    mCurrentCamFinishRadian += (temp - mPreRadian);
                     mPreRadian = temp;
-                    if (mCurrentRadian1 > 2 * Math.PI) {
-                        mCurrentRadian1 -= (float) (2 * Math.PI);
+                    if (mCurrentCamFinishRadian > 2 * Math.PI) {
+                        mCurrentCamFinishRadian -= (float) (2 * Math.PI);
                     }
-                    if (mCurrentRadian1 < 0) {
-                        mCurrentRadian1 += (float) (2 * Math.PI);
+                    if (mCurrentCamFinishRadian < 0) {
+                        mCurrentCamFinishRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentRadian1 * 60);
-                    invalidate();
-                } else if (mInCircleButton2 && isEnabled()) {
-                    float temp = getRadian(event.getX(), event.getY());
-                    if (mPreRadian > Math.toRadians(270) && temp < Math.toRadians(90)) {
-                        mPreRadian -= 2 * Math.PI;
-                    } else if (mPreRadian < Math.toRadians(90) && temp > Math.toRadians(270)) {
-                        mPreRadian = (float) (temp + (temp - 2 * Math.PI) - mPreRadian);
-                    }
-                    mCurrentRadian2 += (temp - mPreRadian);
-                    mPreRadian = temp;
-                    if (mCurrentRadian2 > 2 * Math.PI) {
-                        mCurrentRadian2 -= (float) (2 * Math.PI);
-                    }
-                    if (mCurrentRadian2 < 0) {
-                        mCurrentRadian2 += (float) (2 * Math.PI);
-                    }
-                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentRadian2 * 60);
+                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentCamFinishRadian * 60);
+                    camFinishDegree = mCurrentTime;
                     invalidate();
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                if (mInCircleButton && isEnabled()) {
-                    mInCircleButton = false;
-                } else if (mInCircleButton1 && isEnabled()) {
-                    mInCircleButton1 = false;
-                } else if (mInCircleButton2 && isEnabled()) {
-                    mInCircleButton2 = false;
+                if (mInCamStartThumb && isEnabled()) {
+                    mInCamStartThumb = false;
+                } else if (mInCamFinishThumb && isEnabled()) {
+                    mInCamFinishThumb = false;
                 }
                 break;
         }
@@ -359,10 +352,10 @@ public class ArcSeekbar extends View {
     }
 
     // Whether the down event inside circle button
-    private boolean mInCircleButton2(float x, float y) {
+    private boolean mInCamFinishThumb(float x, float y) {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
-        float x2 = (float) (mCx + r * Math.sin(mCurrentRadian2));
-        float y2 = (float) (mCy - r * Math.cos(mCurrentRadian2));
+        float x2 = (float) (mCx + r * Math.sin(mCurrentCamFinishRadian));
+        float y2 = (float) (mCy - r * Math.cos(mCurrentCamFinishRadian));
         if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius) {
             return true;
         }
@@ -370,21 +363,10 @@ public class ArcSeekbar extends View {
     }
 
     // Whether the down event inside circle button
-    private boolean mInCircleButton1(float x, float y) {
+    private boolean mInCamStartThumb(float x, float y) {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
-        float x2 = (float) (mCx + r * Math.sin(mCurrentRadian1));
-        float y2 = (float) (mCy - r * Math.cos(mCurrentRadian1));
-        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius) {
-            return true;
-        }
-        return false;
-    }
-
-    // Whether the down event inside circle button
-    private boolean mInCircleButton(float x, float y) {
-        float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
-        float x2 = (float) (mCx + r * Math.sin(mCurrentRadian));
-        float y2 = (float) (mCy - r * Math.cos(mCurrentRadian));
+        float x2 = (float) (mCx + r * Math.sin(mCurrentCamStartRadian));
+        float y2 = (float) (mCy - r * Math.cos(mCurrentCamStartRadian));
         if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius) {
             return true;
         }
@@ -431,7 +413,7 @@ public class ArcSeekbar extends View {
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putParcelable(INSTANCE_STATUS, super.onSaveInstanceState());
-        bundle.putFloat(STATUS_RADIAN, mCurrentRadian);
+        bundle.putFloat(STATUS_RADIAN, mCurrentCamStartRadian);
         return bundle;
     }
 
@@ -440,8 +422,8 @@ public class ArcSeekbar extends View {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATUS));
-            mCurrentRadian = bundle.getFloat(STATUS_RADIAN);
-            mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentRadian * 60);
+            mCurrentCamStartRadian = bundle.getFloat(STATUS_RADIAN);
+            mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
             return;
         }
         super.onRestoreInstanceState(state);

@@ -63,10 +63,11 @@
         app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/side_menu_button" />
 
-    <com.example.macrorecapp.features.shared.views.ArcSeekbar
+    <com.example.macrorecapp.features.shared.views.RotaryView
         android:id="@+id/seekbar"
         android:layout_width="270dp"
         android:layout_height="270dp"
+        app:isClockwise="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/h_guideline1"

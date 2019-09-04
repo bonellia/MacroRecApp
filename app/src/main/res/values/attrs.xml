@@ -15,19 +15,7 @@
         <attr format="boolean" name="clockwise"/>
         <attr format="boolean" name="enabled"/>
     </declare-styleable>
-    <declare-styleable name="RotaryControlView">
-        <attr format="reference" name="camStartThumb"/>
-        <attr format="reference" name="camFinishThumb"/>
-        <attr format="integer" name="startDegree"/>
-        <attr format="integer" name="finishDegree"/>
-        <attr format="integer" name="step"/>
-        <attr format="dimension" name="progressWidth"/>
-        <attr format="color" name="progressColor"/>
-        <attr format="dimension" name="arcWidth"/>
-        <attr format="color" name="arcColor"/>
-        <attr format="dimension" name="textSize"/>
-        <attr format="color" name="textColor"/>
-        <attr format="boolean" name="clockwise"/>
-        <attr format="boolean" name="enabled"/>
+    <declare-styleable name="RotaryView">
+        <attr format="boolean" name="isClockwise" />
     </declare-styleable>
 </resources>

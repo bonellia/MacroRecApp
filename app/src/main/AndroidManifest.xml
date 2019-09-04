@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
         <activity android:name=".features.motioncontrol.MotionControl"/>
-        <activity android:name=".features.rotary.RotaryPhotoSettings" />
+        <activity
+            android:name=".features.rotary.RotaryPhotoSettings"
+            android:screenOrientation="portrait"/>
         <activity android:name=".features.livecontrol.LiveControl" />
         <activity android:name=".features.cloud.accountsettings.LIIChangeVerification" />
         <activity android:name=".features.cloud.accountsettings.ChangeLogInInformation" />
