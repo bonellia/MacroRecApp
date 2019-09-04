@@ -28,10 +28,10 @@ public class RotaryView extends View {
     private static final String STATUS_RADIAN = "status_radian";
 
     // Default dimension in dp/pt
-    private static final float DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE = 30;
+    private static final float DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE = 20;
     private static final float DEFAULT_NUMBER_SIZE = 10;
     private static final float DEFAULT_LINE_WIDTH = 0.5f;
-    private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 18;
+    private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 12;
     private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 1;
     private static final float DEFAULT_TIMER_NUMBER_SIZE = 38;
     private static final float DEFAULT_TIMER_TEXT_SIZE = 18;
@@ -238,26 +238,26 @@ public class RotaryView extends View {
         if (ismInCamStartThumb) {
             canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
-            canvas.drawBitmap(bitmapStartCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
+            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapStartCam.getHeight()/2, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
             canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mTimerColonPaint);
-            canvas.drawBitmap(bitmapFinishCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
+            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapFinishCam.getHeight()/2, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
         } else {
             canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mTimerColonPaint);
-            canvas.drawBitmap(bitmapStartCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
+            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapStartCam.getHeight()/2,  null);
             canvas.restore();
             // TimerNumber
             canvas.save();
             canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
             canvas.drawCircle(mCx, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, mCircleButtonPaint);
-            canvas.drawBitmap(bitmapFinishCam, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine, mCircleButtonRadius, null);
+            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine-bitmapFinishCam.getHeight()/2, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
