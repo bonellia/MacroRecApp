@@ -6,9 +6,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -29,49 +29,44 @@ public class RotaryView extends View {
 
     // Default dimension in dp/pt
     private static final float DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE = 20;
-    private static final float DEFAULT_NUMBER_SIZE = 10;
+    private static final float DEFAULT_NUMBER_SIZE = 20;
     private static final float DEFAULT_LINE_WIDTH = 0.5f;
-    private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 12;
-    private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 1;
+    private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 8;
+    private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 18;
     private static final float DEFAULT_TIMER_NUMBER_SIZE = 38;
-    private static final float DEFAULT_TIMER_TEXT_SIZE = 18;
+    private static final float DEFAULT_TOTAL_MOVE_TEXT_SIZE = 40;
+    private static final float DEFAULT_DIRECTION_TEXT_SIZE = 15;
 
     // Default color
-    private static final int DEFAULT_CIRCLE_COLOR = 0xFFE9E2D9;
-    private static final int DEFAULT_CIRCLE_BUTTON_COLOR = 0x00FFFFFF;
+    private static final int DEFAULT_CIRCLE_COLOR = 0xFF6E6E6E;
+    private static final int DEFAULT_CIRCLE_BUTTON_COLOR = 0xFF6E6E6E;
     private static final int DEFAULT_LINE_COLOR = 0xFFB7072D;
-    private static final int DEFAULT_HIGHLIGHT_LINE_COLOR = 0xFF68C5D7;
-    private static final int DEFAULT_NUMBER_COLOR = 0xFF6E6E6E;
     private static final int DEFAULT_TIMER_NUMBER_COLOR = 0xFFFFFFFF;
-    private static final int DEFAULT_TIMER_COLON_COLOR = 0x00FA7777;
+    private static final int DEFAULT_DIRECTION_COLOR = 0x00FA7777;
     private static final int DEFAULT_TIMER_TEXT_COLOR = 0x99F0F9FF;
 
     // Paint
     private Paint mCirclePaint;
-    private Paint mHighlightLinePaint;
     private Paint mLinePaint;
     private Paint mCircleButtonPaint;
-    private Paint mNumberPaint;
-    private Paint mTimerNumberPaint;
-    private Paint mTimerTextPaint;
-    private Paint mTimerColonPaint;
+    private Paint mTotalMovePaint;
+    private Paint mTotalMoveTextPaint;
+    private Paint mDirectionPaint;
+    private Paint mDirectionTextPaint;
 
     // Dimension
     private float mGapBetweenCircleAndLine;
-    private float mNumberSize;
-    private float mLineWidth;
     private float mCircleButtonRadius;
     private float mCircleStrokeWidth;
-    private float mTimerNumberSize;
-    private float mTimerTextSize;
+    private float mTotalMoveSize;
+    private float mTotalMoveTextSize;
+    private float mDirectionTextSize;
 
     // Color
     private int mCircleColor;
     private int mCircleButtonColor;
     private int mLineColor;
-    private int mHighlightLineColor;
-    private int mNumberColor;
-    private int mTimerNumberColor;
+    private int mTotalMoveNumberColor;
     private int mTimerTextColor;
 
     // Parameters
@@ -83,6 +78,7 @@ public class RotaryView extends View {
     private float mPreRadian;
     private boolean mInCamStartThumb;
     private boolean mInCamFinishThumb;
+    private boolean mInDirectionIcon;
     private int camStartDegree;
     private int camFinishDegree;
     private boolean ismInCamStartThumb;
@@ -93,6 +89,9 @@ public class RotaryView extends View {
 
     Bitmap bitmapStartCam;
     Bitmap bitmapFinishCam;
+    Bitmap bitmapCw;
+    Bitmap bitmapCcw;
+    Matrix flipHorizontalMatrix;
 
     public RotaryView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -113,21 +112,19 @@ public class RotaryView extends View {
         final TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.RotaryView, 0, 0);
 
-        Log.d(TAG, "initialize");
+        Log.d(TAG, " initializing...");
         // Set default dimension or read xml attributes
         mGapBetweenCircleAndLine = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE,
                 getContext().getResources().getDisplayMetrics());
-        mNumberSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_NUMBER_SIZE, getContext().getResources()
-                .getDisplayMetrics());
-        mLineWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_LINE_WIDTH, getContext().getResources()
-                .getDisplayMetrics());
         mCircleButtonRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_CIRCLE_BUTTON_RADIUS, getContext()
                 .getResources().getDisplayMetrics());
         mCircleStrokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_CIRCLE_STROKE_WIDTH, getContext()
                 .getResources().getDisplayMetrics());
-        mTimerNumberSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TIMER_NUMBER_SIZE, getContext()
+        mTotalMoveSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TIMER_NUMBER_SIZE, getContext()
                 .getResources().getDisplayMetrics());
-        mTimerTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TIMER_TEXT_SIZE, getContext()
+        mTotalMoveTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TOTAL_MOVE_TEXT_SIZE, getContext()
+                .getResources().getDisplayMetrics());
+        mDirectionTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_DIRECTION_TEXT_SIZE, getContext()
                 .getResources().getDisplayMetrics());
         mClockwise = a.getBoolean(R.styleable.RotaryView_isClockwise, mClockwise);
 
@@ -135,26 +132,23 @@ public class RotaryView extends View {
         mCircleColor = DEFAULT_CIRCLE_COLOR;
         mCircleButtonColor = DEFAULT_CIRCLE_BUTTON_COLOR;
         mLineColor = DEFAULT_LINE_COLOR;
-        mHighlightLineColor = DEFAULT_HIGHLIGHT_LINE_COLOR;
-        mNumberColor = DEFAULT_NUMBER_COLOR;
-        mTimerNumberColor = DEFAULT_TIMER_NUMBER_COLOR;
+        mTotalMoveNumberColor = DEFAULT_TIMER_NUMBER_COLOR;
         mTimerTextColor = DEFAULT_TIMER_TEXT_COLOR;
 
         // Init all paints
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCircleButtonPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mHighlightLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mNumberPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTimerNumberPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTimerTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTimerColonPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTotalMovePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTotalMoveTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mDirectionPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mDirectionTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         // CirclePaint
         mCirclePaint.setColor(mCircleColor);
         mCirclePaint.setStyle(Paint.Style.STROKE);
         mCirclePaint.setStrokeWidth(mCircleStrokeWidth);
-        DashPathEffect dashPath1 = new DashPathEffect(new float[]{10,10}, (float)1.0);
+        DashPathEffect dashPath1 = new DashPathEffect(new float[]{3,9}, (float)1.0);
         mCirclePaint.setPathEffect(dashPath1);
 
         // CircleButtonPaint
@@ -167,50 +161,50 @@ public class RotaryView extends View {
         mLinePaint.setStrokeWidth(mCircleButtonRadius * 2 + 8);
         mLinePaint.setStyle(Paint.Style.STROKE);
 
-
-        // HighlightLinePaint
-        mHighlightLinePaint.setColor(mHighlightLineColor);
-        mHighlightLinePaint.setStrokeWidth(mLineWidth);
-
-        // NumberPaint
-        mNumberPaint.setColor(mNumberColor);
-        mNumberPaint.setTextSize(mNumberSize);
-        mNumberPaint.setTextAlign(Paint.Align.CENTER);
-        mNumberPaint.setStyle(Paint.Style.STROKE);
-        mNumberPaint.setStrokeWidth(mCircleButtonRadius * 2 + 8);
-        DashPathEffect dashPath2 = new DashPathEffect(new float[]{10,10}, (float)1.0);
-        mNumberPaint.setPathEffect(dashPath2);
-
-        // TimerNumberPaint
-        mTimerNumberPaint.setColor(mTimerNumberColor);
-        mTimerNumberPaint.setTextSize(mTimerNumberSize);
-        mTimerNumberPaint.setTextAlign(Paint.Align.CENTER);
+        // TotalMovePaint
+        mTotalMovePaint.setColor(mTotalMoveNumberColor);
+        mTotalMovePaint.setTextSize(mTotalMoveSize);
+        mTotalMovePaint.setTextAlign(Paint.Align.CENTER);
 
         // TimerTextPaint
-        mTimerTextPaint.setColor(mTimerTextColor);
-        mTimerTextPaint.setTextSize(mTimerTextSize);
-        mTimerTextPaint.setTextAlign(Paint.Align.CENTER);
+        mTotalMoveTextPaint.setColor(mTimerTextColor);
+        mTotalMoveTextPaint.setTextSize(mTotalMoveTextSize);
+        mTotalMoveTextPaint.setTextAlign(Paint.Align.CENTER);
 
-        // TimerColonPaint
-        mTimerColonPaint.setColor(DEFAULT_TIMER_COLON_COLOR);
-        mTimerColonPaint.setTextAlign(Paint.Align.CENTER);
-        mTimerColonPaint.setTextSize(mTimerNumberSize);
+        // DirectionPaint
+        mDirectionPaint.setColor(DEFAULT_DIRECTION_COLOR);
+        mDirectionPaint.setTextAlign(Paint.Align.CENTER);
+        mDirectionPaint.setTextSize(mTotalMoveSize);
+
+        // DirectionTextPaint
+        mDirectionTextPaint.setColor(mTimerTextColor);
+        mDirectionTextPaint.setTextSize(mDirectionTextSize);
+        mDirectionTextPaint.setTextAlign(Paint.Align.CENTER);
 
         bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
         bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
 
+        // Not using a separate resource for ccw icon. Will programmatically flip horizontally.
+        bitmapCw = BitmapFactory.decodeResource(getResources(),R.drawable.ic_ccw_medium);
+        // A matrix to multiply, flips horizontally.
+        flipHorizontalMatrix = new Matrix();
+        flipHorizontalMatrix.setScale(-1,1);
+        bitmapCcw = Bitmap.createBitmap(bitmapCw, 0, 0, bitmapCw.getWidth(), bitmapCw.getHeight(), flipHorizontalMatrix, true);
+
+
         // Solve the target version related to shadow
-        // setLayerType(View.LAYER_TYPE_SOFTWARE, null); // use this, when targetSdkVersion is greater than or equal to api 14
+        // Using this, since targetSdkVersion (16) is greater than or equal to aPI 14.
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        a.recycle();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
 
-
         Log.i(TAG,"Drawing...");
         canvas.save();
 
-        canvas.drawCircle(mCx, mCy, mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine, mNumberPaint);
+        canvas.drawCircle(mCx, mCy, mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine, mCirclePaint);
         canvas.save();
         canvas.rotate(-90, mCx, mCy);
 //        RectF rect = new RectF(mCx - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
@@ -224,35 +218,36 @@ public class RotaryView extends View {
 //        } else {
 //            canvas.drawArc(rect, (float) Math.toDegrees(mCurrentCamFinishRadian), (float) Math.toDegrees(mCurrentCamStartRadian) - (float) Math.toDegrees(mCurrentCamFinishRadian), false, mLinePaint);
 //        }
+
         canvas.restore();
         canvas.save();
 
-
-
-
         if (ismInCamStartThumb) {
             canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2, null);
+            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2f,getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
             canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2,getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2, null);
+            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2f,getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
         } else {
             canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2,  null);
+            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2f, getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f,  null);
             canvas.restore();
             // TimerNumber
             canvas.save();
             canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2, getMeasuredHeight() / 2 - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2, null);
+            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2f, getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f, null);
             canvas.restore();
             // TimerNumber
             canvas.save();
         }
+
+        // The total move value to be shown in the center.
+        // Divided by 10, because full circle is 3600 units.
         int x = (camStartDegree-camFinishDegree) / 10;
         int i;
         if (!mClockwise){
@@ -262,8 +257,24 @@ public class RotaryView extends View {
             i = x>0 ? 360-x : -x;
             i = 360 - i;
         }
-
-        canvas.drawText((i) + "" + (char) 0x00B0, mCx, mCy + getFontHeight(mTimerNumberPaint) / 2, mTimerNumberPaint);
+        // Draw total move text.
+        canvas.drawText((i) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
+        // Draw direction icon.
+        if(mClockwise){
+            // Note that the drawable resource shows counter clockwise direction by default.
+            flipHorizontalMatrix.postTranslate(bitmapCw.getWidth(),0);
+            canvas.drawBitmap(bitmapCcw, mCx - bitmapCw.getWidth()/2f, mCy + mRadius * 0.1f, null);
+        }
+        else{
+            canvas.drawBitmap(bitmapCw, mCx - bitmapCw.getWidth()/2f, mCy + mRadius * 0.1f, null);
+        }
+        // Draw direction text.
+        if(mClockwise){
+            canvas.drawText("CW", mCx, mCy + mRadius * 0.6f, mDirectionTextPaint);
+        }
+        else{
+            canvas.drawText("CCW", mCx, mCy + mRadius * 0.6f, mDirectionTextPaint);
+        }
         canvas.restore();
         super.onDraw(canvas);
     }
@@ -292,6 +303,12 @@ public class RotaryView extends View {
                     mPreRadian = getRadian(event.getX(), event.getY());
                     Log.d(TAG, "Motion in camera finish.");
                 }
+                // If the point in the direction icon
+                if (mInDirectionIcon(event.getX(), event.getY()) && isEnabled()) {
+                    mInDirectionIcon = true;
+                    Log.d(TAG, "Motion in direction icon.");
+                }
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (mInCamStartThumb && isEnabled()) {
@@ -338,6 +355,12 @@ public class RotaryView extends View {
                 } else if (mInCamFinishThumb && isEnabled()) {
                     mInCamFinishThumb = false;
                 }
+                if (mInDirectionIcon && isEnabled()) {
+                    mInDirectionIcon = false;
+                    mClockwise = !mClockwise;
+                    Log.d(TAG, "Finger up from direction icon.");
+                    invalidate();
+                }
                 break;
         }
         return true;
@@ -348,7 +371,7 @@ public class RotaryView extends View {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
         float x2 = (float) (mCx + r * Math.sin(mCurrentCamFinishRadian));
         float y2 = (float) (mCy - r * Math.cos(mCurrentCamFinishRadian));
-        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius*7) {
+        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius*6) {
             return true;
         }
         return false;
@@ -360,6 +383,18 @@ public class RotaryView extends View {
         float x2 = (float) (mCx + r * Math.sin(mCurrentCamStartRadian));
         float y2 = (float) (mCy - r * Math.cos(mCurrentCamStartRadian));
         if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius*7) {
+            return true;
+        }
+        return false;
+    }
+
+    // whether the down even inside direction icon
+    private boolean mInDirectionIcon(float x, float y) {
+        float left = mCx - bitmapCw.getWidth()/2f;
+        float right = mCx + bitmapCw.getWidth()/2f;
+        float top = mCy + getFontHeight(mTotalMovePaint) / 2;
+        float bottom = mCy + getFontHeight(mTotalMovePaint) / 2 + bitmapCw.getHeight();
+        if(left<x && x<right && top<y && y> bottom) {
             return true;
         }
         return false;
@@ -394,9 +429,11 @@ public class RotaryView extends View {
         // Radius
         if (mGapBetweenCircleAndLine + mCircleStrokeWidth >= mCircleButtonRadius) {
             this.mRadius = width / 2 - mCircleStrokeWidth / 2;
+            this.mRadius = mRadius * 8 / 10;
         } else {
             this.mRadius = width / 2 - (mCircleButtonRadius - mGapBetweenCircleAndLine -
                     mCircleStrokeWidth / 2);
+            this.mRadius = mRadius * 8 / 10;
         }
         setMeasuredDimension(width, height);
     }
