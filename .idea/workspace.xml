@@ -105,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="263" column="33" lean-forward="true" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
+            <state relative-caret-position="421">
+              <caret line="87" column="31" lean-forward="true" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,8 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ArcSeekbar</find>
-      <find>mRadius</find>
       <find>mCurrentCamStartRadian1</find>
       <find>mCurrentRadian1</find>
       <find>mCurrentRadian</find>
@@ -168,10 +166,10 @@
       <find>mCurrentTime</find>
       <find>mCurrentStartTime</find>
       <find>mCurrentFinishTime</find>
+      <find>DEFAULT_CIRCLE_BUTTON_COLOR</find>
+      <find>mSubTextPaint</find>
     </findStrings>
     <replaceStrings>
-      <replace>@+id/currentEmail</replace>
-      <replace>@+id/logInGoogle</replace>
       <replace>DashedCircleSeekbar</replace>
       <replace>dashedCircleSeekbar</replace>
       <replace>RotaryControlView</replace>
@@ -200,6 +198,8 @@
       <replace>mCurrentStartTime</replace>
       <replace>mCurrentStartDegree</replace>
       <replace>mCurrentFinishDegree</replace>
+      <replace>DEFAULT_SUBTEXT_COLOR</replace>
+      <replace>mSubtextPaint</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp</dir>
@@ -576,7 +576,7 @@
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32721382" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.497426" weight="0.2926566" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
-      <window_info active="true" anchor="bottom" id="Find" order="9" visible="true" weight="0.3477322" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.3477322" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -977,8 +977,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="263" column="33" lean-forward="true" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
+        <state relative-caret-position="421">
+          <caret line="87" column="31" lean-forward="true" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
