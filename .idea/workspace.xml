@@ -71,9 +71,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf156455-94fb-49c1-b4fb-9c3891611c0f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="273" column="9" lean-forward="true" selection-start-line="273" selection-start-column="9" selection-end-line="273" selection-end-column="9" />
+            <state relative-caret-position="439">
+              <caret line="263" column="33" lean-forward="true" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,12 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateOn</find>
-      <find>setOn</find>
-      <find>mPoints</find>
-      <find>enabled</find>
-      <find>radi</find>
-      <find>arc</find>
       <find>ArcSeekbar</find>
       <find>mRadius</find>
       <find>mCurrentCamStartRadian1</find>
@@ -166,19 +158,18 @@
       <find>mTimerColonPaint</find>
       <find>mTimerNumberPaint</find>
       <find>DEFAULT_TIMER_TEXT_SIZE</find>
-      <find>mTimerTextColor</find>
       <find>mTotalMoveTextPaint</find>
       <find>mDirectionPaint</find>
       <find>DEFAULT_DIRECTION_COLOR</find>
+      <find>mTimerTextColor</find>
+      <find>DEFAULT_TIMER_TEXT_COLOR</find>
+      <find>DEFAULT_TIMER_NUMBER_COLOR</find>
+      <find>STATUS_RADIAN</find>
+      <find>mCurrentTime</find>
+      <find>mCurrentStartTime</find>
+      <find>mCurrentFinishTime</find>
     </findStrings>
     <replaceStrings>
-      <replace>@+id/connectButton</replace>
-      <replace>@+id/facebookIcon</replace>
-      <replace>@+id/connectFacebook</replace>
-      <replace>@+id/connectGoogle</replace>
-      <replace>@+id/connectInstagram</replace>
-      <replace>@+id/instagramIcon</replace>
-      <replace>@+id/changeEmail</replace>
       <replace>@+id/currentEmail</replace>
       <replace>@+id/logInGoogle</replace>
       <replace>DashedCircleSeekbar</replace>
@@ -201,7 +192,14 @@
       <replace>mTotalMoveTextColor</replace>
       <replace>mTotalMoveNumberPaint</replace>
       <replace>mDirectionTextPaint</replace>
+      <replace>mDirectionTextColor</replace>
       <replace>DEFAULT_DIRECTION_TEXT_COLOR</replace>
+      <replace>DEFAULT_TOTAL_MOVE_NUMBER_COLOR</replace>
+      <replace>STATUS_START_RADIAN</replace>
+      <replace>mCurrentStarttime</replace>
+      <replace>mCurrentStartTime</replace>
+      <replace>mCurrentStartDegree</replace>
+      <replace>mCurrentFinishDegree</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp</dir>
@@ -573,12 +571,12 @@
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49808848" weight="0.36609071" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3650108" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49808848" weight="0.49353448" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49808848" weight="0.49352053" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5019115" side_tool="true" weight="0.36609071" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32721382" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.497426" visible="true" weight="0.2926566" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.497426" weight="0.2926566" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.3477322" />
+      <window_info active="true" anchor="bottom" id="Find" order="9" visible="true" weight="0.3477322" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -979,8 +977,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="273" column="9" lean-forward="true" selection-start-line="273" selection-start-column="9" selection-end-line="273" selection-end-column="9" />
+        <state relative-caret-position="439">
+          <caret line="263" column="33" lean-forward="true" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -25,12 +25,11 @@ public class RotaryView extends View {
 
     // Status
     private static final String INSTANCE_STATUS = "instance_status";
-    private static final String STATUS_RADIAN = "status_radian";
+    private static final String STATUS_START_RADIAN = "status_start_radian";
+    private static final String STATUS_FINISH_RADIAN = "status_finish_radian";
 
     // Default dimension in dp/pt
     private static final float DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE = 20;
-    private static final float DEFAULT_NUMBER_SIZE = 20;
-    private static final float DEFAULT_LINE_WIDTH = 0.5f;
     private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 8;
     private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 18;
     private static final float DEFAULT_TIMER_NUMBER_SIZE = 38;
@@ -41,9 +40,9 @@ public class RotaryView extends View {
     private static final int DEFAULT_CIRCLE_COLOR = 0xFF6E6E6E;
     private static final int DEFAULT_CIRCLE_BUTTON_COLOR = 0xFF6E6E6E;
     private static final int DEFAULT_LINE_COLOR = 0xFFB7072D;
-    private static final int DEFAULT_TIMER_NUMBER_COLOR = 0xFFFFFFFF;
+    private static final int DEFAULT_TOTAL_MOVE_NUMBER_COLOR = 0xFFFFFFFF;
     private static final int DEFAULT_DIRECTION_COLOR = 0x00FA7777;
-    private static final int DEFAULT_TIMER_TEXT_COLOR = 0x99F0F9FF;
+    private static final int DEFAULT_DIRECTION_TEXT_COLOR = 0xFFFFFFFF;
 
     // Paint
     private Paint mCirclePaint;
@@ -67,7 +66,7 @@ public class RotaryView extends View {
     private int mCircleButtonColor;
     private int mLineColor;
     private int mTotalMoveNumberColor;
-    private int mTimerTextColor;
+    private int mDirectionTextColor;
 
     // Parameters
     private float mCx;
@@ -82,7 +81,8 @@ public class RotaryView extends View {
     private int camStartDegree;
     private int camFinishDegree;
     private boolean ismInCamStartThumb;
-    private int mCurrentTime; // seconds
+    private int mCurrentStartDegree; // seconds
+    private int mCurrentFinishDegree; // seconds
     private boolean mClockwise;
 
     private OnTimeChangedListener mListener;
@@ -132,8 +132,8 @@ public class RotaryView extends View {
         mCircleColor = DEFAULT_CIRCLE_COLOR;
         mCircleButtonColor = DEFAULT_CIRCLE_BUTTON_COLOR;
         mLineColor = DEFAULT_LINE_COLOR;
-        mTotalMoveNumberColor = DEFAULT_TIMER_NUMBER_COLOR;
-        mTimerTextColor = DEFAULT_TIMER_TEXT_COLOR;
+        mTotalMoveNumberColor = DEFAULT_TOTAL_MOVE_NUMBER_COLOR;
+        mDirectionTextColor = DEFAULT_DIRECTION_TEXT_COLOR;
 
         // Init all paints
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -167,7 +167,7 @@ public class RotaryView extends View {
         mTotalMovePaint.setTextAlign(Paint.Align.CENTER);
 
         // TimerTextPaint
-        mTotalMoveTextPaint.setColor(mTimerTextColor);
+        mTotalMoveTextPaint.setColor(mDirectionTextColor);
         mTotalMoveTextPaint.setTextSize(mTotalMoveTextSize);
         mTotalMoveTextPaint.setTextAlign(Paint.Align.CENTER);
 
@@ -177,12 +177,19 @@ public class RotaryView extends View {
         mDirectionPaint.setTextSize(mTotalMoveSize);
 
         // DirectionTextPaint
-        mDirectionTextPaint.setColor(mTimerTextColor);
+        mDirectionTextPaint.setColor(mDirectionTextColor);
         mDirectionTextPaint.setTextSize(mDirectionTextSize);
         mDirectionTextPaint.setTextAlign(Paint.Align.CENTER);
 
-        bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
-        bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
+        mCurrentCamStartRadian = (float) Math.toRadians(315);
+        mCurrentCamFinishRadian = (float) Math.toRadians(45);
+
+        camStartDegree = 3150;
+        camFinishDegree = 450;
+
+
+        bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
+        bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
 
         // Not using a separate resource for ccw icon. Will programmatically flip horizontally.
         bitmapCw = BitmapFactory.decodeResource(getResources(),R.drawable.ic_ccw_medium);
@@ -222,7 +229,7 @@ public class RotaryView extends View {
         canvas.restore();
         canvas.save();
 
-        if (ismInCamStartThumb) {
+        if (!ismInCamStartThumb) {
             canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
             canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2f,getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f, null);
             canvas.restore();
@@ -248,7 +255,7 @@ public class RotaryView extends View {
 
         // The total move value to be shown in the center.
         // Divided by 10, because full circle is 3600 units.
-        int x = (camStartDegree-camFinishDegree) / 10;
+        int x = (camFinishDegree-camStartDegree) / 10;
         int i;
         if (!mClockwise){
             i = x<0 ? -x : 360-x;
@@ -263,17 +270,17 @@ public class RotaryView extends View {
         if(mClockwise){
             // Note that the drawable resource shows counter clockwise direction by default.
             flipHorizontalMatrix.postTranslate(bitmapCw.getWidth(),0);
-            canvas.drawBitmap(bitmapCcw, mCx - bitmapCw.getWidth()/2f, mCy + mRadius * 0.1f, null);
+            canvas.drawBitmap(bitmapCcw, mCx - bitmapCw.getWidth()/2f, mCy, null);
         }
         else{
-            canvas.drawBitmap(bitmapCw, mCx - bitmapCw.getWidth()/2f, mCy + mRadius * 0.1f, null);
+            canvas.drawBitmap(bitmapCw, mCx - bitmapCw.getWidth()/2f, mCy, null);
         }
         // Draw direction text.
         if(mClockwise){
-            canvas.drawText("CW", mCx, mCy + mRadius * 0.6f, mDirectionTextPaint);
+            canvas.drawText("CW", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) / 2, mDirectionTextPaint);
         }
         else{
-            canvas.drawText("CCW", mCx, mCy + mRadius * 0.6f, mDirectionTextPaint);
+            canvas.drawText("CCW", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) / 2, mDirectionTextPaint);
         }
         canvas.restore();
         super.onDraw(canvas);
@@ -326,8 +333,8 @@ public class RotaryView extends View {
                     if (mCurrentCamStartRadian < 0) {
                         mCurrentCamStartRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
-                    camStartDegree = mCurrentTime;
+                    mCurrentStartDegree = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
+                    camStartDegree = mCurrentStartDegree;
                     invalidate();
                 } else if (mInCamFinishThumb && isEnabled()) {
                     float temp = getRadian(event.getX(), event.getY());
@@ -344,8 +351,8 @@ public class RotaryView extends View {
                     if (mCurrentCamFinishRadian < 0) {
                         mCurrentCamFinishRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentCamFinishRadian * 60);
-                    camFinishDegree = mCurrentTime;
+                    mCurrentFinishDegree = (int) (60 / (2 * Math.PI) * mCurrentCamFinishRadian * 60);
+                    camFinishDegree = mCurrentFinishDegree;
                     invalidate();
                 }
                 break;
@@ -390,11 +397,11 @@ public class RotaryView extends View {
 
     // whether the down even inside direction icon
     private boolean mInDirectionIcon(float x, float y) {
-        float left = mCx - bitmapCw.getWidth()/2f;
-        float right = mCx + bitmapCw.getWidth()/2f;
-        float top = mCy + getFontHeight(mTotalMovePaint) / 2;
-        float bottom = mCy + getFontHeight(mTotalMovePaint) / 2 + bitmapCw.getHeight();
-        if(left<x && x<right && top<y && y> bottom) {
+        float left = mCx - bitmapCw.getWidth();
+        float right = mCx + bitmapCw.getWidth();
+        float top = mCy;
+        float bottom = mCy + bitmapCw.getHeight() + getFontHeight(mDirectionTextPaint);
+        if(left<x && x<right && top<y && y<bottom) {
             return true;
         }
         return false;
@@ -442,7 +449,8 @@ public class RotaryView extends View {
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putParcelable(INSTANCE_STATUS, super.onSaveInstanceState());
-        bundle.putFloat(STATUS_RADIAN, mCurrentCamStartRadian);
+        bundle.putFloat(STATUS_START_RADIAN, mCurrentCamStartRadian);
+        bundle.putFloat(STATUS_FINISH_RADIAN, mCurrentCamFinishRadian);
         return bundle;
     }
 
@@ -451,8 +459,10 @@ public class RotaryView extends View {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATUS));
-            mCurrentCamStartRadian = bundle.getFloat(STATUS_RADIAN);
-            mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
+            mCurrentCamStartRadian = bundle.getFloat(STATUS_START_RADIAN);
+            mCurrentCamFinishRadian = bundle.getFloat(STATUS_FINISH_RADIAN);
+            mCurrentStartDegree = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
+            mCurrentFinishDegree = (int) (60 / (2 * Math.PI) * mCurrentCamFinishRadian * 60);
             return;
         }
         super.onRestoreInstanceState(state);
