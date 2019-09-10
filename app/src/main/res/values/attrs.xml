@@ -17,5 +17,6 @@
     </declare-styleable>
     <declare-styleable name="RotaryView">
         <attr format="boolean" name="isClockwise" />
+        <attr format="reference" name="targetList"/>
     </declare-styleable>
 </resources>

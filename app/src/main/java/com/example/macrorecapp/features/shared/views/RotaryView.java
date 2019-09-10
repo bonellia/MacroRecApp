@@ -5,10 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -16,7 +19,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
-
 import com.example.macrorecapp.R;
 
 
@@ -30,45 +32,57 @@ public class RotaryView extends View {
 
     // Default dimension in dp/pt
     private static final float DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE = 20;
-    private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 8;
-    private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 24;
+    private static final float DEFAULT_CAM_ICON_RADIUS = 8;
+    private static final float DEFAULT_TARGET_THUMB_RADIUS = 20;
+    private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 20;
+    private static final float DEFAULT_TARGET_ARC_STROKE_WIDTH = 12;
     private static final float DEFAULT_TIMER_NUMBER_SIZE = 38;
     private static final float DEFAULT_TOTAL_MOVE_TEXT_SIZE = 40;
     private static final float DEFAULT_DIRECTION_TEXT_SIZE = 15;
     private static final float DEFAULT_SUBTEXT_SIZE = 12;
+    private static final float DEFAULT_TARGET_THUMB_TEXT_SIZE = 18;
 
     // Default color
     private static final int DEFAULT_CIRCLE_COLOR = 0xFF6E6E6E;
     private static final int DEFAULT_SUBTEXT_COLOR = 0xFF6E6E6E;
-    private static final int DEFAULT_LINE_COLOR = 0xFFB7072D;
+    private static final int DEFAULT_TARGET_ARC_COLOR = 0xFFB7072D;
     private static final int DEFAULT_TOTAL_MOVE_NUMBER_COLOR = 0xFFFFFFFF;
     private static final int DEFAULT_DIRECTION_COLOR = 0x00FA7777;
     private static final int DEFAULT_DIRECTION_TEXT_COLOR = 0xFFFFFFFF;
+    private static final int DEFAULT_TARGET_THUMB_COLOR = 0xFFFFFFFF;
+    private static final int DEFAULT_TARGET_THUMB_TEXT_COLOR = 0xFF8F314D;
 
     // Paint
     private Paint mCirclePaint;
-    private Paint mLinePaint;
+    private Paint mTargetArcPaint;
     private Paint mTotalMovePaint;
     private Paint mTotalMoveTextPaint;
     private Paint mDirectionPaint;
     private Paint mDirectionTextPaint;
     private Paint mSubtextPaint;
+    private Paint mTargetThumbPaint;
+    private Paint mTargetThumbTextPaint;
 
     // Dimension
     private float mGapBetweenCircleAndLine;
-    private float mCircleButtonRadius;
+    private float mCamIconRadius;
+    private float mTargetThumbRadius;
     private float mCircleStrokeWidth;
+    private float mTargetArcStrokeWidth;
     private float mTotalMoveSize;
     private float mTotalMoveTextSize;
     private float mDirectionTextSize;
+    private float mTargetThumbTextSize;
     private float mSubtextSize;
 
     // Color
     private int mCircleColor;
-    private int mLineColor;
+    private int mTargetArcStrokeColor;
     private int mTotalMoveNumberColor;
     private int mDirectionTextColor;
     private int mSubtextColor;
+    private int mTargetThumbColor;
+    private int mTargetThumbTextColor;
 
     // Parameters
     private float mCx;
@@ -83,10 +97,15 @@ public class RotaryView extends View {
     private int camStartDegree;
     private int camFinishDegree;
     private boolean ismInCamStartThumb;
-    private int mCurrentStartDegree; // seconds
-    private int mCurrentFinishDegree; // seconds
+    private int mCurrentStartDegree;
+    private int mCurrentFinishDegree;
     private boolean mClockwise;
 
+    // Outer arc parameters
+    private int[] mTargetList;
+    RectF mTargetContainer;
+
+    // Drawables as matrices.
     Bitmap bitmapStartCam;
     Bitmap bitmapFinishCam;
     Bitmap bitmapCw;
@@ -113,50 +132,73 @@ public class RotaryView extends View {
                 R.styleable.RotaryView, 0, 0);
 
         Log.d(TAG, " initializing...");
-        // Set default dimension or read xml attributes
+
+        // Set default dimensions or read xml attributes.
         mGapBetweenCircleAndLine = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE,
                 getContext().getResources().getDisplayMetrics());
-        mCircleButtonRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_CIRCLE_BUTTON_RADIUS, getContext()
-                .getResources().getDisplayMetrics());
-        mCircleStrokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_CIRCLE_STROKE_WIDTH, getContext()
-                .getResources().getDisplayMetrics());
-        mTotalMoveSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TIMER_NUMBER_SIZE, getContext()
-                .getResources().getDisplayMetrics());
-        mTotalMoveTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TOTAL_MOVE_TEXT_SIZE, getContext()
-                .getResources().getDisplayMetrics());
-        mDirectionTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_DIRECTION_TEXT_SIZE, getContext()
-                .getResources().getDisplayMetrics());
-        mSubtextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_SUBTEXT_SIZE, getContext()
-                .getResources().getDisplayMetrics());
+        mCamIconRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_CAM_ICON_RADIUS,
+                getContext().getResources().getDisplayMetrics());
+        mTargetThumbRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TARGET_THUMB_RADIUS,
+                getContext().getResources().getDisplayMetrics());
+        mCircleStrokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_CIRCLE_STROKE_WIDTH,
+                getContext().getResources().getDisplayMetrics());
+        mTargetArcStrokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TARGET_ARC_STROKE_WIDTH,
+                getContext().getResources().getDisplayMetrics());
+        mTotalMoveSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TIMER_NUMBER_SIZE,
+                getContext().getResources().getDisplayMetrics());
+        mTotalMoveTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TOTAL_MOVE_TEXT_SIZE,
+                getContext().getResources().getDisplayMetrics());
+        mDirectionTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_DIRECTION_TEXT_SIZE,
+                getContext().getResources().getDisplayMetrics());
+        mSubtextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_SUBTEXT_SIZE,
+                getContext().getResources().getDisplayMetrics());
+        mTargetThumbTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_TARGET_THUMB_TEXT_SIZE,
+                getContext().getResources().getDisplayMetrics());
         mClockwise = a.getBoolean(R.styleable.RotaryView_isClockwise, mClockwise);
 
-        // Set default color or read xml attributes
+        // Set default colors or read xml attributes.
         mCircleColor = DEFAULT_CIRCLE_COLOR;
-        mLineColor = DEFAULT_LINE_COLOR;
+        mTargetArcStrokeColor = DEFAULT_TARGET_ARC_COLOR;
         mTotalMoveNumberColor = DEFAULT_TOTAL_MOVE_NUMBER_COLOR;
         mDirectionTextColor = DEFAULT_DIRECTION_TEXT_COLOR;
         mSubtextColor = DEFAULT_SUBTEXT_COLOR;
+        mTargetThumbTextColor = DEFAULT_TARGET_THUMB_TEXT_COLOR;
+        mTargetThumbColor = DEFAULT_TARGET_THUMB_COLOR;
 
         // Init all paints
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTargetArcPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTotalMovePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTotalMoveTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mDirectionPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mDirectionTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mSubtextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTargetArcPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTargetThumbPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTargetThumbTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         // CirclePaint
         mCirclePaint.setColor(mCircleColor);
-        mCirclePaint.setStyle(Paint.Style.STROKE);
         mCirclePaint.setStrokeWidth(mCircleStrokeWidth);
+        mCirclePaint.setStyle(Paint.Style.STROKE);
         DashPathEffect dashPath1 = new DashPathEffect(new float[]{8,24}, (float)1.0);
         mCirclePaint.setPathEffect(dashPath1);
 
-        // LinePaint
-        mLinePaint.setColor(mLineColor);
-        mLinePaint.setStrokeWidth(mCircleButtonRadius * 2 + 8);
-        mLinePaint.setStyle(Paint.Style.STROKE);
+        // TargetArcPaint
+        mTargetArcPaint.setColor(mTargetArcStrokeColor);
+        mTargetArcPaint.setStrokeWidth(mTargetArcStrokeWidth);
+        mTargetArcPaint.setStyle(Paint.Style.STROKE);
+
+        // TargetThumbPaint
+        mTargetThumbPaint.setColor(mTargetThumbColor);
+        mTargetThumbPaint.setAntiAlias(true);
+        mTargetThumbPaint.setStyle(Paint.Style.FILL);
+
+        // TargetThumbTextPaint
+        mTargetThumbTextPaint.setColor(mTargetThumbTextColor);
+        mTargetThumbTextPaint.setTextAlign(Paint.Align.CENTER);
+        mTargetThumbTextPaint.setTextSize(mTargetThumbTextSize);
+        mTargetThumbTextPaint.setTypeface(Typeface.create("Roboto",Typeface.BOLD));
 
         // TotalMovePaint
         mTotalMovePaint.setColor(mTotalMoveNumberColor);
@@ -183,11 +225,11 @@ public class RotaryView extends View {
         mSubtextPaint.setTextAlign(Paint.Align.CENTER);
         mSubtextPaint.setTextSize(mSubtextSize);
 
-        // Optionally, these values can be set according to XML attributes.
+        // Optionally, these values could be set according to XML attributes.
         mCurrentCamStartRadian = (float) Math.toRadians(315);
         mCurrentCamFinishRadian = (float) Math.toRadians(45);
-        camStartDegree = 315;
-        camFinishDegree = 45;
+        camStartDegree = 300;
+        camFinishDegree = 345;
 
         bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
         bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
@@ -199,6 +241,15 @@ public class RotaryView extends View {
         flipHorizontalMatrix.setScale(-1,1);
         bitmapCcw = Bitmap.createBitmap(bitmapCw, 0, 0, bitmapCw.getWidth(), bitmapCw.getHeight(), flipHorizontalMatrix, true);
 
+        // Get the position of targets.
+        int targetsID = a.getResourceId(R.styleable.RotaryView_targetList, 0);
+        mTargetList = a.getResources().getIntArray(targetsID);
+        for (int i : mTargetList) {
+            Log.i("Target Retrieval.",  i + " is in targetsArray.");
+        }
+
+        // Create a RectF in order to draw Target Arc within.
+        mTargetContainer = new RectF();
 
         // Solve the target version related to shadow
         // Using this, since targetSdkVersion (16) is greater than or equal to aPI 14.
@@ -213,9 +264,6 @@ public class RotaryView extends View {
         canvas.save();
 
         canvas.drawCircle(mCx, mCy, mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine, mCirclePaint);
-        canvas.save();
-        canvas.rotate(-90, mCx, mCy);
-        canvas.restore();
         canvas.save();
 
         // Draw Subtexts.
@@ -246,18 +294,8 @@ public class RotaryView extends View {
             canvas.save();
         }
 
-        // The total move value to be shown in the center.
-        int x = (camFinishDegree-camStartDegree);
-        int i;
-        if (!mClockwise){
-            i = x<0 ? -x : 360-x;
-        }
-        else{
-            i = x>0 ? 360-x : -x;
-            i = 360 - i;
-        }
         // Draw total move text.
-        canvas.drawText((i) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
+        canvas.drawText((getArcLength(camStartDegree,camFinishDegree, mClockwise)) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
         // Draw direction icon.
         if(mClockwise){
             // Note that the drawable resource shows counter clockwise direction by default.
@@ -274,7 +312,46 @@ public class RotaryView extends View {
         else{
             canvas.drawText("CCW", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) / 2 + getFontHeight(mSubtextPaint), mDirectionTextPaint);
         }
-        canvas.restore();
+        canvas.save();
+        // Draw Target Arc
+        // Note that it is expected that targetList array elements have valid degrees WRT direction.
+        int arcStart = mTargetList[0];
+        Log.d(TAG, "arcStart degree is " + arcStart);
+        int targetCount = mTargetList.length;
+        Log.d(TAG, "targetCount is " + targetCount);
+        int arcFinish = mTargetList[targetCount-1];
+        Log.d(TAG, "arcFinish degree is " + arcFinish);
+
+        mTargetContainer.set(mCx - mRadius,mCy - mRadius,mCx + mRadius,mCy + mRadius);
+
+        int arcSweep = getArcLength(arcStart, arcFinish, mClockwise);
+        Log.d(TAG, "arcSweep amount is " + arcSweep);
+        if (mClockwise) {
+            Log.d(TAG, "Attempting to draw arc in clockwise direction...");
+            canvas.drawArc(mTargetContainer, arcStart, arcSweep, false, mTargetArcPaint);
+        } else {
+            Log.d(TAG, "Attempting to draw arc in counter-clockwise direction...");
+            canvas.drawArc(mTargetContainer, arcStart, -arcSweep, false, mTargetArcPaint);
+        }
+        canvas.save();
+
+        for (int i=0; i<mTargetList.length; i++) {
+            canvas.drawCircle(
+                    mCx + mRadius * (float) Math.cos(Math.toRadians(mTargetList[i])),
+                    mCy - mRadius * (float) Math.sin(Math.toRadians(mTargetList[i])),
+                    mTargetThumbRadius,
+                    mTargetThumbPaint
+            );
+            Log.d(TAG, "Drew circle T"+ (i+1) );
+            canvas.drawText(
+                    "T"+ (i+1),
+                    mCx + mRadius * (float) Math.cos(Math.toRadians(mTargetList[i])),
+                    mCy - mRadius * (float) Math.sin(Math.toRadians(mTargetList[i])) + getFontHeight(mTargetThumbTextPaint)/2,
+                    mTargetThumbTextPaint);
+            Log.d(TAG, "Added T" + (i+1) + " on " + mTargetList[i] + " degrees.");
+            canvas.save();
+        }
+
         super.onDraw(canvas);
     }
 
@@ -284,6 +361,20 @@ public class RotaryView extends View {
         Rect rect = new Rect();
         paint.getTextBounds("1", 0, 1, rect);
         return rect.height();
+    }
+
+    // A helper function to obtain distance over arc between two points.
+    private int getArcLength(int startDegree, int finishDegree, boolean isClockwise) {
+        int x = (finishDegree-startDegree);
+        int i;
+        if (!isClockwise){
+            i = x<0 ? -x : 360-x;
+        }
+        else{
+            i = x>0 ? 360-x : -x;
+            i = 360 - i;
+        }
+        return i;
     }
 
     @Override
@@ -371,7 +462,7 @@ public class RotaryView extends View {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
         float x2 = (float) (mCx + r * Math.sin(mCurrentCamStartRadian));
         float y2 = (float) (mCy - r * Math.cos(mCurrentCamStartRadian));
-        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius*7) {
+        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < bitmapStartCam.getHeight()) {
             return true;
         }
         return false;
@@ -382,7 +473,7 @@ public class RotaryView extends View {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
         float x2 = (float) (mCx + r * Math.sin(mCurrentCamFinishRadian));
         float y2 = (float) (mCy - r * Math.cos(mCurrentCamFinishRadian));
-        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < mCircleButtonRadius*4) {
+        if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < bitmapFinishCam.getHeight()) {
             return true;
         }
         return false;
@@ -427,13 +518,13 @@ public class RotaryView extends View {
         this.mCx = width / 2;
         this.mCy = height / 2;
         // Radius
-        if (mGapBetweenCircleAndLine + mCircleStrokeWidth >= mCircleButtonRadius) {
+        if (mGapBetweenCircleAndLine + mCircleStrokeWidth >= mCamIconRadius) {
             this.mRadius = width / 2f - mCircleStrokeWidth / 2;
-            this.mRadius = mRadius * 9 / 10;
+            this.mRadius = mRadius * 8 / 10;
         } else {
-            this.mRadius = width / 2f - (mCircleButtonRadius - mGapBetweenCircleAndLine -
+            this.mRadius = width / 2f - (mCamIconRadius - mGapBetweenCircleAndLine -
                     mCircleStrokeWidth / 2);
-            this.mRadius = mRadius * 9 / 10;
+            this.mRadius = mRadius * 8 / 10;
         }
         setMeasuredDimension(width, height);
     }

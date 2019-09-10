@@ -186,7 +186,7 @@ public class ArcSeekbar extends View {
 
         canvas.drawCircle(mCx, mCy, mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine, mNumberPaint);
         canvas.save();
-        canvas.rotate(-180, mCx, mCy);
+        canvas.rotate(-90, mCx, mCy);
         RectF rect = new RectF(mCx - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
         ), mCy - (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine
         ), mCx + (mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine

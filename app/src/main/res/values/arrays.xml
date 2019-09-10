@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="targets">
+        <item>120</item>
+        <item>250</item>
+        <item>0</item>
+    </array>
+</resources>

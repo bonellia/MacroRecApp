@@ -68,6 +68,7 @@
         android:layout_width="360dp"
         android:layout_height="360dp"
         app:isClockwise="true"
+        app:targetList="@array/targets"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/h_guideline1"
