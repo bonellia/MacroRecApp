@@ -18,6 +18,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+
 import com.example.macrorecapp.R;
 
 import java.util.ArrayList;
@@ -54,7 +55,13 @@ public class RotaryView extends View {
     private static final int DEFAULT_DIRECTION_TEXT_COLOR = 0xFFFFFFFF;
     private static final int DEFAULT_TARGET_THUMB_COLOR = 0xFFFFFFFF;
     private static final int DEFAULT_TARGET_THUMB_TEXT_COLOR = 0xFF8F314D;
-
+    RectF mTargetContainer;
+    // Drawables as matrices.
+    Bitmap bitmapStartCam;
+    Bitmap bitmapFinishCam;
+    Bitmap bitmapCw;
+    Bitmap bitmapCcw;
+    Matrix flipHorizontalMatrix;
     // Paint
     private Paint mCirclePaint;
     private Paint mTargetArcPaint;
@@ -65,7 +72,6 @@ public class RotaryView extends View {
     private Paint mSubtextPaint;
     private Paint mTargetThumbPaint;
     private Paint mTargetThumbTextPaint;
-
     // Dimension
     private float mGapBetweenCircleAndLine;
     private float mCamIconRadius;
@@ -77,7 +83,6 @@ public class RotaryView extends View {
     private float mDirectionTextSize;
     private float mTargetThumbTextSize;
     private float mSubtextSize;
-
     // Color
     private int mCircleColor;
     private int mTargetArcStrokeColor;
@@ -86,7 +91,6 @@ public class RotaryView extends View {
     private int mSubtextColor;
     private int mTargetThumbColor;
     private int mTargetThumbTextColor;
-
     // Parameters
     private float mCx;
     private float mCy;
@@ -103,18 +107,10 @@ public class RotaryView extends View {
     private int mCurrentStartDegree;
     private int mCurrentFinishDegree;
     private boolean mClockwise;
-
     // Outer arc parameters
     private List<Integer> mTargetList;
     private int[] mTargetArray;
-    RectF mTargetContainer;
-
-    // Drawables as matrices.
-    Bitmap bitmapStartCam;
-    Bitmap bitmapFinishCam;
-    Bitmap bitmapCw;
-    Bitmap bitmapCcw;
-    Matrix flipHorizontalMatrix;
+    private int mStartTargetDegree;
 
     // Constructors.
     public RotaryView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -186,7 +182,7 @@ public class RotaryView extends View {
         mCirclePaint.setColor(mCircleColor);
         mCirclePaint.setStrokeWidth(mCircleStrokeWidth);
         mCirclePaint.setStyle(Paint.Style.STROKE);
-        DashPathEffect dashPath1 = new DashPathEffect(new float[]{8,24}, (float)1.0);
+        DashPathEffect dashPath1 = new DashPathEffect(new float[]{8, 24}, (float) 1.0);
         mCirclePaint.setPathEffect(dashPath1);
 
         // TargetArcPaint
@@ -203,7 +199,7 @@ public class RotaryView extends View {
         mTargetThumbTextPaint.setColor(mTargetThumbTextColor);
         mTargetThumbTextPaint.setTextAlign(Paint.Align.CENTER);
         mTargetThumbTextPaint.setTextSize(mTargetThumbTextSize);
-        mTargetThumbTextPaint.setTypeface(Typeface.create("Roboto",Typeface.BOLD));
+        mTargetThumbTextPaint.setTypeface(Typeface.create("Roboto", Typeface.BOLD));
 
         // TotalMovePaint
         mTotalMovePaint.setColor(mTotalMoveNumberColor);
@@ -236,14 +232,14 @@ public class RotaryView extends View {
         camStartDegree = 188;
         camFinishDegree = 0;
 
-        bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
-        bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
+        bitmapStartCam = BitmapFactory.decodeResource(getResources(), R.drawable.ic_cam_start);
+        bitmapFinishCam = BitmapFactory.decodeResource(getResources(), R.drawable.ic_cam_finish);
 
         // Not using a separate resource for ccw icon. Will programmatically flip horizontally.
-        bitmapCw = BitmapFactory.decodeResource(getResources(),R.drawable.ic_ccw_medium);
+        bitmapCw = BitmapFactory.decodeResource(getResources(), R.drawable.ic_ccw_medium);
         // A matrix to multiply, flips horizontally.
         flipHorizontalMatrix = new Matrix();
-        flipHorizontalMatrix.setScale(-1,1);
+        flipHorizontalMatrix.setScale(-1, 1);
         bitmapCcw = Bitmap.createBitmap(bitmapCw, 0, 0, bitmapCw.getWidth(), bitmapCw.getHeight(), flipHorizontalMatrix, true);
 
         // Get the position of targets.
@@ -254,10 +250,15 @@ public class RotaryView extends View {
 
         int x = 0;
         for (int i : mTargetArray) {
-            Log.d("Target Retrieval.",  "Adding " + i + " to mTargetList.");
+            Log.d("Target Retrieval.", "Adding " + i + " to mTargetList.");
             mTargetList.add(i);
-            Log.d("Target Retrieval.",  mTargetList.get(x++) + " is added to mTargetList.");
+            Log.d("Target Retrieval.", mTargetList.get(x++) + " is added to mTargetList.");
         }
+
+        // By default, first element of TargetList is assigned as Start Target.
+        mStartTargetDegree = mTargetList.get(0);
+
+        // TO DO: Add FinishTargetDegree using helper function.
 
         // Create a RectF in order to draw Target Arc within.
         mTargetContainer = new RectF();
@@ -281,90 +282,54 @@ public class RotaryView extends View {
         canvas.drawText("Active Direction", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) + getFontHeight(mSubtextPaint), mSubtextPaint);
         canvas.save();
 
-        if (!ismInCamStartThumb) {
-//            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-//            canvas.drawBitmap(
-//            bitmapStartCam,
-//            mCx-bitmapStartCam.getWidth()/2f,
-//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f,
-//            null);
-//            canvas.restore();
-//            canvas.save();
-//            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-//            canvas.drawBitmap(bitmapFinishCam,
-//            mCx-bitmapFinishCam.getWidth()/2f,
-//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f,
-//            null);
-//            canvas.restore();
-//            canvas.save();
-            canvas.drawBitmap(bitmapStartCam,
-                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getWidth()/2f) * (float) Math.cos(mCurrentCamStartRadian) - bitmapStartCam.getWidth()/2f,
-                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()/2f) * (float) Math.sin(mCurrentCamStartRadian) - bitmapStartCam.getHeight()/2f,
-                    null);
-            canvas.drawBitmap(bitmapFinishCam,
-                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()/2f) * (float) Math.cos(mCurrentCamFinishRadian) - bitmapFinishCam.getWidth()/2f,
-                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getHeight()/2f) * (float) Math.sin(mCurrentCamFinishRadian) - bitmapFinishCam.getHeight()/2f,
-                    null);
-            canvas.save();
-        } else {
-//            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-//            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2f,
-//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f,
-//            null);
-//            canvas.restore();
-//            // TimerNumber
-//            canvas.save();
-//            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-//            canvas.drawBitmap(bitmapFinishCam,
-//            mCx-bitmapFinishCam.getWidth()/2f,
-//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f,
-//            null);
-//            canvas.restore();
-//            // TimerNumber
-//            canvas.save();
-            canvas.drawBitmap(bitmapStartCam,
-                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getWidth()/2f) * (float) Math.cos(mCurrentCamStartRadian) - bitmapStartCam.getWidth()/2f,
-                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()/2f) * (float) Math.sin(mCurrentCamStartRadian) - bitmapStartCam.getHeight()/2f,
-                    null);
-            canvas.drawBitmap(bitmapFinishCam,
-                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getWidth()/2f) * (float) Math.cos(mCurrentCamFinishRadian) - bitmapFinishCam.getWidth()/2f,
-                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getHeight()/2f) * (float) Math.sin(mCurrentCamFinishRadian) - bitmapFinishCam.getHeight()/2f,
-                    null);
-            canvas.save();
-        }
+        canvas.drawBitmap(bitmapStartCam,
+                mCx + (mRadius - 2 * mCircleStrokeWidth - bitmapStartCam.getWidth() / 2f) * (float) Math.cos(mCurrentCamStartRadian) - bitmapStartCam.getWidth() / 2f,
+                mCy + (mRadius - 2 * mCircleStrokeWidth - bitmapStartCam.getHeight() / 2f) * (float) Math.sin(mCurrentCamStartRadian) - bitmapStartCam.getHeight() / 2f,
+                null);
+        canvas.drawBitmap(bitmapFinishCam,
+                mCx + (mRadius - 2 * mCircleStrokeWidth - bitmapFinishCam.getWidth() / 2f) * (float) Math.cos(mCurrentCamFinishRadian) - bitmapFinishCam.getWidth() / 2f,
+                mCy + (mRadius - 2 * mCircleStrokeWidth - bitmapFinishCam.getHeight() / 2f) * (float) Math.sin(mCurrentCamFinishRadian) - bitmapFinishCam.getHeight() / 2f,
+                null);
+        canvas.save();
+
 
         // Draw total move text.
-        canvas.drawText((getArcLength(camStartDegree,camFinishDegree, mClockwise)) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
+        canvas.drawText((getArcLength(camStartDegree, camFinishDegree, mClockwise)) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
         // Draw direction icon.
-        if(mClockwise){
+        if (mClockwise) {
             // Note that the drawable resource shows counter clockwise direction by default.
-            flipHorizontalMatrix.postTranslate(bitmapCw.getWidth(),0);
-            canvas.drawBitmap(bitmapCcw, mCx - bitmapCw.getWidth()/2f, mCy + getFontHeight(mSubtextPaint), null);
-        }
-        else{
-            canvas.drawBitmap(bitmapCw, mCx - bitmapCw.getWidth()/2f, mCy + getFontHeight(mSubtextPaint), null);
+            flipHorizontalMatrix.postTranslate(bitmapCw.getWidth(), 0);
+            canvas.drawBitmap(bitmapCcw, mCx - bitmapCw.getWidth() / 2f, mCy + getFontHeight(mSubtextPaint), null);
+        } else {
+            canvas.drawBitmap(bitmapCw, mCx - bitmapCw.getWidth() / 2f, mCy + getFontHeight(mSubtextPaint), null);
         }
         // Draw direction text.
-        if(mClockwise){
+        if (mClockwise) {
             canvas.drawText("CW", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) / 2 + getFontHeight(mSubtextPaint), mDirectionTextPaint);
-        }
-        else{
+        } else {
             canvas.drawText("CCW", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) / 2 + getFontHeight(mSubtextPaint), mDirectionTextPaint);
         }
         canvas.save();
+
         // Draw Target Arc
         // Note that it is expected that targetList array elements have valid degrees WRT direction.
-        int arcStart = mTargetList.get(0);
+        int arcStart = mStartTargetDegree;
         Log.d(TAG, "arcStart degree is " + arcStart);
-        int targetCount = mTargetList.size();
-        Log.d(TAG, "targetCount is " + targetCount);
-        int arcFinish = mTargetList.get(targetCount-1);
-        Log.d(TAG, "arcFinish degree is " + arcFinish);
 
-        mTargetContainer.set(mCx - mRadius,mCy - mRadius,mCx + mRadius,mCy + mRadius);
+        // Initially assuming no sweep will be performed. There could be one target only.
+        int arcSweep = 0;
+        // Next loop determines proper sweep amount that includes all targets.
+        for(int i : mTargetList) {
+            // If arc length between start degree and current degree is larger than previous amount, set is as sweep amount.
+            if (i!=arcStart) {
+                arcSweep = getArcLength(arcStart, i, mClockwise) > arcSweep ? getArcLength(arcStart, i, mClockwise) : arcSweep;
+            }
+        }
 
-        int arcSweep = getArcLength(arcStart, arcFinish, mClockwise);
         Log.d(TAG, "arcSweep amount is " + arcSweep);
+
+        mTargetContainer.set(mCx - mRadius, mCy - mRadius, mCx + mRadius, mCy + mRadius);
+
         if (mClockwise) {
             Log.d(TAG, "Attempting to draw arc in clockwise direction...");
             canvas.drawArc(mTargetContainer, arcStart, arcSweep, false, mTargetArcPaint);
@@ -375,7 +340,7 @@ public class RotaryView extends View {
         canvas.save();
 
         int targetNumber = 1;
-        for (int i : mTargetList){
+        for (int i : mTargetList) {
             canvas.drawCircle(
                     mCx + mRadius * (float) Math.cos(Math.toRadians(i)),
                     mCy + mRadius * (float) Math.sin(Math.toRadians(i)),
@@ -383,9 +348,9 @@ public class RotaryView extends View {
                     mTargetThumbPaint
             );
             canvas.drawText(
-                    "T"+ (targetNumber),
+                    "T" + (targetNumber),
                     mCx + mRadius * (float) Math.cos(Math.toRadians(i)),
-                    mCy + mRadius * (float) Math.sin(Math.toRadians(i)) + getFontHeight(mTargetThumbTextPaint)/2,
+                    mCy + mRadius * (float) Math.sin(Math.toRadians(i)) + getFontHeight(mTargetThumbTextPaint) / 2,
                     mTargetThumbTextPaint
             );
             Log.d(TAG, "Added T" + targetNumber + " on " + i + " degrees.");
@@ -437,7 +402,7 @@ public class RotaryView extends View {
                     if (mCurrentCamStartRadian < 0) {
                         mCurrentCamStartRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentStartDegree = (int) (360 / (2 * Math.PI) * mCurrentCamStartRadian)-90;
+                    mCurrentStartDegree = (int) (360 / (2 * Math.PI) * mCurrentCamStartRadian) - 90;
                     camStartDegree = mCurrentStartDegree;
                     invalidate();
                 } else if (mInCamFinishThumb && isEnabled()) {
@@ -455,7 +420,7 @@ public class RotaryView extends View {
                     if (mCurrentCamFinishRadian < 0) {
                         mCurrentCamFinishRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentFinishDegree = (int) (360 / (2 * Math.PI) * mCurrentCamFinishRadian)-90;
+                    mCurrentFinishDegree = (int) (360 / (2 * Math.PI) * mCurrentCamFinishRadian) - 90;
                     camFinishDegree = mCurrentFinishDegree;
                     invalidate();
                 }
@@ -534,13 +499,12 @@ public class RotaryView extends View {
 
     // A helper function to obtain distance over arc between two points.
     private int getArcLength(int startDegree, int finishDegree, boolean isClockwise) {
-        int x = (finishDegree-startDegree);
+        int x = (finishDegree - startDegree);
         int i;
-        if (!isClockwise){
-            i = x<0 ? -x : 360-x;
-        }
-        else{
-            i = x>0 ? 360-x : -x;
+        if (!isClockwise) {
+            i = x < 0 ? -x : 360 - x;
+        } else {
+            i = x > 0 ? 360 - x : -x;
             i = 360 - i;
         }
         return i;
@@ -555,11 +519,10 @@ public class RotaryView extends View {
     }
 
 
-
     // Whether the down event inside circle button
     private boolean mInCamStartThumb(float x, float y) {
-        float x2 = mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getWidth()) * (float) Math.cos(mCurrentCamStartRadian);
-        float y2 = mCy + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()) * (float) Math.sin(mCurrentCamStartRadian);
+        float x2 = mCx + (mRadius - 2 * mCircleStrokeWidth - bitmapStartCam.getWidth()) * (float) Math.cos(mCurrentCamStartRadian);
+        float y2 = mCy + (mRadius - 2 * mCircleStrokeWidth - bitmapStartCam.getHeight()) * (float) Math.sin(mCurrentCamStartRadian);
         if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < bitmapStartCam.getHeight()) {
             return true;
         }
@@ -568,8 +531,8 @@ public class RotaryView extends View {
 
     // Whether the down event inside circle button
     private boolean mInCamFinishThumb(float x, float y) {
-        float x2 = mCx + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getWidth()) * (float) Math.cos(mCurrentCamFinishRadian);
-        float y2 = mCy + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getHeight()) * (float) Math.sin(mCurrentCamFinishRadian);
+        float x2 = mCx + (mRadius - 2 * mCircleStrokeWidth - bitmapFinishCam.getWidth()) * (float) Math.cos(mCurrentCamFinishRadian);
+        float y2 = mCy + (mRadius - 2 * mCircleStrokeWidth - bitmapFinishCam.getHeight()) * (float) Math.sin(mCurrentCamFinishRadian);
         if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < bitmapFinishCam.getHeight()) {
             return true;
         }
@@ -582,7 +545,7 @@ public class RotaryView extends View {
         float right = mCx + bitmapCw.getWidth();
         float top = mCy;
         float bottom = mCy + bitmapCw.getHeight() + getFontHeight(mDirectionTextPaint) + 2 * getFontHeight(mSubtextPaint);
-        if(left<x && x<right && top<y && y<bottom) {
+        if (left < x && x < right && top < y && y < bottom) {
             return true;
         }
         return false;
@@ -605,5 +568,42 @@ public class RotaryView extends View {
         return alpha;
     }
 
+
+    private int findStartTargetIndex(int targetDegree) {
+        int x = 0;
+        for (int i : mTargetList) {
+            if (i == targetDegree) {
+                return x;
+            }
+            x++;
+        }
+        // No such target with given degree.
+        return -1;
+    }
+
+    private int getLastTargetDegree() {
+        for (int i: mTargetList) {
+            if (i != mStartTargetDegree) {
+
+            }
+        }
+        return 0;
+    }
+
+    public int getCurrentStartDegree() {
+        return mCurrentStartDegree;
+    }
+
+    public void setCurrentStartDegree(int newCurrentStartDegree) {
+        this.mCurrentStartDegree = newCurrentStartDegree;
+    }
+
+    public int getCurrentFinishDegree() {
+        return mCurrentFinishDegree;
+    }
+
+    public void setCurrentFinishDegree(int newCurrentFinishDegree) {
+        this.mCurrentFinishDegree = newCurrentFinishDegree;
+    }
 
 }

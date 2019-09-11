@@ -103,15 +103,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="450" column="38" lean-forward="true" selection-start-line="450" selection-start-column="38" selection-end-line="450" selection-end-column="38" />
+            <state relative-caret-position="555">
+              <caret line="325" column="13" selection-start-line="325" selection-start-column="13" selection-end-line="325" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4366#4367#0" expanded="true" />
                 <element signature="e#4405#4406#0" expanded="true" />
+                <element signature="e#25943#25944#0" expanded="true" />
+                <element signature="e#26161#26162#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,11 +129,11 @@
           <provider editor-type-id="android-designer2" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/rotary/RotaryPhotoSettings.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+              <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,7 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mClockwise</find>
       <find>mTimerNumberSize</find>
       <find>mTimerTextSize</find>
       <find>mTimerNumberColor</find>
@@ -183,6 +184,7 @@
       <find>mTargetList</find>
       <find>@+id/seekbar</find>
       <find>(mRadius-mTargetArcStrokeWidth)</find>
+      <find>for()</find>
     </findStrings>
     <replaceStrings>
       <replace>mTotalMoveNumberColor</replace>
@@ -277,8 +279,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_mode.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/rotary/RotaryPhotoSettings.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/rotary/RotaryPhotoSettings.java" />
       </list>
     </option>
   </component>
@@ -537,7 +539,7 @@
       <window_info id="Resources Explorer" order="7" weight="0.3298744" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="1" sideWeight="0.49808848" visible="true" weight="0.3790497" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49808848" weight="0.3790497" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32937366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3650108" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49808848" weight="0.49352053" />
@@ -923,16 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/rotary/RotaryPhotoSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_rotary_photo_settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
@@ -943,12 +935,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/shared/views/RotaryView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="450" column="38" lean-forward="true" selection-start-line="450" selection-start-column="38" selection-end-line="450" selection-end-column="38" />
+        <state relative-caret-position="555">
+          <caret line="325" column="13" selection-start-line="325" selection-start-column="13" selection-end-line="325" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4366#4367#0" expanded="true" />
             <element signature="e#4405#4406#0" expanded="true" />
+            <element signature="e#25943#25944#0" expanded="true" />
+            <element signature="e#26161#26162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/macrorecapp/features/rotary/RotaryPhotoSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
