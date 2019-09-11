@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -21,8 +20,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.example.macrorecapp.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class RotaryView extends View {
+
     private static final String TAG = "RotaryView";
 
     // Status
@@ -102,7 +105,8 @@ public class RotaryView extends View {
     private boolean mClockwise;
 
     // Outer arc parameters
-    private int[] mTargetList;
+    private List<Integer> mTargetList;
+    private int[] mTargetArray;
     RectF mTargetContainer;
 
     // Drawables as matrices.
@@ -112,6 +116,7 @@ public class RotaryView extends View {
     Bitmap bitmapCcw;
     Matrix flipHorizontalMatrix;
 
+    // Constructors.
     public RotaryView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize(context, attrs);
@@ -131,7 +136,7 @@ public class RotaryView extends View {
         final TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.RotaryView, 0, 0);
 
-        Log.d(TAG, " initializing...");
+        Log.d(TAG, "Initializing view parameters.");
 
         // Set default dimensions or read xml attributes.
         mGapBetweenCircleAndLine = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE,
@@ -243,9 +248,15 @@ public class RotaryView extends View {
 
         // Get the position of targets.
         int targetsID = a.getResourceId(R.styleable.RotaryView_targetList, 0);
-        mTargetList = a.getResources().getIntArray(targetsID);
-        for (int i : mTargetList) {
-            Log.i("Target Retrieval.",  i + " is in targetsArray.");
+        mTargetArray = a.getResources().getIntArray(targetsID);
+
+        mTargetList = new ArrayList<>();
+
+        int x = 0;
+        for (int i : mTargetArray) {
+            Log.d("Target Retrieval.",  "Adding " + i + " to mTargetList.");
+            mTargetList.add(i);
+            Log.d("Target Retrieval.",  mTargetList.get(x++) + " is added to mTargetList.");
         }
 
         // Create a RectF in order to draw Target Arc within.
@@ -259,8 +270,6 @@ public class RotaryView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
-        Log.i(TAG,"Drawing...");
         canvas.save();
 
         canvas.drawCircle(mCx, mCy, mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine, mCirclePaint);
@@ -315,11 +324,11 @@ public class RotaryView extends View {
         canvas.save();
         // Draw Target Arc
         // Note that it is expected that targetList array elements have valid degrees WRT direction.
-        int arcStart = mTargetList[0];
+        int arcStart = mTargetList.get(0);
         Log.d(TAG, "arcStart degree is " + arcStart);
-        int targetCount = mTargetList.length;
+        int targetCount = mTargetList.size();
         Log.d(TAG, "targetCount is " + targetCount);
-        int arcFinish = mTargetList[targetCount-1];
+        int arcFinish = mTargetList.get(targetCount-1);
         Log.d(TAG, "arcFinish degree is " + arcFinish);
 
         mTargetContainer.set(mCx - mRadius,mCy - mRadius,mCx + mRadius,mCy + mRadius);
@@ -335,47 +344,28 @@ public class RotaryView extends View {
         }
         canvas.save();
 
-        for (int i=0; i<mTargetList.length; i++) {
+        int targetNumber = 1;
+        for (int i : mTargetList){
             canvas.drawCircle(
-                    mCx + mRadius * (float) Math.cos(Math.toRadians(mTargetList[i])),
-                    mCy - mRadius * (float) Math.sin(Math.toRadians(mTargetList[i])),
+                    mCx + mRadius * (float) Math.cos(Math.toRadians(i)),
+                    mCy + mRadius * (float) Math.sin(Math.toRadians(i)),
                     mTargetThumbRadius,
                     mTargetThumbPaint
             );
-            Log.d(TAG, "Drew circle T"+ (i+1) );
             canvas.drawText(
-                    "T"+ (i+1),
-                    mCx + mRadius * (float) Math.cos(Math.toRadians(mTargetList[i])),
-                    mCy - mRadius * (float) Math.sin(Math.toRadians(mTargetList[i])) + getFontHeight(mTargetThumbTextPaint)/2,
-                    mTargetThumbTextPaint);
-            Log.d(TAG, "Added T" + (i+1) + " on " + mTargetList[i] + " degrees.");
+                    "T"+ (targetNumber),
+                    mCx + mRadius * (float) Math.cos(Math.toRadians(i)),
+                    mCy + mRadius * (float) Math.sin(Math.toRadians(i)) + getFontHeight(mTargetThumbTextPaint)/2,
+                    mTargetThumbTextPaint
+            );
+            Log.d(TAG, "Added T" + targetNumber + " on " + i + " degrees.");
+            targetNumber++;
             canvas.save();
         }
 
         super.onDraw(canvas);
     }
 
-    private float getFontHeight(Paint paint) {
-        // FontMetrics sF = paint.getFontMetrics();
-        // return sF.descent - sF.ascent;
-        Rect rect = new Rect();
-        paint.getTextBounds("1", 0, 1, rect);
-        return rect.height();
-    }
-
-    // A helper function to obtain distance over arc between two points.
-    private int getArcLength(int startDegree, int finishDegree, boolean isClockwise) {
-        int x = (finishDegree-startDegree);
-        int i;
-        if (!isClockwise){
-            i = x<0 ? -x : 360-x;
-        }
-        else{
-            i = x>0 ? 360-x : -x;
-            i = 360 - i;
-        }
-        return i;
-    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -457,6 +447,85 @@ public class RotaryView extends View {
         return true;
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.d(TAG, "onMeasure");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        // Ensure width = height
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        this.mCx = width / 2;
+        this.mCy = height / 2;
+        // Radius
+        if (mGapBetweenCircleAndLine + mCircleStrokeWidth >= mCamIconRadius) {
+            this.mRadius = width / 2f - mCircleStrokeWidth / 2;
+            this.mRadius = mRadius * 8 / 10;
+        } else {
+            this.mRadius = width / 2f - (mCamIconRadius - mGapBetweenCircleAndLine -
+                    mCircleStrokeWidth / 2);
+            this.mRadius = mRadius * 8 / 10;
+        }
+        setMeasuredDimension(width, height);
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(INSTANCE_STATUS, super.onSaveInstanceState());
+        bundle.putFloat(STATUS_START_RADIAN, mCurrentCamStartRadian);
+        bundle.putFloat(STATUS_FINISH_RADIAN, mCurrentCamFinishRadian);
+        return bundle;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (state instanceof Bundle) {
+            Bundle bundle = (Bundle) state;
+            super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATUS));
+            mCurrentCamStartRadian = bundle.getFloat(STATUS_START_RADIAN);
+            mCurrentCamFinishRadian = bundle.getFloat(STATUS_FINISH_RADIAN);
+            mCurrentStartDegree = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
+            mCurrentFinishDegree = (int) (60 / (2 * Math.PI) * mCurrentCamFinishRadian * 60);
+            return;
+        }
+        super.onRestoreInstanceState(state);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+
+    public void addTarget(int targetDegree) {
+        // Currently not enforcing any rules on target's angle.
+        // Note that right hand side is 0 degree and increase is clockwise.
+        mTargetList.add(targetDegree % 360);
+    }
+
+    // A helper function to obtain distance over arc between two points.
+    private int getArcLength(int startDegree, int finishDegree, boolean isClockwise) {
+        int x = (finishDegree-startDegree);
+        int i;
+        if (!isClockwise){
+            i = x<0 ? -x : 360-x;
+        }
+        else{
+            i = x>0 ? 360-x : -x;
+            i = 360 - i;
+        }
+        return i;
+    }
+
+    private float getFontHeight(Paint paint) {
+        // FontMetrics sF = paint.getFontMetrics();
+        // return sF.descent - sF.ascent;
+        Rect rect = new Rect();
+        paint.getTextBounds("1", 0, 1, rect);
+        return rect.height();
+    }
+
+
+
     // Whether the down event inside circle button
     private boolean mInCamStartThumb(float x, float y) {
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
@@ -508,53 +577,5 @@ public class RotaryView extends View {
         return alpha;
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Log.d(TAG, "onMeasure");
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        // Ensure width = height
-        int height = MeasureSpec.getSize(heightMeasureSpec);
-        int width = MeasureSpec.getSize(widthMeasureSpec);
-        this.mCx = width / 2;
-        this.mCy = height / 2;
-        // Radius
-        if (mGapBetweenCircleAndLine + mCircleStrokeWidth >= mCamIconRadius) {
-            this.mRadius = width / 2f - mCircleStrokeWidth / 2;
-            this.mRadius = mRadius * 8 / 10;
-        } else {
-            this.mRadius = width / 2f - (mCamIconRadius - mGapBetweenCircleAndLine -
-                    mCircleStrokeWidth / 2);
-            this.mRadius = mRadius * 8 / 10;
-        }
-        setMeasuredDimension(width, height);
-    }
-
-    @Override
-    protected Parcelable onSaveInstanceState() {
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(INSTANCE_STATUS, super.onSaveInstanceState());
-        bundle.putFloat(STATUS_START_RADIAN, mCurrentCamStartRadian);
-        bundle.putFloat(STATUS_FINISH_RADIAN, mCurrentCamFinishRadian);
-        return bundle;
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Parcelable state) {
-        if (state instanceof Bundle) {
-            Bundle bundle = (Bundle) state;
-            super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATUS));
-            mCurrentCamStartRadian = bundle.getFloat(STATUS_START_RADIAN);
-            mCurrentCamFinishRadian = bundle.getFloat(STATUS_FINISH_RADIAN);
-            mCurrentStartDegree = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
-            mCurrentFinishDegree = (int) (60 / (2 * Math.PI) * mCurrentCamFinishRadian * 60);
-            return;
-        }
-        super.onRestoreInstanceState(state);
-    }
-
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-    }
 
 }

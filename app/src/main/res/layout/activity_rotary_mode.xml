@@ -28,7 +28,7 @@
         style="@style/text_settings_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/personal_information"
+        android:text="@string/rotary"
         app:layout_constraintBottom_toTopOf="@+id/top_gradient"
         app:layout_constraintEnd_toStartOf="@+id/top_gradient"
         app:layout_constraintHorizontal_bias="0.5"

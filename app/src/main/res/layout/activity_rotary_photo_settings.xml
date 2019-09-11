@@ -64,7 +64,7 @@
         app:srcCompat="@drawable/side_menu_button" />
 
     <com.example.macrorecapp.features.shared.views.RotaryView
-        android:id="@+id/seekbar"
+        android:id="@+id/rotaryPhotoView"
         android:layout_width="360dp"
         android:layout_height="360dp"
         app:isClockwise="true"
