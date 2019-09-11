@@ -91,6 +91,7 @@ public class RotaryView extends View {
     private int mSubtextColor;
     private int mTargetThumbColor;
     private int mTargetThumbTextColor;
+
     // Parameters
     private float mCx;
     private float mCy;
@@ -103,7 +104,6 @@ public class RotaryView extends View {
     private boolean mInDirectionIcon;
     private int camStartDegree;
     private int camFinishDegree;
-    private boolean ismInCamStartThumb;
     private int mCurrentStartDegree;
     private int mCurrentFinishDegree;
     private boolean mClockwise;
@@ -258,8 +258,6 @@ public class RotaryView extends View {
         // By default, first element of TargetList is assigned as Start Target.
         mStartTargetDegree = mTargetList.get(0);
 
-        // TO DO: Add FinishTargetDegree using helper function.
-
         // Create a RectF in order to draw Target Arc within.
         mTargetContainer = new RectF();
 
@@ -286,15 +284,17 @@ public class RotaryView extends View {
                 mCx + (mRadius - 2 * mCircleStrokeWidth - bitmapStartCam.getWidth() / 2f) * (float) Math.cos(mCurrentCamStartRadian) - bitmapStartCam.getWidth() / 2f,
                 mCy + (mRadius - 2 * mCircleStrokeWidth - bitmapStartCam.getHeight() / 2f) * (float) Math.sin(mCurrentCamStartRadian) - bitmapStartCam.getHeight() / 2f,
                 null);
+        canvas.save();
+
         canvas.drawBitmap(bitmapFinishCam,
                 mCx + (mRadius - 2 * mCircleStrokeWidth - bitmapFinishCam.getWidth() / 2f) * (float) Math.cos(mCurrentCamFinishRadian) - bitmapFinishCam.getWidth() / 2f,
                 mCy + (mRadius - 2 * mCircleStrokeWidth - bitmapFinishCam.getHeight() / 2f) * (float) Math.sin(mCurrentCamFinishRadian) - bitmapFinishCam.getHeight() / 2f,
                 null);
-        canvas.save();
 
 
         // Draw total move text.
         canvas.drawText((getArcLength(camStartDegree, camFinishDegree, mClockwise)) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
+
         // Draw direction icon.
         if (mClockwise) {
             // Note that the drawable resource shows counter clockwise direction by default.
@@ -303,6 +303,7 @@ public class RotaryView extends View {
         } else {
             canvas.drawBitmap(bitmapCw, mCx - bitmapCw.getWidth() / 2f, mCy + getFontHeight(mSubtextPaint), null);
         }
+
         // Draw direction text.
         if (mClockwise) {
             canvas.drawText("CW", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) / 2 + getFontHeight(mSubtextPaint), mDirectionTextPaint);
@@ -311,34 +312,22 @@ public class RotaryView extends View {
         }
         canvas.save();
 
-        // Draw Target Arc
-        // Note that it is expected that targetList array elements have valid degrees WRT direction.
-        int arcStart = mStartTargetDegree;
-        Log.d(TAG, "arcStart degree is " + arcStart);
 
-        // Initially assuming no sweep will be performed. There could be one target only.
-        int arcSweep = 0;
-        // Next loop determines proper sweep amount that includes all targets.
-        for(int i : mTargetList) {
-            // If arc length between start degree and current degree is larger than previous amount, set is as sweep amount.
-            if (i!=arcStart) {
-                arcSweep = getArcLength(arcStart, i, mClockwise) > arcSweep ? getArcLength(arcStart, i, mClockwise) : arcSweep;
-            }
-        }
-
-        Log.d(TAG, "arcSweep amount is " + arcSweep);
-
+        // Draw Targets Arc
+        // Set rectf values to determine boundaries of targets arc.
         mTargetContainer.set(mCx - mRadius, mCy - mRadius, mCx + mRadius, mCy + mRadius);
-
+        int arcStart = mStartTargetDegree;
+        int arcSweep = getTargetSweep();
         if (mClockwise) {
-            Log.d(TAG, "Attempting to draw arc in clockwise direction...");
+            Log.d(TAG, "Drawing arc with "+ arcSweep + " degrees sweep clockwise.");
             canvas.drawArc(mTargetContainer, arcStart, arcSweep, false, mTargetArcPaint);
         } else {
-            Log.d(TAG, "Attempting to draw arc in counter-clockwise direction...");
+            Log.d(TAG, "Drawing arc with "+ arcSweep + " degrees sweep counter-clockwise.");
             canvas.drawArc(mTargetContainer, arcStart, -arcSweep, false, mTargetArcPaint);
         }
         canvas.save();
 
+        // Placing target circles with text. Numbers represent list index.
         int targetNumber = 1;
         for (int i : mTargetList) {
             canvas.drawCircle(
@@ -353,11 +342,9 @@ public class RotaryView extends View {
                     mCy + mRadius * (float) Math.sin(Math.toRadians(i)) + getFontHeight(mTargetThumbTextPaint) / 2,
                     mTargetThumbTextPaint
             );
-            Log.d(TAG, "Added T" + targetNumber + " on " + i + " degrees.");
             targetNumber++;
             canvas.save();
         }
-
         super.onDraw(canvas);
     }
 
@@ -369,20 +356,17 @@ public class RotaryView extends View {
                 // If the point in the circle button
                 if (mInCamStartThumb(event.getX(), event.getY()) && isEnabled()) {
                     mInCamStartThumb = true;
-                    // Reset ismInCamStartThumb value that was set true for further use.
-                    ismInCamStartThumb = false;
                     mPreRadian = getRadian(event.getX(), event.getY());
-                    Log.d(TAG, "Motion in camera start.");
+                    Log.d(TAG, "Motion begins on camera start.");
                 } else if (mInCamFinishThumb(event.getX(), event.getY()) && isEnabled()) {
                     mInCamFinishThumb = true;
-                    ismInCamStartThumb = true;
                     mPreRadian = getRadian(event.getX(), event.getY());
-                    Log.d(TAG, "Motion in camera finish.");
+                    Log.d(TAG, "Motion begins on camera finish.");
                 }
                 // If the point in the direction icon
                 if (mInDirectionIcon(event.getX(), event.getY()) && isEnabled()) {
                     mInDirectionIcon = true;
-                    Log.d(TAG, "Motion in direction icon.");
+                    Log.d(TAG, "Touch on direction icon.");
                 }
 
                 break;
@@ -518,7 +502,6 @@ public class RotaryView extends View {
         return rect.height();
     }
 
-
     // Whether the down event inside circle button
     private boolean mInCamStartThumb(float x, float y) {
         float x2 = mCx + (mRadius - 2 * mCircleStrokeWidth - bitmapStartCam.getWidth()) * (float) Math.cos(mCurrentCamStartRadian);
@@ -568,11 +551,13 @@ public class RotaryView extends View {
         return alpha;
     }
 
-
+    // Currently useless. May use to change start target.
     private int findStartTargetIndex(int targetDegree) {
         int x = 0;
         for (int i : mTargetList) {
             if (i == targetDegree) {
+                // Assuming all targets to have unique degrees.
+                // In case of duplicate degrees, first index will be returned.
                 return x;
             }
             x++;
@@ -581,13 +566,19 @@ public class RotaryView extends View {
         return -1;
     }
 
-    private int getLastTargetDegree() {
-        for (int i: mTargetList) {
-            if (i != mStartTargetDegree) {
-
+    // Determines sweep amount to be used while drawing targets arc.
+    private int getTargetSweep() {
+        int arcStart = mStartTargetDegree;
+        // Initially assuming no sweep will be performed. There could be one target only.
+        int arcSweep = 0;
+        // Next loop determines proper sweep amount that includes all targets.
+        for(int i : mTargetList) {
+            // If arc length between start degree and current degree is larger than previous amount, set is as sweep amount.
+            if (i!=arcStart) {
+                arcSweep = getArcLength(arcStart, i, mClockwise) > arcSweep ? getArcLength(arcStart, i, mClockwise) : arcSweep;
             }
         }
-        return 0;
+        return arcSweep;
     }
 
     public int getCurrentStartDegree() {
@@ -604,6 +595,10 @@ public class RotaryView extends View {
 
     public void setCurrentFinishDegree(int newCurrentFinishDegree) {
         this.mCurrentFinishDegree = newCurrentFinishDegree;
+    }
+
+    public int getTotalMoveInDegrees() {
+        return getArcLength(mCurrentStartDegree, mCurrentFinishDegree, mClockwise);
     }
 
 }

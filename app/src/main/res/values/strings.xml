@@ -202,6 +202,8 @@
     <string name="three_sixty_photo">360\u00B0 Photo</string>
     <string name="ccw">CCW</string>
     <string name="cw">CW</string>
+    <string name="number_of_photos">Number of Photos</string>
+    <string name="angle_per_photos">Angle per Photos</string>
 
 
 </resources>

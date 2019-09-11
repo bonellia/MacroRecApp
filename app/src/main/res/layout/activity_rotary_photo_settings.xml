@@ -75,12 +75,107 @@
         app:layout_constraintBottom_toTopOf="@id/h_guideline2"
         />
 
+    <View
+        android:id="@+id/numberOfPhotosBG"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.48"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09"
+        android:background="@drawable/settings_rectangle"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline3"
+        app:layout_constraintEnd_toStartOf="@id/v_guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/h_guideline2" />
+
+    <EditText
+        android:id="@+id/numberOfPhotosEdittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:ems="4"
+        android:textSize="15sp"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/numberOfPhotosSubtext"
+        app:layout_constraintEnd_toStartOf="@id/v_guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/numberOfPhotosBG"
+        android:importantForAutofill="no"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/numberOfPhotosSubtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        android:text="@string/number_of_photos"
+        android:textColor="#88E9E9E9"
+        app:layout_constraintBottom_toBottomOf="@+id/numberOfPhotosBG"
+        app:layout_constraintEnd_toStartOf="@id/v_guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfPhotosEdittext"/>
+
+    <View
+        android:id="@+id/anglePerPhotosBG"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.48"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09"
+        android:background="@drawable/settings_rectangle"
+        app:layout_constraintBottom_toTopOf="@+id/h_guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/v_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/h_guideline2" />
+
+    <EditText
+        android:id="@+id/anglePerPhotosEdittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:ems="4"
+        android:textSize="15sp"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/anglePerPhotosSubtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/v_guideline"
+        app:layout_constraintTop_toTopOf="@+id/anglePerPhotosBG"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/anglePerPhotosSubtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        android:text="@string/angle_per_photos"
+        android:textColor="#88E9E9E9"
+        app:layout_constraintBottom_toBottomOf="@+id/anglePerPhotosBG"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/v_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/anglePerPhotosEdittext"/>
+
+
     <Button
         android:id="@+id/threeSixtyModeBackground"
         android:layout_width="0dp"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.25"
         android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.15"
         android:background="@drawable/settings_rectangle"
         android:clickable="true"
         android:focusable="true"
@@ -114,7 +209,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.685" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/h_guideline4"
