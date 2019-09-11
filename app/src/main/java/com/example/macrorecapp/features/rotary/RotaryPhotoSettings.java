@@ -18,7 +18,7 @@ public class RotaryPhotoSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rotary_photo_settings);
         mPhotoRotaryView = findViewById(R.id.rotaryPhotoView);
-        mPhotoRotaryView.addTarget(180);
+        //mPhotoRotaryView.addTarget(180);
 
     }
 

@@ -231,10 +231,10 @@ public class RotaryView extends View {
         mSubtextPaint.setTextSize(mSubtextSize);
 
         // Optionally, these values could be set according to XML attributes.
-        mCurrentCamStartRadian = (float) Math.toRadians(315);
-        mCurrentCamFinishRadian = (float) Math.toRadians(45);
-        camStartDegree = 300;
-        camFinishDegree = 345;
+        mCurrentCamStartRadian = (float) Math.toRadians(188);
+        mCurrentCamFinishRadian = (float) Math.toRadians(0);
+        camStartDegree = 188;
+        camFinishDegree = 0;
 
         bitmapStartCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_start);
         bitmapFinishCam = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cam_finish);
@@ -282,24 +282,54 @@ public class RotaryView extends View {
         canvas.save();
 
         if (!ismInCamStartThumb) {
-            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2f,getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f, null);
-            canvas.restore();
-            canvas.save();
-            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2f,getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f, null);
-            canvas.restore();
+//            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
+//            canvas.drawBitmap(
+//            bitmapStartCam,
+//            mCx-bitmapStartCam.getWidth()/2f,
+//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f,
+//            null);
+//            canvas.restore();
+//            canvas.save();
+//            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
+//            canvas.drawBitmap(bitmapFinishCam,
+//            mCx-bitmapFinishCam.getWidth()/2f,
+//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f,
+//            null);
+//            canvas.restore();
+//            canvas.save();
+            canvas.drawBitmap(bitmapStartCam,
+                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getWidth()/2f) * (float) Math.cos(mCurrentCamStartRadian) - bitmapStartCam.getWidth()/2f,
+                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()/2f) * (float) Math.sin(mCurrentCamStartRadian) - bitmapStartCam.getHeight()/2f,
+                    null);
+            canvas.drawBitmap(bitmapFinishCam,
+                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()/2f) * (float) Math.cos(mCurrentCamFinishRadian) - bitmapFinishCam.getWidth()/2f,
+                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getHeight()/2f) * (float) Math.sin(mCurrentCamFinishRadian) - bitmapFinishCam.getHeight()/2f,
+                    null);
             canvas.save();
         } else {
-            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2f, getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f,  null);
-            canvas.restore();
-            // TimerNumber
-            canvas.save();
-            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
-            canvas.drawBitmap(bitmapFinishCam, mCx-bitmapFinishCam.getWidth()/2f, getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f, null);
-            canvas.restore();
-            // TimerNumber
+//            canvas.rotate((float) Math.toDegrees(mCurrentCamStartRadian), mCx, mCy);
+//            canvas.drawBitmap(bitmapStartCam, mCx-bitmapStartCam.getWidth()/2f,
+//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapStartCam.getHeight()/2f,
+//            null);
+//            canvas.restore();
+//            // TimerNumber
+//            canvas.save();
+//            canvas.rotate((float) Math.toDegrees(mCurrentCamFinishRadian), mCx, mCy);
+//            canvas.drawBitmap(bitmapFinishCam,
+//            mCx-bitmapFinishCam.getWidth()/2f,
+//            getMeasuredHeight()/2f - mRadius + mCircleStrokeWidth / 2 + mGapBetweenCircleAndLine+bitmapFinishCam.getHeight()/2f,
+//            null);
+//            canvas.restore();
+//            // TimerNumber
+//            canvas.save();
+            canvas.drawBitmap(bitmapStartCam,
+                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getWidth()/2f) * (float) Math.cos(mCurrentCamStartRadian) - bitmapStartCam.getWidth()/2f,
+                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()/2f) * (float) Math.sin(mCurrentCamStartRadian) - bitmapStartCam.getHeight()/2f,
+                    null);
+            canvas.drawBitmap(bitmapFinishCam,
+                    mCx + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getWidth()/2f) * (float) Math.cos(mCurrentCamFinishRadian) - bitmapFinishCam.getWidth()/2f,
+                    mCy + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getHeight()/2f) * (float) Math.sin(mCurrentCamFinishRadian) - bitmapFinishCam.getHeight()/2f,
+                    null);
             canvas.save();
         }
 
@@ -407,7 +437,7 @@ public class RotaryView extends View {
                     if (mCurrentCamStartRadian < 0) {
                         mCurrentCamStartRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentStartDegree = (int) (360 / (2 * Math.PI) * mCurrentCamStartRadian);
+                    mCurrentStartDegree = (int) (360 / (2 * Math.PI) * mCurrentCamStartRadian)-90;
                     camStartDegree = mCurrentStartDegree;
                     invalidate();
                 } else if (mInCamFinishThumb && isEnabled()) {
@@ -425,7 +455,7 @@ public class RotaryView extends View {
                     if (mCurrentCamFinishRadian < 0) {
                         mCurrentCamFinishRadian += (float) (2 * Math.PI);
                     }
-                    mCurrentFinishDegree = (int) (360 / (2 * Math.PI) * mCurrentCamFinishRadian);
+                    mCurrentFinishDegree = (int) (360 / (2 * Math.PI) * mCurrentCamFinishRadian)-90;
                     camFinishDegree = mCurrentFinishDegree;
                     invalidate();
                 }
@@ -484,8 +514,8 @@ public class RotaryView extends View {
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATUS));
             mCurrentCamStartRadian = bundle.getFloat(STATUS_START_RADIAN);
             mCurrentCamFinishRadian = bundle.getFloat(STATUS_FINISH_RADIAN);
-            mCurrentStartDegree = (int) (60 / (2 * Math.PI) * mCurrentCamStartRadian * 60);
-            mCurrentFinishDegree = (int) (60 / (2 * Math.PI) * mCurrentCamFinishRadian * 60);
+            mCurrentStartDegree = (int) (360 / (2 * Math.PI) * mCurrentCamStartRadian);
+            mCurrentFinishDegree = (int) (360 / (2 * Math.PI) * mCurrentCamFinishRadian);
             return;
         }
         super.onRestoreInstanceState(state);
@@ -528,9 +558,8 @@ public class RotaryView extends View {
 
     // Whether the down event inside circle button
     private boolean mInCamStartThumb(float x, float y) {
-        float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
-        float x2 = (float) (mCx + r * Math.sin(mCurrentCamStartRadian));
-        float y2 = (float) (mCy - r * Math.cos(mCurrentCamStartRadian));
+        float x2 = mCx + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getWidth()) * (float) Math.cos(mCurrentCamStartRadian);
+        float y2 = mCy + (mRadius-2*mCircleStrokeWidth-bitmapStartCam.getHeight()) * (float) Math.sin(mCurrentCamStartRadian);
         if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < bitmapStartCam.getHeight()) {
             return true;
         }
@@ -539,9 +568,8 @@ public class RotaryView extends View {
 
     // Whether the down event inside circle button
     private boolean mInCamFinishThumb(float x, float y) {
-        float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
-        float x2 = (float) (mCx + r * Math.sin(mCurrentCamFinishRadian));
-        float y2 = (float) (mCy - r * Math.cos(mCurrentCamFinishRadian));
+        float x2 = mCx + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getWidth()) * (float) Math.cos(mCurrentCamFinishRadian);
+        float y2 = mCy + (mRadius-2*mCircleStrokeWidth-bitmapFinishCam.getHeight()) * (float) Math.sin(mCurrentCamFinishRadian);
         if (Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2)) < bitmapFinishCam.getHeight()) {
             return true;
         }
