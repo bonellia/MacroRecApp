@@ -12,6 +12,7 @@ public class RotaryPhotoSettings extends AppCompatActivity {
 
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.2F);
     RotaryView mPhotoRotaryView;
+    private int mTotalMoveInDegrees;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,7 @@ public class RotaryPhotoSettings extends AppCompatActivity {
         setContentView(R.layout.activity_rotary_photo_settings);
         mPhotoRotaryView = findViewById(R.id.rotaryPhotoView);
         mPhotoRotaryView.addTarget(300);
-
+        mTotalMoveInDegrees = mPhotoRotaryView.getTotalMoveInDegrees();
 
     }
 

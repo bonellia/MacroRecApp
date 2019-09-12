@@ -17,11 +17,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
@@ -31,7 +34,7 @@ dependencies {
     // For Google Log In
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     // For Facebook Log In
-    implementation 'com.facebook.android:facebook-login:5.4.0'
+    implementation 'com.facebook.android:facebook-login:5.5.0'
     // For Virtual Joystick Widget
     implementation 'io.github.controlwear:virtualjoystick:1.9.2'
     // For Custom Arc Seekbar
