@@ -55,6 +55,7 @@ public class RotaryView extends View {
     private static final int DEFAULT_DIRECTION_TEXT_COLOR = 0xFFFFFFFF;
     private static final int DEFAULT_TARGET_THUMB_COLOR = 0xFFFFFFFF;
     private static final int DEFAULT_TARGET_THUMB_TEXT_COLOR = 0xFF8F314D;
+
     RectF mTargetContainer;
     // Drawables as matrices.
     Bitmap bitmapStartCam;
@@ -102,11 +103,9 @@ public class RotaryView extends View {
     private boolean mInCamStartThumb;
     private boolean mInCamFinishThumb;
     private boolean mInDirectionIcon;
-    private int camStartDegree;
-    private int camFinishDegree;
-    private int mCurrentStartDegree;
-    private int mCurrentFinishDegree;
-    private boolean mClockwise;
+    private static int mCurrentStartDegree;
+    private static int mCurrentFinishDegree;
+    private static boolean mClockwise;
     // Outer arc parameters
     private List<Integer> mTargetList;
     private int[] mTargetArray;
@@ -227,10 +226,10 @@ public class RotaryView extends View {
         mSubtextPaint.setTextSize(mSubtextSize);
 
         // Optionally, these values could be set according to XML attributes.
-        mCurrentCamStartRadian = (float) Math.toRadians(188);
+        mCurrentCamStartRadian = (float) Math.toRadians(115);
         mCurrentCamFinishRadian = (float) Math.toRadians(0);
-        camStartDegree = 188;
-        camFinishDegree = 0;
+        mCurrentStartDegree = 115;
+        mCurrentFinishDegree = 0;
 
         bitmapStartCam = BitmapFactory.decodeResource(getResources(), R.drawable.ic_cam_start);
         bitmapFinishCam = BitmapFactory.decodeResource(getResources(), R.drawable.ic_cam_finish);
@@ -293,7 +292,8 @@ public class RotaryView extends View {
 
 
         // Draw total move text.
-        canvas.drawText((getArcLength(camStartDegree, camFinishDegree, mClockwise)) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
+        canvas.drawText((getArcLength((int) Math.toDegrees(mCurrentCamStartRadian), (int) Math.toDegrees(mCurrentCamFinishRadian), mClockwise)) + "" + (char) 0x00B0, mCx, mCy - getFontHeight(mTotalMovePaint) / 2, mTotalMovePaint);
+
 
         // Draw direction icon.
         if (mClockwise) {
@@ -311,7 +311,6 @@ public class RotaryView extends View {
             canvas.drawText("CCW", mCx, mCy + bitmapCw.getHeight() + getFontHeight(mDirectionPaint) / 2 + getFontHeight(mSubtextPaint), mDirectionTextPaint);
         }
         canvas.save();
-
 
         // Draw Targets Arc
         // Set rectf values to determine boundaries of targets arc.
@@ -387,7 +386,6 @@ public class RotaryView extends View {
                         mCurrentCamStartRadian += (float) (2 * Math.PI);
                     }
                     mCurrentStartDegree = (int) (360 / (2 * Math.PI) * mCurrentCamStartRadian) - 90;
-                    camStartDegree = mCurrentStartDegree;
                     invalidate();
                 } else if (mInCamFinishThumb && isEnabled()) {
                     float temp = getRadian(event.getX(), event.getY());
@@ -405,7 +403,6 @@ public class RotaryView extends View {
                         mCurrentCamFinishRadian += (float) (2 * Math.PI);
                     }
                     mCurrentFinishDegree = (int) (360 / (2 * Math.PI) * mCurrentCamFinishRadian) - 90;
-                    camFinishDegree = mCurrentFinishDegree;
                     invalidate();
                 }
                 break;
@@ -482,7 +479,7 @@ public class RotaryView extends View {
     }
 
     // A helper function to obtain distance over arc between two points.
-    private int getArcLength(int startDegree, int finishDegree, boolean isClockwise) {
+    private static int getArcLength(int startDegree, int finishDegree, boolean isClockwise) {
         int x = (finishDegree - startDegree);
         int i;
         if (!isClockwise) {
@@ -597,7 +594,7 @@ public class RotaryView extends View {
         this.mCurrentFinishDegree = newCurrentFinishDegree;
     }
 
-    public int getTotalMoveInDegrees() {
+    public static int getTotalMoveInDegrees() {
         return getArcLength(mCurrentStartDegree, mCurrentFinishDegree, mClockwise);
     }
 

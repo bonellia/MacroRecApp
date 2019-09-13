@@ -14,7 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/appMainBackground"
-        tools:context=".features.rotary.RotaryPhotoSettings">
+        tools:context=".features.rotary.RotaryPhotoSettings"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <View
             android:id="@+id/top_gradient"
@@ -102,7 +104,7 @@
             android:id="@+id/numberOfPhotosEdittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{``+photoShoot.numberOfPhotos}"
+            android:text="@={``+photoShoot.numberOfPhotos}"
             android:textAlignment="center"
             android:ems="4"
             android:textSize="15sp"
@@ -148,7 +150,7 @@
             android:id="@+id/anglePerPhotosEdittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{``+photoShoot.anglePerPhotos+(char) 0x00B0}"
+            android:text="@{``+String.format(`%.2f`, photoShoot.anglePerPhotos)+(char) 0x00B0}"
             android:textAlignment="center"
             android:ems="4"
             android:textSize="15sp"
